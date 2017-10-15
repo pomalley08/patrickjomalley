@@ -12,7 +12,7 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseurl = "https://patrickjomalley.netlify.com"
+baseurl = "https://patrickjomalley.com"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "Patrick O'Malley"
@@ -21,6 +21,7 @@ disqusShortname = "patrickjomalley"
 googleAnalytics = "UA-108077927-1"
 paginate = 7
 canonifyurls = true
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [permalinks]
   post = "/:year/:month/:slug/"
