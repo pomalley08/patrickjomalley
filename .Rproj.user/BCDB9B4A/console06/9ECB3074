@@ -1089,4 +1089,250 @@ no changes added to commit (use "git add" and/or "git comm[0Ki
 t -a")[0K
 [0K[?25h[?25l
 [0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K.[0K[?25l$ git add[0K[?25h[11G[?25l$ git add .[0K[?25h
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K.[0K[?25l$ git add[0K[?25h[11G[?25l$ git add .[0K[?25h[?25l
+[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4[?25l
+A/sources/prop/859D2C0D.[0K
+The file will have its original line endings in your worki[0Kn
+g directory.[0K
+warning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4
+A/sources/prop/INDEX.[0K
+The file will have its original line endings in your worki[0Kn
+g directory.[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes to be committed:[0K
+  (use "git reset HEAD <file>..." to unstage)[0K
+[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/INDEX00[0K1
+[0m[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/prop/859D[0K2
+C0D[0m[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/prop/INDE[0KX
+[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/138EC2C2-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/163D768C[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/163D768C-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/44954F2D-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/4A159FF8-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/55397F16-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/628CB272-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/781D1C06-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/7F4DDDB1-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/977011A6-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/9C521D39-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/9F279C1E-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/9F95330C-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/AB81F855-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/AE595BEC-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/B378FDD2-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/B38E4913-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/B9AF4F9B-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/BDD2C525[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/BDD2C525-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C2D17D09-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C5EAB9D4-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C72A0BC5-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C983D8AA[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C983D8AA-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/D051ECB9-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/D9625FA8-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/DC871B90-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/DF8BDD3A-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB[9G[?25h[?25l
+/E68B77C-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/EC491E28-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/F00C27F9-contents[0m[0K
+        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/lock_file[0m[0K
+        [0;32mmodified:   .gitignore[0m[0K
+[0K
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hu[0Kp[0Kd[0Ka[0Kt[0Ke[0K[25G[?25l$ git commit -m "update .[0K[?25h.[0K[?25l$ git commit -m "update .[0K[?25hg[0Ki[0Kt[0Ki[0Kg[0Kn[0Ko[0Kr[0Ke[0K"[0K[?25l
+[0K[?25h[master[0K[9G[?25l[master 6b1b3b2] update .gitignore[0K
+ 38 files changed, 1101 insertions(+), 9228 deletions(-)[0K
+ rewrite .Rproj.user/BCDB9B4A/console06/9ECB3074 (60%)[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/138EC2C2-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/163D768C[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/163D768C-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/44954F2D-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/4A159FF8-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/55397F16-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/628CB272-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/781D1C06-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/7F4DDDB1-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/977011A6-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/9C521D39-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/9F279C1E-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/9F95330C-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/AB81F855-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/AE595BEC-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/B378FDD2-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/B38E4913-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/B9AF4F9B-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/BDD2C525[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/BDD2C525-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C2D17D09-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C5EAB9D4-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C72A0BC5-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C983D8AA[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/C983D8AA-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/D051ECB9-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/D9625FA8-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/DC871B90-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/DF8BDD3A-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/E68B77C-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/EC491E28-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/F00C27F9-contents[0K
+ delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/lock_file[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[6G[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+On branch master[0K
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
+ ! [rejected]        master -> master (fetch first)[0K
+error: failed to push some refs to 'https://github.com/pom[0Ka
+lley08/patrickjomalley.git'[0K
+hint: Updates were rejected because the remote contains wo[0Kr
+k that you do[0K
+hint: not have locally. This is usually caused by another [0Kr
+epository pushing[0K
+hint: to the same ref. You may want to first integrate the[0K
+remote changes[0K
+hint: (e.g., 'git pull ...') before pushing again.[0K
+hint: See the 'Note about fast-forwards' in 'git push --he[0Kl
+p' for details.[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ gi[0K[?25ht[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ gi[0K[?25ht[0K[7G[?25l$ git f[0K[?25he[0Kt[0Kc[0Kh[0K[?25l
+[0K[?25hremote: Counting objects: 6, done.[0K[?25l
+remote: Compressing objects: 100% (6/6), done.[0K
+remote: Total 6 (delta 3), reused 0 (delta 0), pack-reused[0K
+0[0K
+[0K[?25h[?25lUnpacking objects:  66% (4/6)[0K[1G[?25hUnpacking objects: 100% (6/6), done.[0K[?25l
+[0K[?25hFrom https://github.com/pomalley08/patrickjomalley[0K[?25l
+   011772b..9dd674b  master     -> origin/master[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Ku[0Kt[0K[?25l$ git stau[0K[?25h[?25l$ git sta[0K[?25ht[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h
