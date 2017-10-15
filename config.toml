@@ -12,7 +12,7 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseurl = "https://patrickjomalley.netlify.com"
+baseurl = "https://patrickjomalley.com"
 languageCode = "en-us"
 defaultContentLanguage = "en-us"
 title = "Patrick J. O'Malley"
@@ -31,7 +31,7 @@ canonifyurls = true
   archive = "archives"
 
 [author]
-  name = "Patrick O'Malley"
+  name = "Patrick J. O'Malley"
   bio = "Super bio with markdown support **COOL**, what happens if this description is really long? does it look alright or does it start to make the nice formatting look not so nice anymore? Hard to say yet so I'll keep adding to it to see what it looks like when it gets really long, and i maen reaaally long"
   job = "Data Scientist"
   location = "Washington D.C."
