@@ -1,1665 +1,0 @@
-
-/components/_link.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_main-content.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_markdown.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_media.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_modal.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_pagination.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_post-actions.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_post-header-cover.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_post.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_postShorten.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_pullquote.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_share-options-bar.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_tag.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_text.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_tooltip.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_video.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_about.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_blog.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_bottom-bar.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_cover.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_footer.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_header.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_main.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_sidebar.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/pages/_search.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/themes/_hljs-custom.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/themes/_hljs-tranquilpeak.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/tranquilpeak.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/_fonts.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/_variables.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_bottom-bar.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_button.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_category.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_form.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_header.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_main.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_opacity.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_post-header-cover.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_prefix.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_share-options-bar.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_sidebar.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_tag.scss[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/static/[0Kc
-ss/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5d[0Kt
-eilzucro4f.min.css[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/static/[0Ki
-mages/cover-v1.2.0.jpg[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/static/[0Ki
-mages/cover.jpg[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/static/[0Kj
-s/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc[0K3
-lm7njqb6bz.min.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/clean.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/concat.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/cssmin.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/exec.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/replace.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/sails-linker.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/sass.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko[9G[?25h[?25l
-nfig/sync.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/uglify.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/watch.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/p[0Ki
-peline.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/build.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/buildProd.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/compileAssets.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/default.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/eslint.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/linkAssets.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/linkAssetsProd.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/syncAssets.js[0m[0K
-        [0;32mnew file:   themes/hugo-tranquilpeak-theme/theme.t[0Ko
-ml[0m[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ gi[0K[?25ht[0K[7G[?25l$ git co[0K[?25hm[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hf[0Ki[0Kr[0Ks[0Kt[0K[24G[?25l$ git commit -m "first c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[31G[?25l$ git commit -m "first commit f[0K[?25ho[0Kr[0K[35G[?25l$ git commit -m "first commit for w[0K[?25he[0Kb[0Ks[0Ki[0Kt[0Ke[0K"[0K[?25l
-[0K[?25h[master (root-commit) dcdf04f] first commit for website[0K[?25l
-[0K[?25h 291 files changed, 24327 insertions(+)[0K[?25l
- create mode 100644 .Rhistory[0K
- create mode 100644 .Rproj.user/BCDB9B4A/build_options[0K
- create mode 100644 .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0K
- create mode 100644 .Rproj.user/BCDB9B4A/console06/INDEX00[0K1
-[0K
- create mode 100644 .Rproj.user/BCDB9B4A/pcs/files-pane.pp[0Ke
-r[0K
- create mode 100644 .Rproj.user/BCDB9B4A/pcs/source-pane.p[0Kp
-er[0K
- create mode 100644 .Rproj.user/BCDB9B4A/pcs/windowlayouts[0Kt
-ate.pper[0K
- create mode 100644 .Rproj.user/BCDB9B4A/pcs/workbench-pan[0Ke
-.pper[0K
- create mode 100644 .Rproj.user/BCDB9B4A/persistent-state[0K
- create mode 100644 .Rproj.user/BCDB9B4A/rmd-outputs[0K
- create mode 100644 .Rproj.user/BCDB9B4A/saved_source_mark[0Ke
-rs[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/1A11[0K7
-F08[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/30E8[0K1
-55F[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/3441[0K6
-EA2[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/34B8[0KC
-4D8[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/38F0[0K7
-460[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/4574[0KF
-F1F[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/469C[0K3
-A9A[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/55DC[0KD
-7C7[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/5FFC[0K1
-BE8[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/61DD[0K2
-10D[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/6C5B[0K9
-744[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/6D04[0K7
-DCE[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/6FF0[0K6
-55B[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/7215[0K9
-AFB[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/7824[0K9
-7E8[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/7A75[0KB
-DB3[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/7AE4[0KE
-C05[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/8074[0K9
-150[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/821B[0KF
-DD5[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/859D[0K2
-C0D[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/9784[0KE
-402[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/9D74[0K1
-7B5[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/A4BA[0K9
-1C2[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/ACBC[0K1
-9E5[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/B138[0K2
-D02[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/B177[0K7
-2CE[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/C052[0K1
-543[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/C8BF[0K5
-8FD[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/CBEA[0KA
-F2A[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/EA47[0KB
-D5B[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/prop/INDE[0KX
-[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/138EC2C2-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/44954F2D-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/4A159FF8-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/55397F16-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/628CB272-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/781D1C06-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/7F4DDDB1-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/977011A6-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9C521D39-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9F279C1E-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9F95330C-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/AB81F855-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/AE595BEC-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B378FDD2-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B38E4913-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B9AF4F9B-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C2D17D09-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C5EAB9D4-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C72A0BC5-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C983D8AA[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C983D8AA-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/D051ECB9-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/D9625FA8-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/DC871B90-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/DF8BDD3A-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/E68B77C-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/EC491E28-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/F00C27F9-contents[0K
- create mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/lock_file[0K
- create mode 100644 .Rproj.user/shared/notebooks/7D1B44FA-[0K2
-015-07-23-r-rmarkdown/1/BCDB9B4A3FA1C0CB/chunks.json[0K
- create mode 100644 .Rproj.user/shared/notebooks/7D1B44FA-[0K2
-015-07-23-r-rmarkdown/1/s/chunks.json[0K
- create mode 100644 .Rproj.user/shared/notebooks/patch-chu[0Kn
-k-names[0K
- create mode 100644 .Rproj.user/shared/notebooks/paths[0K
- create mode 100644 .gitignore[0K
- create mode 100644 Website.Rproj[0K
- create mode 100644 config.toml[0K
- create mode 100644 content/post/2015-07-23-r-rmarkdown.Rm[0Kd
-[0K
- create mode 100644 content/post/2015-07-23-r-rmarkdown.ht[0Km
-l[0K
- create mode 100644 content/post/Cover-image-showcase.md[0K
- create mode 100644 content/post/Elements-showcase.md[0K
- create mode 100644 content/post/Hidden-pagination-showcas[0Ke
-.md[0K
- create mode 100644 content/post/Hidden-social-section-sho[0Kw
-case.md[0K
- create mode 100644 content/post/Hidden-tag-section-showca[0Ks
-e.md[0K
- create mode 100644 content/post/Image-gallery-showcase.md[0K
- create mode 100644 content/post/Tags-plugins-showcase.md[0K
- create mode 100644 content/post/Video-integrations-showca[0Ks
-e.md[0K
- create mode 100644 content/post/Welcome-to-the-new-Tranqu[0Ki
-lpeak.md[0K
- create mode 100644 content/post/highlighted-code-showcase[0K.
-md[0K
- create mode 100644 "content/post/\303\244\302\270\302\255[0K\
-303\246\342\200\223\342\200\241\303\246\302\270\302\254\30[0K3
-\250\302\251\302\246.md"[0K
- create mode 100644 "content/post/\303\246\342\200\224\302[0K\
-245\303\246\305\223\302\254\303\250\302\252\305\276\303\24[0K3
-\306\222\342\200\240\303\243\342\200\232\302\271\303\243\3[0K0
-6\222\313\206.md"[0K
- create mode 100644 index.Rmd[0K
- create mode 100644 static/img/showcase.png[0K
- create mode 100644 static/post/2015-07-23-r-rmarkdown_fil[0Ke
-s/figure-html/pie-1.png[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/.eslint[0Ki
-gnore[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/.eslint[0Kr
-c[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/.github[0K/
-CONTRIBUTING.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/.github[0K/
-ISSUE_TEMPLATE.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/.gitign[0Ko
-re[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/CHANGEL[0KO
-G.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/Gruntfi[0Kl
-e.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/LICENSE[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/README.[0Km
-d[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/archety[0Kp
-es/page.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/archety[0Kp
-es/post.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/docs/de[0Kv
-eloper.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/docs/im[0Kg
-/with_hierarchical_categories.png[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/docs/im[0Kg
-/without_hierarchical_categories.png[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/docs/us[0Ke
-r.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/.gitignore[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/config.toml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Cover-image-showcase.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Elements-showcase.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Hidden-pagination-showcase.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Hidden-social-section-showcase.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Hidden-tag-section-showcase.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Image-gallery-showcase.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Tags-plugins-showcase.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Video-integrations-showcase.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/Welcome-to-the-new-Tranquilpeak.md[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/content/post/highlighted-code-showcase.md[0K
- create mode 100644 "themes/hugo-tranquilpeak-theme/exampl[0Ke
-Site/content/post/\303\244\302\270\302\255\303\246\342\200[0K\
-223\342\200\241\303\246\302\270\302\254\303\250\302\251\30[0K2
-\246.md"[0K
- create mode 100644 "themes/hugo-tranquilpeak-theme/exampl[0Ke
-Site/content/post/\303\246\342\200\224\302\245\303\246\305[0K\
-223\302\254\303\250\302\252\305\276\303\243\306\222\342\20[0K0
-\240\303\243\342\200\232\302\271\303\243\306\222\313\206.m[0Kd
-"[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/example[0KS
-ite/static/img/showcase.png[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/de[0K-
-de.yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/en[0K-
-us.yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/es[0K-
-es.yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/fr[0K-
-fr.yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/it[0K-
-it.yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/ja[0K.
-yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/pt[0K-
-br.yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/ru[0K.
-yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/vi[0K.
-yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/zh[0K-
-cn.yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/i18n/zh[0K-
-tw.yaml[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/images/[0Ks
-creenshot.png[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/images/[0Kt
-n.png[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-404.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-_default/list.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-_default/single.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-_default/summary.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-index.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/about.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/archive-post.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/cover.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/foot.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/foot_end.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/foot_start.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/footer.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/head.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/head_end.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/head_start.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/header.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/internal/date.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/internal/recursive-categories-1.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/internal/recursive-categories-2.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/internal/recursive-categories-full-1.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/internal/recursive-categories-full-2.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/menu.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/pagination.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/actions.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/category.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/disqus.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/gallery.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/header-cover.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/header.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/meta.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/share-options.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/post/tag.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/script.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/search.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-partials/sidebar.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/alert.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/blockquote.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/codeblock.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/hl-text.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/image.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/jsfiddle.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/pullquote.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/tabbed-codeblock.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-shortcodes/wide-image.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-taxonomy/archive.terms.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-taxonomy/category.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-taxonomy/category.terms.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-taxonomy/tag.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/layouts[0K/
-taxonomy/tag.terms.html[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/package[0K-
-lock.json[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/package[0K.
-json[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/showcas[0Ke
-.png[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/ima[0Kg
-es/cover-v1.2.0.jpg[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/ima[0Kg
-es/cover.jpg[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0K.
-eslintrc.json[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Ka
-bout.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Ka
-rchives-filter.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Kc
-ategories-filter.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Kc
-odeblock-resizer.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Kf
-ancybox.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Kh
-eader.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Ki
-mage-gallery.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Kp
-ost-bottom-bar.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Ks
-earch-modal.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Ks
-hare-options.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Ks[1G[?25h[?25l
-idebar.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Ks
-martresize.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Kt
-abbed-codeblocks.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/js/[0Kt
-ags-filter.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/base/_base.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/base/_custom.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_alert.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_archive.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_box.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_button.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_caption.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_code.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_figure.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_form.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_hide.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_highlight-text.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_icon.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_image-gallery.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_link.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_main-content.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_markdown.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_media.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_modal.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_pagination.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_post-actions.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_post-header-cover.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_post.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_postShorten.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_pullquote.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_share-options-bar.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_tag.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_text.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_tooltip.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/components/_video.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_about.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_blog.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_bottom-bar.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_cover.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_footer.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_header.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_main.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/layouts/_sidebar.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/pages/_search.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/themes/_hljs-custom.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/themes/_hljs-tranquilpeak.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/tranquilpeak.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/_fonts.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/_variables.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_bottom-bar.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_button.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_category.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_form.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_header.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_main.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_opacity.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_post-header-cover.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_prefix.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_share-options-bar.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_sidebar.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/src/scs[0Ks
-/utils/mixins/_tag.scss[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/static/[0Kc
-ss/style-fpbzgxsy0kgmdvyrj5ykkg6ratccrk3gocmaqn4xpcjywmv5d[0Kt
-eilzucro4f.min.css[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/static/[0Ki
-mages/cover-v1.2.0.jpg[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/static/[0Ki
-mages/cover.jpg[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/static/[0Kj
-s/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc[0K3
-lm7njqb6bz.min.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/clean.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/concat.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/cssmin.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/exec.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/replace.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/sails-linker.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/sass.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/sync.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/uglify.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/c[0Ko
-nfig/watch.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/p[0Ki
-peline.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/build.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/buildProd.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/compileAssets.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/default.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/eslint.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/linkAssets.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/linkAssetsProd.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/tasks/r[0Ke
-gister/syncAssets.js[0K
- create mode 100644 themes/hugo-tranquilpeak-theme/theme.t[0Ko
-ml[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[?25l
-[0K[?25hfatal: The current branch master has no upstream branch.[0K[?25l
-To push the current branch and set the remote as upstream,[0K
-use[0K
-[0K
-    git push --set-upstream origin master[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hCounting objects: 297, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects:  66% (184/278)[0K[1G[?25h[?25lCompressing objects:  96% (267/278)[0K[1G[?25h[?25lCompressing objects:  97% (270/278)[0K[1G[?25h[?25lCompressing objects:  98% (273/278)[0K[1G[?25hCompressing objects: 100% (278/278), done.[0K[?25l
-Writing objects:  31% (93/297)[0K[1G[?25h[?25lWriting objects:  38% (113/297)[0K[1G[?25hWriting objects:  39% (116/297), 984.00 KiB | 1.21 MiB/s[0K[?25l
-Writing objects:  40% (119/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  42% (125/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  43% (128/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  44% (131/297), 984.00 KiB | 1.21 MiB/s[0K
-[0K[?25hWriting objects:  45% (134/297), 984.00 KiB | 1.21 MiB/s[0K[?25l
-[0K[?25hWriting objects:  46% (137/297), 984.00 KiB | 1.21 MiB/s[0K[?25l
-Writing objects:  47% (141/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  48% (143/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  49% (146/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  50% (149/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  51% (152/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  52% (155/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  53% (158/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  54% (161/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  55% (164/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  56% (167/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  57% (170/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  58% (173/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  59% (176/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  60% (179/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  61% (182/297), 984.00 KiB | 1.21 MiB/s[0K
-Writing objects:  62% (185/297), 984.00 KiB | 1.21 MiB/s[0K
-W[0K[1G[?25hWriting objects:  63% (188/297), 984.00 KiB | 1.21 MiB/s[0K[?25l
-[0K[?25h[?25lWriting objects:  64% (191/297), 1.82 MiB | 1.41 MiB/s[0K[1G[?25h[?25lWriting objects:  80% (238/297), 2.61 MiB | 1.44 MiB/s[0K[1G[?25hWriting objects: 100% (297/297), 2.83 MiB | 1.44 MiB/s, do[0Kn[?25l
-e.[0K
-Total 297 (delta 33), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (33/33), done.[0K[?25l
-[0K[?25h[?25lTo https://github.com/pomalley08/patrickjomalley.git[0K[1G[?25h[?25l
- * [new branch]      master -> master[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/sources/prop/6C5B[0K9
-744[0m[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525[0m[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525-contents[0m[0K
-        [0;31mmodified:   content/post/2015-07-23-r-rmarkdown.Rm[0Kd
-[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add a[0K[?25h[?25l$ git add[0K[11G[?25h[?25l$ git add -[0K[?25ha[0K[?25l
-[0K[?25herror: unknown switch `a'[0K[?25l
-usage: git add [<options>] [--] <pathspec>...[0K
-[0K
-    -n, --dry-run         dry run[0K
-    -v, --verbose         be verbose[0K
-[0K
-    -i, --interactive     interactive picking[0K
-    -p, --patch           select hunks interactively[0K
-    -e, --edit            edit current diff and apply[0K
-    -f, --force           allow adding otherwise ignored f[0Ki
-les[0K
-    -u, --update          update tracked files[0K
-    -N, --intent-to-add   record only the fact that the pa[0Kt
-h will be added later[0K
-    -A, --all             add changes from all tracked and[0K
-untracked files[0K
-    --ignore-removal      ignore paths removed in the work[0Ki
-ng tree (same as --no-all)[0K
-    --refresh             don't add, only refresh the inde[0Kx
-[0K
-    --ignore-errors       just skip files which cannot be [0Ka
-dded because of errors[0K
-    --ignore-missing      check if - even missing - files [0Ka
-re ignored in dry run[0K
-    --chmod <(+/-)x>      override the executable bit of t[0Kh
-e listed files[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git add -a[0K[?25h[?25l$ git add -[0K[13G[?25h[12G[?25l$ git add[0K[11G[?25h[?25l$ git add .[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4[?25l
-A/sources/prop/6C5B9744.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4
-A/sources/s-3FA1C0CB/BDD2C525.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4[?25l
-A/sources/s-3FA1C0CB/BDD2C525-contents.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes to be committed:[0K
-  (use "git reset HEAD <file>..." to unstage)[0K
-[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/prop/6C5B[0K9
-744[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525-contents[0m[0K[?25h[?25l
-        [0;32mmodified:   content/post/2015-07-23-r-rmarkdown.Rm[0Kd
-[0m[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25ht[0Ke[0Ks[0Kt[0Ki[0Kn[0Kg[0K[26G[?25l$ git commit -m "testing d[0K[?25he[0Kp[0Kl[0Ko[0Ky[0Km[0Ke[0Kn[0Kt[0K"[0K[?25l
-[0K[?25h[master 799a0a3] testing deployment[0K[?25l
- 5 files changed, 2330 insertions(+), 8 deletions(-)[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25hs[0Ka[0K[?25l$ git push origin ms[0K[?25h[?25l$ git push origin m[0K[21G[?25h[20G[?25l$ git push origin ma[0K[?25hs[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hCounting objects: 14, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects: 100% (13/13), done.[0K
-Writing objects: 100% (14/14), 10.03 KiB | 0 bytes/s, done[0K.
-[0K
-Total 14 (delta 7), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (7/7), completed with 7 loc[0Ka[?25l
-l objects.[0K
-[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
-   dcdf04f..799a0a3  master -> master[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ gi[0K[?25ht[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4[?25l
-A/sources/prop/9D7417B5.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4
-A/sources/s-3FA1C0CB/163D768C.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4[?25l
-A/sources/s-3FA1C0CB/163D768C-contents.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes to be committed:[0K
-  (use "git reset HEAD <file>..." to unstage)[0K
-[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/prop/9D74[0K1
-7B5[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C-contents[0m[0K
-        [0;32mmodified:   config.toml[0m[0K
-        [0;32mmodified:   content/post/2015-07-23-r-rmarkdown.ht[0Km
-l[0m[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25ha[0Kd[0Ke[0Kd[0K[23G[22G[?25l$ git commit -m "ade[0K[?25h[?25l$ git commit -m "ad[0K[21G[?25h[20G[?25l$ git commit -m "add[0K[?25he[0Kd[0K[24G[?25l$ git commit -m "added b[0K[?25ha[0Ks[0Ke[0K[29G[28G[?25l$ git commit -m "added baseu[0K[?25hr[0Kl[0K"[0K[?25l
-[0K[?25h[master 2a2a063] added baseurl[0K[?25l
- 6 files changed, 72 insertions(+), 11 deletions(-)[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ko[0K[?25l$ git push or[0K[?25hi[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hCounting objects: 16, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects: 100% (15/15), done.[0K
-Writing objects: 100% (16/16), 1.77 KiB | 0 bytes/s, done.[0K
-Total 16 (delta 10), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (10/10), completed with 9 l[0Ko[?25l
-cal objects.[0K
-[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
-   799a0a3..2a2a063  master -> master[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hs[0K[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes to be committed:[0K
-  (use "git reset HEAD <file>..." to unstage)[0K
-[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;32mnew file:   static/images/washington-dc.jpg[0m[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hm[0Ko[0Kd[0Ke[0K[?25l$ git commit -m "mod[0K[?25h[?25l$ git commit -m "mo[0K[?25hv[0Ke[0Kd[0K[24G[?25l$ git commit -m "moved b[0K[?25ha[0Kc[0Kk[0Kg[0Kro[0Ku[0Kn[0Kd[0K[35G[?25l$ git commit -m "moved background i[0K[?25hm[0Kg[0K"[0K[?25l$ git commit -m "moved background img[0K[?25h[?25l$ git commit -m "moved background im[0K[?25ha[0Kg[0Ke[0K"[0K[?25l
-[0K[?25h[master 011772b] moved background image[0K[?25l
- 2 files changed, 60 insertions(+)[0K
- create mode 100644 static/images/washington-dc.jpg[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Km[0K[?25l$ git push origi[0K[?25hn[0K[19G[?25l$ git push origin m[0K[?25ha[0Kt[0Ke[0Kr[0K[?25l$ git push origin mate[0K[?25h[?25l$ git push origin mat[0K[?25h[?25l$ git push origin ma[0K[?25hs[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hCounting objects: 9, done.[0K[?25l
-Delta compression using up to 4 threads.[0K
-Compressing objects: 100% (8/8), done.[0K
-Writing objects: 100% (9/9), 67.41 KiB | 0 bytes/s, done.[0K
-Total 9 (delta 3), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (3/3), completed with 3 loc[0Ka[?25l
-l objects.[0K
-[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
-   2a2a063..011772b  master -> master[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K[?25h[?25l
-$[0K[3G[?25h[0m[0K]0;[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add/rm <file>..." to update what will be commi[0Kt
-ted)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/INDEX00[0K1
-[0m[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/sources/prop/859D[0K2
-C0D[0m[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/sources/prop/INDE[0KX
-[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/138EC2C2-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/44954F2D-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/4A159FF8-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/55397F16-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/628CB272-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/781D1C06-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/7F4DDDB1-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/977011A6-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9C521D39-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9F279C1E-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9F95330C-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/AB81F855-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/AE595BEC-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B378FDD2-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B38E4913-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B9AF4F9B-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C2D17D09-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C5EAB9D4-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C72A0BC5-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C983D8AA[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C983D8AA-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/D051ECB9-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/D9625FA8-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/DC871B90-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/DF8BDD3A-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/E68B77C-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/EC491E28-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/F00C27F9-contents[0m[0K
-        [0;31mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/lock_file[0m[0K
-        [0;31mmodified:   .gitignore[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K.[0K[?25l$ git add[0K[?25h[11G[?25l$ git add .[0K[?25h[?25l
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4[?25l
-A/sources/prop/859D2C0D.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-warning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4
-A/sources/prop/INDEX.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes to be committed:[0K
-  (use "git reset HEAD <file>..." to unstage)[0K
-[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/INDEX00[0K1
-[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/prop/859D[0K2
-C0D[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/prop/INDE[0KX
-[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/138EC2C2-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/44954F2D-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/4A159FF8-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/55397F16-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/628CB272-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/781D1C06-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/7F4DDDB1-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/977011A6-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9C521D39-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9F279C1E-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9F95330C-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/AB81F855-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/AE595BEC-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B378FDD2-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B38E4913-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B9AF4F9B-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C2D17D09-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C5EAB9D4-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C72A0BC5-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C983D8AA[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C983D8AA-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/D051ECB9-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/D9625FA8-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/DC871B90-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/DF8BDD3A-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB[9G[?25h[?25l
-/E68B77C-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/EC491E28-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/F00C27F9-contents[0m[0K
-        [0;32mdeleted:    .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/lock_file[0m[0K
-        [0;32mmodified:   .gitignore[0m[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hu[0Kp[0Kd[0Ka[0Kt[0Ke[0K[25G[?25l$ git commit -m "update .[0K[?25h.[0K[?25l$ git commit -m "update .[0K[?25hg[0Ki[0Kt[0Ki[0Kg[0Kn[0Ko[0Kr[0Ke[0K"[0K[?25l
-[0K[?25h[master[0K[9G[?25l[master 6b1b3b2] update .gitignore[0K
- 38 files changed, 1101 insertions(+), 9228 deletions(-)[0K
- rewrite .Rproj.user/BCDB9B4A/console06/9ECB3074 (60%)[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/138EC2C2-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/163D768C-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/44954F2D-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/4A159FF8-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/55397F16-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/628CB272-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/781D1C06-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/7F4DDDB1-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/977011A6-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9C521D39-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9F279C1E-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/9F95330C-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/AB81F855-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/AE595BEC-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B378FDD2-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B38E4913-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/B9AF4F9B-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/BDD2C525-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C2D17D09-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C5EAB9D4-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C72A0BC5-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C983D8AA[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/C983D8AA-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/D051ECB9-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/D9625FA8-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/DC871B90-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/DF8BDD3A-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/E68B77C-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/EC491E28-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/F00C27F9-contents[0K
- delete mode 100644 .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
-/lock_file[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[6G[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-On branch master[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
- ! [rejected]        master -> master (fetch first)[0K
-error: failed to push some refs to 'https://github.com/pom[0Ka
-lley08/patrickjomalley.git'[0K
-hint: Updates were rejected because the remote contains wo[0Kr
-k that you do[0K
-hint: not have locally. This is usually caused by another [0Kr
-epository pushing[0K
-hint: to the same ref. You may want to first integrate the[0K
-remote changes[0K
-hint: (e.g., 'git pull ...') before pushing again.[0K
-hint: See the 'Note about fast-forwards' in 'git push --he[0Kl
-p' for details.[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ gi[0K[?25ht[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ gi[0K[?25ht[0K[7G[?25l$ git f[0K[?25he[0Kt[0Kc[0Kh[0K[?25l
-[0K[?25hremote: Counting objects: 6, done.[0K[?25l
-remote: Compressing objects: 100% (6/6), done.[0K
-remote: Total 6 (delta 3), reused 0 (delta 0), pack-reused[0K
-0[0K
-[0K[?25h[?25lUnpacking objects:  66% (4/6)[0K[1G[?25hUnpacking objects: 100% (6/6), done.[0K[?25l
-[0K[?25hFrom https://github.com/pomalley08/patrickjomalley[0K[?25l
-   011772b..9dd674b  master     -> origin/master[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Ku[0Kt[0K[?25l$ git stau[0K[?25h[?25l$ git sta[0K[?25ht[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Kt[0K[?25l$ git st[0K[?25ha[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes to be committed:[0K
-  (use "git reset HEAD <file>..." to unstage)[0K
-[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hu[0Kp[0Kd[0Ka[0Kt[0Ke[0K[25G[?25l$ git commit -m "update .[0K[?25hg[0Ki[0Kt[0Ki[0Kg[0Kn[0Kor[0Ke[0K"[0K[?25l
-[0K[?25h[master 7da7a48] update .gitignore[0K[?25l
- 1 file changed, 247 insertions(+), 1 deletion(-)[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ko[0Kg[0Ki[0Kn[0K[19G[18G[?25l$ git push orogi[0K[18G[?25h[17G[?25l$ git push orog[0K[?25h[?25l$ git push oro[0K[?25h[?25l$ git push or[0K[?25hi[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
- ! [rejected]        master -> master (non-fast-forward)[0K
-error: failed to push some refs to 'https://github.com/pom[0Ka
-lley08/patrickjomalley.git'[0K
-hint: Updates were rejected because the tip of your curren[0Kt
- branch is behind[0K
-hint: its remote counterpart. Integrate the remote changes[0K
-(e.g.[0K
-hint: 'git pull ...') before pushing again.[0K
-hint: See the 'Note about fast-forwards' in 'git push --he[0Kl
-p' for details.[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Kl[0Kl[0K[12G[11G[?25l
-[0K[?25hThere is no tracking information for the current branch.[0K[?25l
-Please specify which branch you want to merge with.[0K
-See git-pull(1) for details.[0K
-[0K
-    git pull <remote> <branch>[0K
-[0K
-If you wish to set tracking information for this branch yo[0Ku
- can do so with:[0K
-[0K
-    git branch --set-upstream-to=origin/<branch> master[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Kl[0Kl[0K[12G[?25l$ git pull r[0K[?25he[0Km[0Ko[0Kt[0Ke[0K[19G[?25l$ git pull remote o[0K[?25hr[0Ko[0Kg[0K[?25l$ git pull remote oro[0K[?25hi[0K[?25l$ git pull remote oro[0K[23G[?25h[22G[?25l$ git pull remote or[0K[?25hi[0Kg[0Kn[0K[?25l
-[0K[?25hfatal: 'remote' does not appear to be a git repository[0K[?25l
-fatal: Could not read from remote repository.[0K
-[0K
-Please make sure you have the correct access rights[0K
-and the repository exists.[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git pull remote orign[0K[?25h[23G[?25l$ git pull remote origin[0K[24G[?25h[?25l
-[0K[?25hfatal: 'remote' does not appear to be a git repository[0K[?25l
-fatal: Could not read from remote repository.[0K
-[0K
-Please make sure you have the correct access rights[0K
-and the repository exists.[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git pull remote origin[0K[?25h[?25l$ git pull remote origi[0K[?25h[?25l$ git pull remote orig[0K[?25h[?25l$ git pull remote ori[0K[?25h[?25l$ git pull remote or[0K[?25h[?25l$ git pull remote o[0K[?25h[?25l$ git pull remote[0K[19G[?25h[18G[?25l$ git pull remot[0K[?25h[?25l$ git pull remo[0K[?25h[?25l$ git pull rem[0K[?25h[?25l$ git pull re[0K[?25h[?25l$ git pull r[0K[?25h[?25l$ git pull[0K[12G[?25h[11G[?25l$ git pul[0K[?25hl[0K[12G[?25l$ git pull o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git pull origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hFrom https://github.com/pomalley08/patrickjomalley[0K[?25l
- * branch            master     -> FETCH_HEAD[0K
-[0K[?25hMerge made by the 'recursive' strategy.[0K[?25l
- README.md | 6 [0;32m++++++[0m[0K
- 1 file changed, 6 insertions(+)[0K
- create mode 100644 README.md[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;31mmodified:   .Rproj.user/shared/notebooks/paths[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hs[0Kd[0K[?25l$ git as[0K[10G[?25h[9G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
-[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/shared[0K/[?25l
-notebooks/paths.[0K
-The file will have its original line endings in your worki[0Kn
-g directory.[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hu[0Kp[0Kd[0Ka[0Kt[0Ke[0K[25G[?25l$ git commit -m "update .[0K[?25hg[0Ki[0Kt[0Ki[0Kg[0Kn[0Ko[0Kr[0Ke[0K"[0K[?25l
-[0K[?25h[master c800bb9] update .gitignore[0K[?25l
- 2 files changed, 98 insertions(+), 1 deletion(-)[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
-[0K[?25hCounting objects: 28, done.[0K[?25l
-[0K[?25hDelta compression using up to 4 threads.[0K[?25l
-Compressing objects: 100% (25/25), done.[0K
-Writing objects: 100% (28/28), 4.76 KiB | 0 bytes/s, done.[0K
-Total 28 (delta 15), reused 0 (delta 0)[0K
-[0K[?25hremote: Resolving deltas: 100% (15/15), completed with 8 l[0Ko[?25l
-cal objects.[0K
-[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
-   9dd674b..c800bb9  master -> master[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;31mmodified:   .gitignore[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;31mmodified:   .gitignore[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;31mmodified:   .gitignore[0m[0K
-[0K
-Untracked files:[0K
-  (use "git add <file>..." to include in what will be comm[0Ki
-tted)[0K
-[0K
-        [0;31m.Rproj.user/BCDB9B4A/sources/prop/24FD56C5[0m[0K
-        [0;31m.Rproj.user/BCDB9B4A/sources/prop/6944296C[0m[0K
-        [0;31m.Rproj.user/BCDB9B4A/sources/prop/995CA1A7[0m[0K
-        [0;31m.Rproj.user/BCDB9B4A/sources/s-138F3686/[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;31mmodified:   .gitignore[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
-On branch master[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K[?25h[?25l
-        [0;31mmodified:   .gitignore[0m[0K
-[0K
-no changes added to commit (use "git add" and/or "git comm[0Ki
-t -a")[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git r[0K[?25hm[0K[10G[?25l$ git rm -[0K[?25h-[0K[13G[12G[?25l$ git rm --c[0K[?25ha[0Kc[0Kh[0Ke[0Kd[0K[19G[?25l$ git rm --cached .[0K[?25hR[0Kp[0Kr[0Ko[0Kj[0K.[0Ksu[0Ke[0K[?25l$ git rm --cached .Rproj.su[0K[?25h[?25l$ git rm --cached .Rproj.s[0K[28G[?25h[27G[?25l$ git rm --cached .Rproj.[0K[?25hu[0Ks[0Ke[0Kr[0K[?25l
-[0K[?25hfatal: not removing '.Rproj.user' recursively without -r[0K[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git rm --cached .Rproj.user[0K[?25h/[0K[?25l
-[0K[?25hfatal: not removing '.Rproj.user/' recursively without -r[0K[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git rm --cached .Rproj.user/[0K[?25h[?25l$ git rm --cached .Rproj.user[0K[?25h[?25l$ git rm --cached .Rproj.use[0K[?25h[?25l$ git rm --cached .Rproj.us[0K[29G[?25h[?25l$ git rm --cached .Rproj.u[0K[28G[?25h[?25l$ git rm --cached .Rproj.[0K[27G[?25h[?25l$ git rm --cached .Rproj[0K[?25h[?25l$ git rm --cached .Rpro[0K[?25h[?25l$ git rm --cached .Rpr[0K[?25h[?25l$ git rm --cached .Rp[0K[?25h[?25l$ git rm --cached .R[0K[?25hh[0Ki[0Ks[0Kt[0Ko[0Kr[0Ky[0K[?25l
-[0K[?25hrm '.Rhistory'[0K[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git rm --cached .Rhistory[0K[?25h[27G[26G[25G[24G[23G[22G[21G[20G[19G[?25l$ git rm --cached *.Rhistory[0K[20G[?25h[21G[22G[23G[24G[25G[26G[27G[28G[29G[?25l$ git rm --cached *.Rhistor[0K[?25h[?25l$ git rm --cached *.Rhisto[0K[?25h[?25l$ git rm --cached *.Rhist[0K[?25h[?25l$ git rm --cached *.Rhis[0K[?25h[?25l$ git rm --cached *.Rhi[0K[?25h[?25l$ git rm --cached *.Rh[0K[?25h[?25l$ git rm --cached *.R[0K[?25hp[0Kr[0Ko[0Kj[0K.[0Ku[0Ks[0Ke[0Kr[0K[?25l
-[0K[?25hfatal: pathspec '*.Rproj.user' did not match any files[0K[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git rm --cached *.Rproj.user[0K[?25h/[0K[?25l
-[0K[?25hfatal: pathspec '*.Rproj.user/' did not match any files[0K[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git rm --cached *.Rproj.user/[0K[?25h[?25l$ git rm --cached *.Rproj.user[0K[32G[?25h[31G[30G[29G[28G[27G[26G[25G[23G[21G[20G[18G[17G[18G[19G[20G[?25l$ git rm --cached .Rproj.user[0K[19G[?25h[?25l
-[0K[?25hfatal: not removing '.Rproj.user' recursively without -r[0K[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git rm --cached .Rproj.user[0K[?25h[29G[28G[27G[25G[24G[23G[22G[21G[20G[19G[18G[17G[16G[15G[14G[13G[12G[11G[10G[?25l$ git rm ---cached .Rproj.user[0K[11G[?25h[?25l$ git rm -r--cached .Rproj.user[0K[12G[?25h[?25l$ git rm -r --cached .Rproj.user[0K[13G[?25h[?25l$ git rm -r--cached .Rproj.user[0K[12G[?25h[?25l$ git rm ---cached .Rproj.user[0K[11G[?25h[?25l$ git rm --cached .Rproj.user[0K[10G[?25h[?25l$ git rm ---cached .Rproj.user[0K[11G[?25h[?25l$ git rm -r--cached .Rproj.user[0K[11G[?25h[12G[?25l$ git rm -r --cached .Rproj.user[0K[13G[?25h[14G[15G[16G[17G[18G[20G[21G[22G[23G[24G[25G[26G[27G[28G[29G[30G[31G[32G[33G[?25l$ git rm -r --cached .Rproj.use[0K[?25h[?25l$ git rm -r --cached .Rproj.us[0K[32G[?25h[31G[?25l$ git rm -r --cached .Rproj.u[0K[?25h[?25l$ git rm -r --cached .Rproj.[0K[?25h[?25l$ git rm -r --cached .Rproj[0K[?25h[?25l$ git rm -r --cached .Rpro[0K[?25h[?25l$ git rm -r --cached .Rpr[0K[?25h[?25l$ git rm -r --cached .Rp[0K[?25h[?25l$ git rm -r --cached .R[0K[?25h[?25l$ git rm -r --cached .[0K[?25h[?25l$ git rm -r --cached[0K[22G[?25h[21G[?25l
-[0K[?25husage: git rm [<options>] [--] <file>...[0K[?25l
-[0K
-    -n, --dry-run         dry run[0K
-    -q, --quiet           do not list removed files[0K
-    --cached              only remove from the index[0K
-    -f, --force           override the up-to-date check[0K
-    -r                    allow recursive removal[0K
-    --ignore-unmatch      exit with a zero status even if [0Kn
-othing matched[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K.[0K[?25l
-[0K[?25hgit: 'add.' is not a git command. See 'git --help'.[0K[?25l
-[0K
-Did you mean this?[0K
-        add[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git add.[0K[?25h[?25l$ git add[0K[?25h[11G[?25l$ git add .[0K[?25h[?25l
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Ku[0K[?25l$ git sta[0K[?25ht[0Ku[0Ks[0K[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes to be committed:[0K
-  (use "git reset HEAD <file>..." to unstage)[0K
-[0K
-        [0;32mdeleted:    .Rhistory[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;32mmodified:   .gitignore[0m[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l$ git add .[0K[?25h[?25l$ git add.[0K[?25h[?25l$ git rm -r --cached[0K[?25h[?25l
-[0K[?25husage: git rm [<options>] [--] <file>...[0K[?25l
-[0K
-    -n, --dry-run         dry run[0K
-    -q, --quiet           do not list removed files[0K
-    --cached              only remove from the index[0K
-    -f, --force           override the up-to-date check[0K
-    -r                    allow recursive removal[0K
-    --ignore-unmatch      exit with a zero status even if [0Kn
-othing matched[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git rm -r --cached[0K[?25h[?25l$ git status[0K[?25h[?25l
-[0K[?25hOn branch master[0K[?25l
-Changes to be committed:[0K
-  (use "git reset HEAD <file>..." to unstage)[0K
-[0K
-        [0;32mdeleted:    .Rhistory[0m[0K
-        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;32mmodified:   .gitignore[0m[0K
-[0K
-Changes not staged for commit:[0K
-  (use "git add <file>..." to update what will be committe[0Kd
-)[0K
-  (use "git checkout -- <file>..." to discard changes in w[0Ko
-rking directory)[0K
-[0K
-        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
-[0m[0K
-        [0;31mmodified:   .gitignore[0m[0K
-[0K
-[0K[?25h[?25l
-[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git status[0K[?25h[12G[?25l$ git rm -r --cached[0K[?25h[?25l$ git status[0K[?25h[?25l$ git rm -r --cached[0K[?25h[?25l$ git status[0K[?25h[?25l$ git rm -r --cached[0K[?25h[?25l$ git status[0K[?25h[?25l$ git add .[0K[?25h
