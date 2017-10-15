@@ -2378,4 +2378,64 @@ e listed files[0K
 [0K
 [0K[?25h[?25l
 [0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ git add -a[0K[?25h[?25l$ git add -[0K[13G[?25h[12G[?25l$ git add[0K[11G[?25h[?25l$ git add .[0K[?25h
+$[0K[3G[?25h[?25l$ git add -a[0K[?25h[?25l$ git add -[0K[13G[?25h[12G[?25l$ git add[0K[11G[?25h[?25l$ git add .[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4[?25l
+A/sources/prop/6C5B9744.[0K
+The file will have its original line endings in your worki[0Kn
+g directory.[0K
+warning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4
+A/sources/s-3FA1C0CB/BDD2C525.[0K
+The file will have its original line endings in your worki[0Kn
+g directory.[0K
+[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/BCDB9B[0K4[?25l
+A/sources/s-3FA1C0CB/BDD2C525-contents.[0K
+The file will have its original line endings in your worki[0Kn
+g directory.[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes to be committed:[0K
+  (use "git reset HEAD <file>..." to unstage)[0K
+[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/prop/6C5B[0K9
+744[0m[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/BDD2C525[0m[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/sources/s-3FA1C0C[0KB
+/BDD2C525-contents[0m[0K[?25h[?25l
+        [0;32mmodified:   content/post/2015-07-23-r-rmarkdown.Rm[0Kd
+[0m[0K
+[0K
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25ht[0Ke[0Ks[0Kt[0Ki[0Kn[0Kg[0K[26G[?25l$ git commit -m "testing d[0K[?25he[0Kp[0Kl[0Ko[0Ky[0Km[0Ke[0Kn[0Kt[0K"[0K[?25l
+[0K[?25h[master 799a0a3] testing deployment[0K[?25l
+ 5 files changed, 2330 insertions(+), 8 deletions(-)[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25hs[0Ka[0K[?25l$ git push origin ms[0K[?25h[?25l$ git push origin m[0K[21G[?25h[20G[?25l$ git push origin ma[0K[?25hs[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hCounting objects: 14, done.[0K[?25l
+Delta compression using up to 4 threads.[0K
+Compressing objects: 100% (13/13), done.[0K
+Writing objects: 100% (14/14), 10.03 KiB | 0 bytes/s, done[0K.
+[0K
+Total 14 (delta 7), reused 0 (delta 0)[0K
+[0K[?25hremote: Resolving deltas: 100% (7/7), completed with 7 loc[0Ka[?25l
+l objects.[0K
+[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
+   dcdf04f..799a0a3  master -> master[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ gi[0K[?25ht[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
+[0K[?25h
