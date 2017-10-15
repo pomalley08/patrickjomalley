@@ -1,0 +1,61 @@
+[0m[0K]0;[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git i[0K[?25hn[0Ki[0Kt[0K[?25l
+[0K[?25hInitialized empty Git repository in C:/Website/.git/[0K[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[1A[38G[?25h[?25l
+[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git r[0K[?25he[0Km[0Ko[0Kt[0Ke[0K[14G[?25l$ git remote a[0K[?25hd[0Kd[0K[18G[?25l$ git remote add o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[25G[?25l$ git remote add origin ^V[0K[?25h[?25l$ git remote add origin[0K[25G[?25h[24G[25G[?25l$ git remote add origin https://github.com/pomalley08/patr[0K
+ickjomalley.git[0K[?25h[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25ht[0K[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch master[0K[?25l
+[0K
+Initial commit[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be comm[0Ki
+tted)[0K
+[0K
+        [0;31m.Rhistory[0m[0K
+        [0;31m.Rproj.user/[0m[0K
+        [0;31mWebsite.Rproj[0m[0K
+        [0;31mconfig.toml[0m[0K
+        [0;31mcontent/[0m[0K
+        [0;31mindex.Rmd[0m[0K
+        [0;31mpublic/[0m[0K
+        [0;31mstatic/[0m[0K
+        [0;31mthemes/[0m[0K
+[0K
+nothing added to commit but untracked files present (use "[0Kg
+it add" to track)[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ tou[0K[?25hc[0Kh[0K[9G[?25l$ touch .[0K[?25hg[0Ki[0Kt[0Ki[0Kg[0Kn[0Ko[0Kr[0Ke[0K[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch master[0K[?25l
+[0K
+Initial commit[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be comm[0Ki
+tted)[0K
+[0K
+        [0;31m.Rhistory[0m[0K
+        [0;31m.Rproj.user/[0m[0K
+        [0;31m.gitignore[0m[0K
+        [0;31mWebsite.Rproj[0m[0K
+        [0;31mconfig.toml[0m[0K
+        [0;31mcontent/[0m[0K
+        [0;31mindex.Rmd[0m[0K
+        [0;31mstatic/[0m[0K
+        [0;31mthemes/[0m[0K
+[0K
+nothing added to commit but untracked files present (use "[0Kg
+it add" to track)[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h
