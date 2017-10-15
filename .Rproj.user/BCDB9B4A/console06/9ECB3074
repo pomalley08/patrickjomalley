@@ -1431,4 +1431,235 @@ no changes added to commit (use "git add" and/or "git comm[0Ki
 t -a")[0K
 [0K[?25h[?25l
 [0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hs[0Kd[0K[?25l$ git as[0K[10G[?25h[9G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hs[0Kd[0K[?25l$ git as[0K[10G[?25h[9G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add .[0K[?25h[?25l
+[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/shared[0K/[?25l
+notebooks/paths.[0K
+The file will have its original line endings in your worki[0Kn
+g directory.[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hu[0Kp[0Kd[0Ka[0Kt[0Ke[0K[25G[?25l$ git commit -m "update .[0K[?25hg[0Ki[0Kt[0Ki[0Kg[0Kn[0Ko[0Kr[0Ke[0K"[0K[?25l
+[0K[?25h[master c800bb9] update .gitignore[0K[?25l
+ 2 files changed, 98 insertions(+), 1 deletion(-)[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[12G[?25l$ git push o[0K[?25hr[0Ki[0Kg[0Ki[0Kn[0K[19G[?25l$ git push origin m[0K[?25ha[0Ks[0Kt[0Ke[0Kr[0K[?25l
+[0K[?25hCounting objects: 28, done.[0K[?25l
+[0K[?25hDelta compression using up to 4 threads.[0K[?25l
+Compressing objects: 100% (25/25), done.[0K
+Writing objects: 100% (28/28), 4.76 KiB | 0 bytes/s, done.[0K
+Total 28 (delta 15), reused 0 (delta 0)[0K
+[0K[?25hremote: Resolving deltas: 100% (15/15), completed with 8 l[0Ko[?25l
+cal objects.[0K
+[0K[?25hTo https://github.com/pomalley08/patrickjomalley.git[0K[?25l
+   9dd674b..c800bb9  master -> master[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Kt[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;31mmodified:   .gitignore[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;31mmodified:   .gitignore[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;31mmodified:   .gitignore[0m[0K
+[0K
+Untracked files:[0K
+  (use "git add <file>..." to include in what will be comm[0Ki
+tted)[0K
+[0K
+        [0;31m.Rproj.user/BCDB9B4A/sources/prop/24FD56C5[0m[0K
+        [0;31m.Rproj.user/BCDB9B4A/sources/prop/6944296C[0m[0K
+        [0;31m.Rproj.user/BCDB9B4A/sources/prop/995CA1A7[0m[0K
+        [0;31m.Rproj.user/BCDB9B4A/sources/s-138F3686/[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;31mmodified:   .gitignore[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l
+On branch master[0K
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K[?25h[?25l
+        [0;31mmodified:   .gitignore[0m[0K
+[0K
+no changes added to commit (use "git add" and/or "git comm[0Ki
+t -a")[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git r[0K[?25hm[0K[10G[?25l$ git rm -[0K[?25h-[0K[13G[12G[?25l$ git rm --c[0K[?25ha[0Kc[0Kh[0Ke[0Kd[0K[19G[?25l$ git rm --cached .[0K[?25hR[0Kp[0Kr[0Ko[0Kj[0K.[0Ksu[0Ke[0K[?25l$ git rm --cached .Rproj.su[0K[?25h[?25l$ git rm --cached .Rproj.s[0K[28G[?25h[27G[?25l$ git rm --cached .Rproj.[0K[?25hu[0Ks[0Ke[0Kr[0K[?25l
+[0K[?25hfatal: not removing '.Rproj.user' recursively without -r[0K[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git rm --cached .Rproj.user[0K[?25h/[0K[?25l
+[0K[?25hfatal: not removing '.Rproj.user/' recursively without -r[0K[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git rm --cached .Rproj.user/[0K[?25h[?25l$ git rm --cached .Rproj.user[0K[?25h[?25l$ git rm --cached .Rproj.use[0K[?25h[?25l$ git rm --cached .Rproj.us[0K[29G[?25h[?25l$ git rm --cached .Rproj.u[0K[28G[?25h[?25l$ git rm --cached .Rproj.[0K[27G[?25h[?25l$ git rm --cached .Rproj[0K[?25h[?25l$ git rm --cached .Rpro[0K[?25h[?25l$ git rm --cached .Rpr[0K[?25h[?25l$ git rm --cached .Rp[0K[?25h[?25l$ git rm --cached .R[0K[?25hh[0Ki[0Ks[0Kt[0Ko[0Kr[0Ky[0K[?25l
+[0K[?25hrm '.Rhistory'[0K[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git rm --cached .Rhistory[0K[?25h[27G[26G[25G[24G[23G[22G[21G[20G[19G[?25l$ git rm --cached *.Rhistory[0K[20G[?25h[21G[22G[23G[24G[25G[26G[27G[28G[29G[?25l$ git rm --cached *.Rhistor[0K[?25h[?25l$ git rm --cached *.Rhisto[0K[?25h[?25l$ git rm --cached *.Rhist[0K[?25h[?25l$ git rm --cached *.Rhis[0K[?25h[?25l$ git rm --cached *.Rhi[0K[?25h[?25l$ git rm --cached *.Rh[0K[?25h[?25l$ git rm --cached *.R[0K[?25hp[0Kr[0Ko[0Kj[0K.[0Ku[0Ks[0Ke[0Kr[0K[?25l
+[0K[?25hfatal: pathspec '*.Rproj.user' did not match any files[0K[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git rm --cached *.Rproj.user[0K[?25h/[0K[?25l
+[0K[?25hfatal: pathspec '*.Rproj.user/' did not match any files[0K[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git rm --cached *.Rproj.user/[0K[?25h[?25l$ git rm --cached *.Rproj.user[0K[32G[?25h[31G[30G[29G[28G[27G[26G[25G[23G[21G[20G[18G[17G[18G[19G[20G[?25l$ git rm --cached .Rproj.user[0K[19G[?25h[?25l
+[0K[?25hfatal: not removing '.Rproj.user' recursively without -r[0K[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git rm --cached .Rproj.user[0K[?25h[29G[28G[27G[25G[24G[23G[22G[21G[20G[19G[18G[17G[16G[15G[14G[13G[12G[11G[10G[?25l$ git rm ---cached .Rproj.user[0K[11G[?25h[?25l$ git rm -r--cached .Rproj.user[0K[12G[?25h[?25l$ git rm -r --cached .Rproj.user[0K[13G[?25h[?25l$ git rm -r--cached .Rproj.user[0K[12G[?25h[?25l$ git rm ---cached .Rproj.user[0K[11G[?25h[?25l$ git rm --cached .Rproj.user[0K[10G[?25h[?25l$ git rm ---cached .Rproj.user[0K[11G[?25h[?25l$ git rm -r--cached .Rproj.user[0K[11G[?25h[12G[?25l$ git rm -r --cached .Rproj.user[0K[13G[?25h[14G[15G[16G[17G[18G[20G[21G[22G[23G[24G[25G[26G[27G[28G[29G[30G[31G[32G[33G[?25l$ git rm -r --cached .Rproj.use[0K[?25h[?25l$ git rm -r --cached .Rproj.us[0K[32G[?25h[31G[?25l$ git rm -r --cached .Rproj.u[0K[?25h[?25l$ git rm -r --cached .Rproj.[0K[?25h[?25l$ git rm -r --cached .Rproj[0K[?25h[?25l$ git rm -r --cached .Rpro[0K[?25h[?25l$ git rm -r --cached .Rpr[0K[?25h[?25l$ git rm -r --cached .Rp[0K[?25h[?25l$ git rm -r --cached .R[0K[?25h[?25l$ git rm -r --cached .[0K[?25h[?25l$ git rm -r --cached[0K[22G[?25h[21G[?25l
+[0K[?25husage: git rm [<options>] [--] <file>...[0K[?25l
+[0K
+    -n, --dry-run         dry run[0K
+    -q, --quiet           do not list removed files[0K
+    --cached              only remove from the index[0K
+    -f, --force           override the up-to-date check[0K
+    -r                    allow recursive removal[0K
+    --ignore-unmatch      exit with a zero status even if [0Kn
+othing matched[0K
+[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K.[0K[?25l
+[0K[?25hgit: 'add.' is not a git command. See 'git --help'.[0K[?25l
+[0K
+Did you mean this?[0K
+        add[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git add.[0K[?25h[?25l$ git add[0K[?25h[11G[?25l$ git add .[0K[?25h[?25l
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git s[0K[?25ht[0Ka[0Ku[0K[?25l$ git sta[0K[?25ht[0Ku[0Ks[0K[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes to be committed:[0K
+  (use "git reset HEAD <file>..." to unstage)[0K
+[0K
+        [0;32mdeleted:    .Rhistory[0m[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;32mmodified:   .gitignore[0m[0K
+[0K
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git status[0K[?25h[?25l$ git add .[0K[?25h[?25l$ git add.[0K[?25h[?25l$ git rm -r --cached[0K[?25h[?25l
+[0K[?25husage: git rm [<options>] [--] <file>...[0K[?25l
+[0K
+    -n, --dry-run         dry run[0K
+    -q, --quiet           do not list removed files[0K
+    --cached              only remove from the index[0K
+    -f, --force           override the up-to-date check[0K
+    -r                    allow recursive removal[0K
+    --ignore-unmatch      exit with a zero status even if [0Kn
+othing matched[0K
+[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git rm -r --cached[0K[?25h[?25l$ git status[0K[?25h[?25l
+[0K[?25hOn branch master[0K[?25l
+Changes to be committed:[0K
+  (use "git reset HEAD <file>..." to unstage)[0K
+[0K
+        [0;32mdeleted:    .Rhistory[0m[0K
+        [0;32mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;32mmodified:   .gitignore[0m[0K
+[0K
+Changes not staged for commit:[0K
+  (use "git add <file>..." to update what will be committe[0Kd
+)[0K
+  (use "git checkout -- <file>..." to discard changes in w[0Ko
+rking directory)[0K
+[0K
+        [0;31mmodified:   .Rproj.user/BCDB9B4A/console06/9ECB307[0K4
+[0m[0K
+        [0;31mmodified:   .gitignore[0m[0K
+[0K
+[0K[?25h[?25l
+[0;32mpatri@Patricks-PC [0;33m/c/Website[0;36m (master)[0m[0K
+$[0K[3G[?25h[?25l$ git status[0K[?25h[12G[?25l$ git rm -r --cached[0K[?25h[?25l$ git status[0K[?25h[?25l$ git rm -r --cached[0K[?25h[?25l$ git status[0K[?25h[?25l$ git rm -r --cached[0K[?25h[?25l$ git status[0K[?25h[?25l$ git add .[0K[?25h
