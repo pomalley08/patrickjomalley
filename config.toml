@@ -33,7 +33,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [author]
   name = "Patrick O'Malley"
-  bio = "Super bio with markdown support **COOL**, what happens if this description is really long? does it look alright or does it start to make the nice formatting look not so nice anymore? Hard to say yet so I'll keep adding to it to see what it looks like when it gets really long, and i maen reaaally long"
+  bio = "I love learning new ways that data can be used to answer difficult questions about the world. This website is my attempt to collect all of the resources and tutorials I use to continuously learn data science, along with some personal projects."
   job = "Data Scientist"
   location = "Washington D.C."
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
