@@ -33,7 +33,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [author]
   name = "Patrick O'Malley"
-  bio = "I love learning new ways that data can be used to answer difficult questions about the world. This website is my attempt to collect all of the resources and tutorials I use to continuously learn data science, along with some personal projects."
+  bio = "I love learning new ways to use data to answer difficult questions about the world. This website is an effort to collect all of the resources and tutorials I use to continuously learn data science, along with some personal projects."
   job = "Data Scientist"
   location = "Washington D.C."
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
