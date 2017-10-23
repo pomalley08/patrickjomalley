@@ -1,21 +1,18 @@
 ---
 title: "Data Visualization"
 output: 
-  html_notebook:
-    toc: TRUE
-    toc_float: TRUE
-    number_sections: TRUE
-author: Patrick O'Malley
+  blogdown::html_page:
+    toc: true
+author: "Patrick O'Malley"
 date: 2017-10-21
 slug: data-visualization
-categories:
-        - R for Data Science
-tags:
-        - R
-        - Visualization
+categories: ["R for Data Science"]
+tags: ["R", "Visualization"]
 autoThumbnailImage: false
+thumbnailImage: /images/mpg.png
 thumbnailImagePosition: "left"
-thumbnailImage: /images/nyc-750.jpg
+coverImage: /images/mpg.png
+metaAlignment: center
 ---
 
 This document corresponds with chapter 3 **Data Visualization**. The chapter covers ggplot2.
@@ -55,10 +52,6 @@ dim(mpg)
 234 rows and 11 columns
 
 3. What does the drv variable describe? Read the help for ?mpg to find out.
-
-```{r drv}
-?mpg
-```
 
 drv indicates whether its front / rear / 4 wheel drive
 
@@ -110,7 +103,7 @@ cyt and hwy are the only continuous variables
 
 3. Map a continuous variable to color, size, and shape. How do these aesthetics behave differently for categorical vs. continuous variables?
 
-```{r map-cont-var}
+```{r map-cont-var, error=TRUE}
 ggplot(data = mpg) + 
         geom_point(mapping = aes(x = displ, y = hwy, color = cty))
 ggplot(data = mpg) + 
