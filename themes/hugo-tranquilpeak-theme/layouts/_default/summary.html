@@ -39,17 +39,20 @@
       </h1>
       {{ partial "post/meta" . }}
     </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      {{ .Summary }}
-      <p>
-        <a href="{{ .Permalink }}" class="postShorten-excerpt_link link">{{ i18n "post.read_more" }}</a>
-        {{ with .Params.readingtime }}
-          <span class="postShorten-readingtime">
-            {{ printf " - %s min read" . }}
-          </span>
-        {{ end }}
-      </p>
-    </div>
+      <div class="summary">
+   
+    {{ with .Params.thumbnail }}
+  
+    {{ end }}
+    {{ with .Description }}
+      {{ $.Scratch.Set "summary" (markdownify .) }}
+    {{ else }}
+      {{ $.Scratch.Set "summary" ((delimit (findRE "(<p.*?>(.|\n)*?</p>\\s*)+" .Content) "[&hellip;] ") | plainify | truncate (default 200 .Site.Params.summary_length) (default " &hellip;" .Site.Params.text.truncated ) | replaceRE "&amp;" "&" | safeHTML) }}
+    {{ end }}
+    {{ $.Scratch.Get "summary" }}
+    
+    <a href="{{ .Permalink }}" class="postShorten-excerpt_link link">{{ i18n "post.read_more" }}</a>
+  </div>
   </div>
   {{ if and (.Scratch.Get "thumbnailImage") (ne (.Scratch.Get "thumbnailImagePosition") "top")}}
     <a href="{{ .Permalink }}">

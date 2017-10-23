@@ -11,8 +11,7 @@ tags: ["R", "Visualization"]
 autoThumbnailImage: false
 thumbnailImage: /images/mpg.png
 thumbnailImagePosition: "left"
-coverImage: /images/mpg.png
-metaAlignment: center
+description: "This post covers the content and exercises for Ch 3: Data Visualization in **R for Data Science**"
 ---
 
 This document corresponds with chapter 3 **Data Visualization**. The chapter covers ggplot2.

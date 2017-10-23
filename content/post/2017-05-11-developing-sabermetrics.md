@@ -12,7 +12,6 @@ thumbnailImagePosition: "top"
 thumbnailImage: /images/baseball-750.jpg
 coverImage: /images/baseball.jpg
 metaAlignment: center
-coverMeta: out
 ---
 
 <!--more-->

@@ -17,7 +17,7 @@ metaAlignment: center
 coverMeta: out
 ---
 
-This project is an Analysis of the Skills Gap in New York City
+This project is an analysis of the skills gap in New York City
 
 ## Data Import
 
