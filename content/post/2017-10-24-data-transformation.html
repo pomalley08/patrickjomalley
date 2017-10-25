@@ -19,5 +19,112 @@ draft: true
 ---
 
 
+<div id="TOC">
+<ul>
+<li><a href="#prerequisites">Prerequisites</a><ul>
+<li><a href="#nycflights13">nycflights13</a></li>
+<li><a href="#dplyr-basics">dplyr Basics</a></li>
+</ul></li>
+<li><a href="#filter-rows-with-filter">Filter Rows with <code>filter()</code></a><ul>
+<li><a href="#comparisons">Comparisons</a></li>
+<li><a href="#missing-values">Missing Values</a></li>
+<li><a href="#exercises">Exercises</a></li>
+</ul></li>
+</ul>
+</div>
 
-
+<p>This post covers the content and exercises for Ch 5: Data Transformation from <a href="http://r4ds.had.co.nz/"><strong>R for Data Science</strong></a>. The chapter teaches how to transform data with dplyr.</p>
+<div id="prerequisites" class="section level1">
+<h1>Prerequisites</h1>
+<p>Use data from the nycflights13 package</p>
+<pre class="r"><code>library(nycflights13)
+library(tidyverse)</code></pre>
+<div id="nycflights13" class="section level2">
+<h2>nycflights13</h2>
+<p>Will be performing data manipulation on <code>nycflights13::flights</code></p>
+<pre class="r"><code>flights</code></pre>
+<pre><code>## # A tibble: 336,776 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 336,766 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+</div>
+<div id="dplyr-basics" class="section level2">
+<h2>dplyr Basics</h2>
+<p>Will use the 5 common functions of dplyr</p>
+<ul>
+<li><code>filter()</code> for picking observations based on their values</li>
+<li><code>arrange()</code> for reordering rows</li>
+<li><code>select()</code> for picking variables by their name</li>
+<li><code>mutate</code> for creating new variables based off of existing variables</li>
+<li><code>summarise()</code> for collapsing many values to a single summary</li>
+</ul>
+<p>Can all be used with <code>group_by()</code> which changes scope of each function from entire dataset to going group by group</p>
+</div>
+</div>
+<div id="filter-rows-with-filter" class="section level1">
+<h1>Filter Rows with <code>filter()</code></h1>
+<p>select all flights on January 1st</p>
+<pre class="r"><code>filter(flights, month == 1, day == 1)</code></pre>
+<pre><code>## # A tibble: 842 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013     1     1      517            515         2      830
+##  2  2013     1     1      533            529         4      850
+##  3  2013     1     1      542            540         2      923
+##  4  2013     1     1      544            545        -1     1004
+##  5  2013     1     1      554            600        -6      812
+##  6  2013     1     1      554            558        -4      740
+##  7  2013     1     1      555            600        -5      913
+##  8  2013     1     1      557            600        -3      709
+##  9  2013     1     1      557            600        -3      838
+## 10  2013     1     1      558            600        -2      753
+## # ... with 832 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<p>Auto print results after assignment</p>
+<pre class="r"><code>(dec25 &lt;- filter(flights, month == 12, day == 25))</code></pre>
+<pre><code>## # A tibble: 719 x 19
+##     year month   day dep_time sched_dep_time dep_delay arr_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;
+##  1  2013    12    25      456            500        -4      649
+##  2  2013    12    25      524            515         9      805
+##  3  2013    12    25      542            540         2      832
+##  4  2013    12    25      546            550        -4     1022
+##  5  2013    12    25      556            600        -4      730
+##  6  2013    12    25      557            600        -3      743
+##  7  2013    12    25      557            600        -3      818
+##  8  2013    12    25      559            600        -1      855
+##  9  2013    12    25      559            600        -1      849
+## 10  2013    12    25      600            600         0      850
+## # ... with 709 more rows, and 12 more variables: sched_arr_time &lt;int&gt;,
+## #   arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,
+## #   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,
+## #   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
+<div id="comparisons" class="section level2">
+<h2>Comparisons</h2>
+<p>Standard comparison operators are available: <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code>, <code>==</code></p>
+<p>floating point numbers may cause issues with <code>==</code>, use <code>near()</code> instead</p>
+<p>Logical operators are also available: <code>&amp;</code>, <code>|</code>, <code>!</code></p>
+</div>
+<div id="missing-values" class="section level2">
+<h2>Missing Values</h2>
+<p><code>filter()</code> excludes <code>NA</code> values by default</p>
+</div>
+<div id="exercises" class="section level2">
+<h2>Exercises</h2>
+</div>
+</div>

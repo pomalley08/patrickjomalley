@@ -18,3 +18,172 @@ description: "This post covers the content and exercises for Ch 5: Data Transfor
 draft: true
 ---
 
+This post covers the content and exercises for Ch 5: Data Transformation from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to transform data with dplyr.
+
+# Prerequisites
+
+Use data from the nycflights13 package
+
+```{r nycflight, message=FALSE, warning=FALSE}
+library(nycflights13)
+library(tidyverse)
+```
+
+## nycflights13
+
+Will be performing data manipulation on `nycflights13::flights`
+
+```{r flights}
+flights
+```
+
+## dplyr Basics
+
+Will use the 5 common functions of dplyr
+
+* `filter()` for picking observations based on their values
+* `arrange()` for reordering rows
+* `select()` for picking variables by their name
+* `mutate` for creating new variables based off of existing variables
+* `summarise()` for collapsing many values to a single summary
+
+Can all be used with `group_by()` which changes scope of each function from entire dataset to going group by group
+
+# Filter Rows with `filter()`
+
+select all flights on January 1st
+
+```{r jan-1}
+filter(flights, month == 1, day == 1)
+```
+
+Auto print results after assignment
+
+```{r autoprint}
+(dec25 <- filter(flights, month == 12, day == 25))
+```
+
+## Comparisons
+
+Standard comparison operators are available: `>`, `>=`, `<`, `<=`, `!=`, `==`  
+
+floating point numbers may cause issues with `==`, use `near()` instead  
+
+Logical operators are also available: `&`, `|`, `!`
+
+## Missing Values
+
+`filter()` excludes `NA` values by default
+
+## Exercises
+
+1. Find all flights that  
+
+Had an arrival delay of two or more hours
+
+```{r arr-del-over-2hrs}
+filter(flights, arr_delay >= 120)
+```
+
+Flew to Houston (IAH or HOU)
+
+```{r houston}
+filter(flights, dest %in% c("IAH", "HOU"))
+```
+
+Were operated by United, American, or Delta
+
+```{r united-american-delta}
+airlines
+filter(flights, carrier %in% c("AA", "DL", "UA"))
+```
+
+Departed in summer (July, August, and September)
+
+```{r summer-flight}
+filter(flights, month %in% c(7, 8, 9))
+```
+
+Arrived more than two hours late, but didn't leave late
+
+```{r late-arr-on-time-dep}
+filter(flights, arr_delay >120 & dep_delay <= 0)
+```
+
+Were delayed by at least an hour, but made up over 30 minutes in flight
+
+```{r del-make-up-time}
+filter(flights, dep_delay >= 60 & arr_delay < 30)
+```
+
+Departed between midnight and 6am (inclusive)
+
+```{r am-flight}
+filter(flights, dep_time == 2400 | dep_time <= 0600)
+```
+
+2. Another useful dplyr filtering helper is between(). What does it do? Can you use it to simplify the code needed to answer the previous challenges?  
+
+`between()` is a shortcut for `x >= left & x <= right`
+
+```{r between}
+flights[between(flights$dep_time, 0, 600), ]
+```
+
+3. How many flights have a missing dep_time? What other variables are missing? What might these rows represent?
+
+```{r missing-dep-time}
+filter(flights, is.na(dep_time))
+```
+
+Also missing dep_delay, arr_time, arr_delay, air_time, they could represent canceled flights  
+
+4. Why is NA ^ 0 not missing? Why is NA | TRUE not missing? Why is FALSE & NA not missing? Can you figure out the general rule? (NA * 0 is a tricky counterexample!)
+
+```{r na}
+NA ^ 0 # any value ^0 is 1
+NA | TRUE # Logical is true since  one side is true
+FALSE & NA # Logical is false since one side is false
+NA * 0 # ???
+```
+
+Generally, operations including `NA` will be `NA` unless it would return a specific value no matter what the NA was  
+
+# Arrange Rows with `arrange()`
+
+Arranges a data frame by columns specified, additional columns are used for tie breakers. `desc()` for descending, and `NA`s are always pushed to the end  
+
+```{r arrange}
+arrange(flights, year, month, day)
+```
+
+## Exercises
+
+1. How could you use arrange() to sort all missing values to the start? (Hint: use is.na()).
+
+```{r na-first}
+arrange(flights, desc(is.na(dep_time)))
+```
+
+2. Sort flights to find the most delayed flights. Find the flights that left earliest.
+
+```{r most-delayed}
+arrange(flights, desc(dep_delay))
+arrange(flights, dep_time)
+```
+
+3. Sort flights to find the fastest flights.
+
+```{r fastest-flights}
+arrange(flights, air_time)
+```
+
+4. Which flights travelled the longest? Which travelled the shortest?
+
+```{r longest-shortest}
+arrange(flights, desc(distance))
+arrange(flights, distance)
+```
+
+# Select Columns with `select()`
+

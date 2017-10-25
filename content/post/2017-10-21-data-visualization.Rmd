@@ -1,20 +1,25 @@
 ---
-title: "Data Visualization"
-output: 
+title: Data Visualization
+author: Patrick O'Malley
+date: '2017-10-21'
+categories:
+  - R for Data Science
+tags:
+  - R
+  - Visualization
+  - ggplot2
+output:
   blogdown::html_page:
-    toc: true
-author: "Patrick O'Malley"
-date: 2017-10-21
+    toc: yes
 slug: data-visualization
-categories: ["R for Data Science"]
-tags: ["R", "Visualization"]
-autoThumbnailImage: false
+autoThumbnailImage: no
 thumbnailImage: /images/mpg.png
-thumbnailImagePosition: "left"
-description: "This post covers the content and exercises for Ch 3: Data Visualization in **R for Data Science**"
+thumbnailImagePosition: left
+description: 'This post covers the content and exercises for Ch 3: Data Visualization
+  in **R for Data Science**'
 ---
 
-This document corresponds with chapter 3 **Data Visualization**. The chapter covers ggplot2.
+This post covers the content and exercises for Ch 3: Data Visualization from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches the use of the grammar of graphics with ggplot2.
 
 # First Steps
 
