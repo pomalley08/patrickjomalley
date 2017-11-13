@@ -1,5 +1,5 @@
 ---
-title: Data Visualization
+title: 3 Data Visualization - R for Data Science
 author: Patrick O'Malley
 date: '2017-10-21'
 categories:
@@ -22,34 +22,34 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
 
 <div id="TOC">
 <ul>
-<li><a href="#first-steps">First Steps</a><ul>
-<li><a href="#exercises">Exercises</a></li>
+<li><a href="#first-steps">3.2 First Steps</a><ul>
+<li><a href="#exercises">3.2.4 Exercises</a></li>
 </ul></li>
-<li><a href="#aesthetic-mappings">Aesthetic Mappings</a><ul>
-<li><a href="#exercises-1">Exercises</a></li>
+<li><a href="#aesthetic-mappings">3.3 Aesthetic Mappings</a><ul>
+<li><a href="#exercises-1">3.3.1 Exercises</a></li>
 </ul></li>
-<li><a href="#facets">Facets</a><ul>
-<li><a href="#exercises-2">Exercises</a></li>
+<li><a href="#facets">3.5 Facets</a><ul>
+<li><a href="#exercises-2">3.5.1 Exercises</a></li>
 </ul></li>
-<li><a href="#geometric-objects">Geometric Objects</a><ul>
-<li><a href="#exercises-3">Exercises</a></li>
+<li><a href="#geometric-objects">3.6 Geometric Objects</a><ul>
+<li><a href="#exercises-3">3.6.1 Exercises</a></li>
 </ul></li>
-<li><a href="#statistical-transformations">Statistical Transformations</a><ul>
-<li><a href="#exercises-4">Exercises</a></li>
+<li><a href="#statistical-transformations">3.7 Statistical Transformations</a><ul>
+<li><a href="#exercises-4">3.7.1 Exercises</a></li>
 </ul></li>
-<li><a href="#position-adjustments">Position Adjustments</a><ul>
-<li><a href="#exercises-5">Exercises</a></li>
+<li><a href="#position-adjustments">3.8 Position Adjustments</a><ul>
+<li><a href="#exercises-5">3.8.1 Exercises</a></li>
 </ul></li>
-<li><a href="#coordinate-systems">Coordinate Systems</a><ul>
-<li><a href="#exercises-6">Exercises</a></li>
+<li><a href="#coordinate-systems">3.9 Coordinate Systems</a><ul>
+<li><a href="#exercises-6">3.9.1 Exercises</a></li>
 </ul></li>
-<li><a href="#the-layered-grammar-of-graphics">The Layered Grammar of Graphics</a></li>
+<li><a href="#the-layered-grammar-of-graphics">3.10 The Layered Grammar of Graphics</a></li>
 </ul>
 </div>
 
 <p>This post covers the content and exercises for Ch 3: Data Visualization from <a href="http://r4ds.had.co.nz/"><strong>R for Data Science</strong></a>. The chapter teaches the use of the grammar of graphics with ggplot2.</p>
 <div id="first-steps" class="section level1">
-<h1>First Steps</h1>
+<h1>3.2 First Steps</h1>
 <p>We begin by loading the tidyverse which contains ggplot2 and numerous other useful libraries.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
 <p>The first plot addresses the question: Do cars with big engines use more fuel than cars with small engines?</p>
@@ -68,7 +68,7 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
         geom_point(mapping = aes(x = displ, y = hwy))</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/mpg-1.png" width="672" /></p>
 <div id="exercises" class="section level2">
-<h2>Exercises</h2>
+<h2>3.2.4 Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>Run ggplot(data = mpg). What do you see?</li>
 </ol>
@@ -101,14 +101,14 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
 </div>
 </div>
 <div id="aesthetic-mappings" class="section level1">
-<h1>Aesthetic Mappings</h1>
+<h1>3.3 Aesthetic Mappings</h1>
 <p>They are used to set things like color and shapes based on a variable value</p>
 <pre class="r"><code>ggplot(data = mpg) +
         geom_point(aes(x = displ, y = hwy, color = class))</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/mpg-outliers-1.png" width="672" /></p>
 <p>The outliers with high displacements and high mileage are 2 seaters. Since sports cars are lighter than the trucks and suvs in this displacement range it makes sense that they have higher mpg</p>
 <div id="exercises-1" class="section level2">
-<h2>Exercises</h2>
+<h2>3.3.1 Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>What’s gone wrong with this code? Why are the points not blue?</li>
 </ol>
@@ -180,7 +180,7 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
 </div>
 </div>
 <div id="facets" class="section level1">
-<h1>Facets</h1>
+<h1>3.5 Facets</h1>
 <p>Facets can be used to split plots on categorical variable levels</p>
 <p><code>facet_wrap()</code> is used for splitting on a single variable</p>
 <pre class="r"><code>ggplot(data = mpg) + 
@@ -194,7 +194,7 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/facet-grid-1.png" width="672" /></p>
 <p><code>facet_grid(.~cyl)</code> can be used to only facet by 1 variable</p>
 <div id="exercises-2" class="section level2">
-<h2>Exercises</h2>
+<h2>3.5.1 Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>What happens if you facet on a continuous variable?</li>
 </ol>
@@ -246,7 +246,7 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
 </div>
 </div>
 <div id="geometric-objects" class="section level1">
-<h1>Geometric Objects</h1>
+<h1>3.6 Geometric Objects</h1>
 <p>These are the objects that are used to plot the data</p>
 <pre class="r"><code># left
 ggplot(data = mpg) + 
@@ -303,7 +303,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/geom-data-1.png" width="672" /></p>
 <div id="exercises-3" class="section level2">
-<h2>Exercises</h2>
+<h2>3.6.1 Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>What geom would you use to draw a line chart? A boxplot? A histogram? An area chart?</li>
 </ol>
@@ -392,7 +392,7 @@ ggplot(data = mpg) +
 </div>
 </div>
 <div id="statistical-transformations" class="section level1">
-<h1>Statistical Transformations</h1>
+<h1>3.7 Statistical Transformations</h1>
 <p>Several graphs plot the raw output of values in the dataset, however some graphs calculate new values for the plot, and the algorithm to produce these calculations is called the stat</p>
 <pre class="r"><code>ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut))</code></pre>
@@ -424,7 +424,7 @@ ggplot(data = demo) +
   )</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/stat-summary-1.png" width="672" /></p>
 <div id="exercises-4" class="section level2">
-<h2>Exercises</h2>
+<h2>3.7.1 Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>What is the default geom associated with stat_summary()? How could you rewrite the previous plot to use that geom function instead of the stat function?</li>
 </ol>
@@ -632,7 +632,7 @@ ggplot(data = demo) +
 </div>
 </div>
 <div id="position-adjustments" class="section level1">
-<h1>Position Adjustments</h1>
+<h1>3.8 Position Adjustments</h1>
 <p>There are several position options for a bar chart, by default they are stacked</p>
 <pre class="r"><code>ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, fill = clarity))</code></pre>
@@ -657,7 +657,7 @@ ggplot(data = demo) +
   geom_point(mapping = aes(x = displ, y = hwy), position = &quot;jitter&quot;)</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/jitter-1.png" width="672" /></p>
 <div id="exercises-5" class="section level2">
-<h2>Exercises</h2>
+<h2>3.8.1 Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>What is the problem with this plot? How could you improve it?</li>
 </ol>
@@ -690,7 +690,7 @@ ggplot(data = demo) +
 </div>
 </div>
 <div id="coordinate-systems" class="section level1">
-<h1>Coordinate Systems</h1>
+<h1>3.9 Coordinate Systems</h1>
 <p>Lots of other options beyond regular x, y Cartesian that can occasionally be useful</p>
 <p><code>coord_flip()</code> swaps x and y axis</p>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + 
@@ -725,7 +725,7 @@ bar + coord_flip()</code></pre>
 <pre class="r"><code>bar + coord_polar()</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/coord-polar-2.png" width="672" /></p>
 <div id="exercises-6" class="section level2">
-<h2>Exercises</h2>
+<h2>3.9.1 Exercises</h2>
 <ol style="list-style-type: decimal">
 <li>Turn a stacked bar chart into a pie chart using coord_polar()</li>
 </ol>
@@ -762,7 +762,7 @@ bar</code></pre>
 </div>
 </div>
 <div id="the-layered-grammar-of-graphics" class="section level1">
-<h1>The Layered Grammar of Graphics</h1>
+<h1>3.10 The Layered Grammar of Graphics</h1>
 <p>Now have a template for any ggplot</p>
 <pre><code>ggplot(data = &lt;DATA&gt;) + 
   &lt;GEOM_FUNCTION&gt;(
