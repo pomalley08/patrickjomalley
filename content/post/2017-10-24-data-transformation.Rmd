@@ -484,6 +484,125 @@ flights %>%
   arrange(desc(avg.delay))
 ```
 
+* Filtering out the destinations with high average delays doesn't have a large effect on the rankings. F9 (Frontier) is still the worst airline with an average delay of 21.9 minutes
+
+6. What does the sort argument to count() do. When might you use it?
+
+```{r count-sort}
+flights %>% 
+        count(dest, sort = TRUE)
+```
+
+* The results are automatically sorted into descending order
+
+# 5.7 Grouped Mutates (and Filters)
+
+Grouping is most useful in conjunction with `summarise()`, but you can also do convenient operations with `mutate()` and `filter()`
+
+
+## 5.7.1 Exercises
+
+1. Refer back to the lists of useful mutate and filtering functions. Describe how each operation changes when you combine it with grouping.  
+
+2. Which plane (tailnum) has the worst on-time record?
+
+```{r worst-on-time-tailnum}
+flights %>% 
+        group_by(tailnum) %>% 
+        summarise(avg.delay = mean(arr_delay, na.rm = TRUE), n = n()) %>% 
+        arrange(desc(avg.delay))
+```
+
+3. What time of day should you fly if you want to avoid delays as much as possible? 
+
+```{r best-time-of-day}
+flights_midnight %>% 
+        group_by(hour) %>% 
+        summarise(avg.delay = mean(arr_delay, na.rm = TRUE)) %>% 
+        arrange(avg.delay)
+```
+
+* Early morning flights are the best, between 5-7am.
+
+4. For each destination, compute the total minutes of delay. For each, flight, compute the proportion of the total delay for its destination.
+
+```{r dest-total-delay}
+flights %>% 
+        group_by(dest) %>% 
+        filter(arr_delay > 0) %>% 
+        mutate(tot.delay = sum(arr_delay),
+               prop.delay = arr_delay / tot.delay) %>% 
+        select(year:day, dest, arr_delay, tot.delay, prop.delay)
+```
+
+5. Delays are typically temporally correlated: even once the problem that caused the initial delay has been resolved, later flights are delayed to allow earlier flights to leave. Using lag() explore how the delay of a flight is related to the delay of the immediately preceding flight.
+
+```{r correlated-delays, warning=FALSE}
+flights_midnight %>% 
+        group_by(origin) %>% 
+        arrange(year, month, day, dep_time_min_mid) %>% 
+        filter(!is.na(dep_delay)) %>% 
+        mutate(prev.delay = lag(dep_delay)) %>% 
+        ggplot(aes(x = dep_delay, y = prev.delay)) +
+        geom_point() +
+        geom_smooth(method = "lm")
+```
+
+6. Look at each destination. Can you find flights that are suspiciously fast? (i.e. flights that represent a potential data entry error). Compute the air time a flight relative to the shortest flight to that destination. Which flights were most delayed in the air?
+
+```{r too-fast-flights}
+flights %>% 
+        group_by(dest) %>% 
+        mutate(avg.airtime = mean(air_time, na.rm = TRUE), std.airtime = scale(air_time), n = n()) %>% 
+        select(year:day, dest, air_time, avg.airtime, std.airtime, n) %>% 
+        filter(std.airtime < -4) %>% 
+        arrange(std.airtime)
+```
+
+7. Find all destinations that are flown by at least two carriers. Use that information to rank the carriers.
+
+* Rank by how many of the destinations a carrier flys to
+
+```{r flown-2-carriers}
+pop_dest <- flights %>% 
+        group_by(dest) %>% 
+        summarise(num.carrier = length(unique(carrier))) %>% 
+        filter(num.carrier >= 2) %>% 
+        arrange(desc(num.carrier))
+
+flights %>% 
+        filter(dest %in% pop_dest$dest) %>% 
+        group_by(carrier) %>% 
+        summarise(num.dests = length(unique(dest))) %>% 
+        arrange(desc(num.dests))
+```
+
+8. For each plane, count the number of flights before the first delay of greater than 1 hour.
+
+```{r count-flights-under-hour-delay}
+plane_dep <- flights_midnight %>% 
+        group_by(tailnum) %>%
+        filter(!is.na(tailnum), !is.na(dep_time)) %>% 
+        arrange(tailnum, year, month, day, dep_time_min_mid) 
+
+planes <- data.frame(tailnum = unique(flights$tailnum), count.to.hour = rep(0, length(unique(flights$tailnum))))
+
+for (i in 1:length(planes)) {
+        plane <- planes[i]
+        plane_temp <- plane_dep %>% filter(tailnum %in% plane)
+        k <- 0
+        for (j in 1:length(plane_temp)) {
+                if (plane_temp$arr_delay[j] > 60) {
+                        k <- k + 1
+                }
+                else {
+                        break
+                }
+        }
+        planes$count.to.hour[i] <- k
+}
+```
+
 
 
 
