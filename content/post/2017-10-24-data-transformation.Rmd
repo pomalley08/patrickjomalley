@@ -13,9 +13,8 @@ tags:
   - dplyr
 autoThumbnailImage: false
 thumbnailImage: /images/dplyr.png
-thumbnailImagePosition: "left"
-description: "This post covers the content and exercises for Ch 5: Data Transformation in **R for Data Science**"
-draft: false
+thumbnailImagePosition: left
+description: 'This post covers the content and exercises for Ch 5: Data Transformation in **R for Data Science**'
 ---
 
 This post covers the content and exercises for Ch 5: Data Transformation from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to transform data with dplyr.
