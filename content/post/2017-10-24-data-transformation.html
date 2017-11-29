@@ -41,6 +41,9 @@ draft: true
 <li><a href="#grouped-summaries-with-summarise">5.6 Grouped Summaries with <code>summarise()</code></a><ul>
 <li><a href="#exercises-4">5.6.7 Exercises</a></li>
 </ul></li>
+<li><a href="#grouped-mutates-and-filters">5.7 Grouped Mutates (and Filters)</a><ul>
+<li><a href="#exercises-5">5.7.1 Exercises</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -862,22 +865,306 @@ not_cancelled %&gt;% count(dest)</code></pre>
 ## 16      AS -9.9308886</code></pre>
 <pre class="r"><code>flights %&gt;% 
   group_by(dest) %&gt;% 
-  summarise(avg.delay = mean(arr_delay, na.rm = TRUE)) %&gt;% 
+  summarise(avg.delay = mean(arr_delay, na.rm = TRUE),
+            n = n()) %&gt;% 
   arrange(desc(avg.delay))</code></pre>
-<pre><code>## # A tibble: 105 x 2
-##     dest avg.delay
-##    &lt;chr&gt;     &lt;dbl&gt;
-##  1   CAE  41.76415
-##  2   TUL  33.65986
-##  3   OKC  30.61905
-##  4   JAC  28.09524
-##  5   TYS  24.06920
-##  6   MSN  20.19604
-##  7   RIC  20.11125
-##  8   CAK  19.69834
-##  9   DSM  19.00574
-## 10   GRR  18.18956
+<pre><code>## # A tibble: 105 x 3
+##     dest avg.delay     n
+##    &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;
+##  1   CAE  41.76415   116
+##  2   TUL  33.65986   315
+##  3   OKC  30.61905   346
+##  4   JAC  28.09524    25
+##  5   TYS  24.06920   631
+##  6   MSN  20.19604   572
+##  7   RIC  20.11125  2454
+##  8   CAK  19.69834   864
+##  9   DSM  19.00574   569
+## 10   GRR  18.18956   765
 ## # ... with 95 more rows</code></pre>
-<p><em>To Be Continued</em></p>
+<ul>
+<li>Average delays vary depending on the destination airport. I will attempt to separate airport effects by considering only destinations where each airline made a significant number of stops, and then randomly sample flights to hold the destination constant.</li>
+</ul>
+<pre class="r"><code>flights %&gt;% 
+        group_by(dest) %&gt;% 
+        summarise(num = length(unique(carrier))) %&gt;% 
+        arrange(desc(num))</code></pre>
+<pre><code>## # A tibble: 105 x 2
+##     dest   num
+##    &lt;chr&gt; &lt;int&gt;
+##  1   ATL     7
+##  2   BOS     7
+##  3   CLT     7
+##  4   ORD     7
+##  5   TPA     7
+##  6   AUS     6
+##  7   DCA     6
+##  8   DTW     6
+##  9   IAD     6
+## 10   MSP     6
+## # ... with 95 more rows</code></pre>
+<ul>
+<li>There are no airports that had flights from every carrier. Instead I will use only the destinations that had a low average delay so I can assume differences between destinations will be negligable.</li>
+</ul>
+<pre class="r"><code>low_delay_dests &lt;- flights %&gt;% 
+  group_by(dest) %&gt;% 
+  summarise(avg.delay = mean(arr_delay, na.rm = TRUE),
+            n = n()) %&gt;% 
+  filter(avg.delay &gt; -2 &amp; avg.delay &lt; 12)</code></pre>
+<ul>
+<li>Confirm all carriers are still in the data set</li>
+</ul>
+<pre class="r"><code>flights %&gt;% 
+        filter(dest %in% low_delay_dests$dest) %&gt;% 
+        count(carrier)</code></pre>
+<pre><code>## # A tibble: 16 x 2
+##    carrier     n
+##      &lt;chr&gt; &lt;int&gt;
+##  1      9E 14005
+##  2      AA 32426
+##  3      AS   714
+##  4      B6 53676
+##  5      DL 47991
+##  6      EV 32243
+##  7      F9   685
+##  8      FL  2337
+##  9      HA   342
+## 10      MQ 25861
+## 11      OO    31
+## 12      UA 57614
+## 13      US 20535
+## 14      VX  5143
+## 15      WN  6852
+## 16      YV   290</code></pre>
+<ul>
+<li>This leaves 71 destinations with low average delays. Now I can recheck the carriers average delays.</li>
+</ul>
+<pre class="r"><code># Results with all destinations
+flights %&gt;% 
+  group_by(carrier) %&gt;% 
+  summarise(avg.delay = mean(arr_delay, na.rm = TRUE),
+            n = n()) %&gt;% 
+  arrange(desc(avg.delay))</code></pre>
+<pre><code>## # A tibble: 16 x 3
+##    carrier  avg.delay     n
+##      &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;
+##  1      F9 21.9207048   685
+##  2      FL 20.1159055  3260
+##  3      EV 15.7964311 54173
+##  4      YV 15.5569853   601
+##  5      OO 11.9310345    32
+##  6      MQ 10.7747334 26397
+##  7      WN  9.6491199 12275
+##  8      B6  9.4579733 54635
+##  9      9E  7.3796692 18460
+## 10      UA  3.5580111 58665
+## 11      US  2.1295951 20536
+## 12      VX  1.7644644  5162
+## 13      DL  1.6443409 48110
+## 14      AA  0.3642909 32729
+## 15      HA -6.9152047   342
+## 16      AS -9.9308886   714</code></pre>
+<pre class="r"><code># Results filtered for low delay destinations
+flights %&gt;% 
+        filter(dest %in% low_delay_dests$dest) %&gt;% 
+  group_by(carrier) %&gt;% 
+  summarise(avg.delay = mean(arr_delay, na.rm = TRUE),
+            n = n()) %&gt;% 
+  arrange(desc(avg.delay))</code></pre>
+<pre><code>## # A tibble: 16 x 3
+##    carrier avg.delay     n
+##      &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;
+##  1      F9 21.920705   685
+##  2      FL 20.744513  2337
+##  3      EV 13.927878 32243
+##  4      OO 12.250000    31
+##  5      YV 12.045113   290
+##  6      MQ 10.558850 25861
+##  7      B6  9.401846 53676
+##  8      WN  8.494365  6852
+##  9      9E  8.007364 14005
+## 10      UA  3.725334 57614
+## 11      US  2.129595 20535
+## 12      VX  1.815614  5143
+## 13      DL  1.676433 47991
+## 14      AA  0.410510 32426
+## 15      HA -6.915205   342
+## 16      AS -9.930889   714</code></pre>
+<ul>
+<li>Filtering out the destinations with high average delays doesn’t have a large effect on the rankings. F9 (Frontier) is still the worst airline with an average delay of 21.9 minutes</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>What does the sort argument to count() do. When might you use it?</li>
+</ol>
+<pre class="r"><code>flights %&gt;% 
+        count(dest, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 105 x 2
+##     dest     n
+##    &lt;chr&gt; &lt;int&gt;
+##  1   ORD 17283
+##  2   ATL 17215
+##  3   LAX 16174
+##  4   BOS 15508
+##  5   MCO 14082
+##  6   CLT 14064
+##  7   SFO 13331
+##  8   FLL 12055
+##  9   MIA 11728
+## 10   DCA  9705
+## # ... with 95 more rows</code></pre>
+<ul>
+<li>The results are automatically sorted into descending order</li>
+</ul>
+</div>
+</div>
+<div id="grouped-mutates-and-filters" class="section level1">
+<h1>5.7 Grouped Mutates (and Filters)</h1>
+<p>Grouping is most useful in conjunction with <code>summarise()</code>, but you can also do convenient operations with <code>mutate()</code> and <code>filter()</code></p>
+<div id="exercises-5" class="section level2">
+<h2>5.7.1 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>Refer back to the lists of useful mutate and filtering functions. Describe how each operation changes when you combine it with grouping.</p></li>
+<li><p>Which plane (tailnum) has the worst on-time record?</p></li>
+</ol>
+<pre class="r"><code>flights %&gt;% 
+        group_by(tailnum) %&gt;% 
+        summarise(avg.delay = mean(arr_delay, na.rm = TRUE), n = n()) %&gt;% 
+        arrange(desc(avg.delay))</code></pre>
+<pre><code>## # A tibble: 4,044 x 3
+##    tailnum avg.delay     n
+##      &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt;
+##  1  N844MH  320.0000     1
+##  2  N911DA  294.0000     1
+##  3  N922EV  276.0000     1
+##  4  N587NW  264.0000     1
+##  5  N851NW  219.0000     1
+##  6  N928DN  201.0000     1
+##  7  N7715E  188.0000     1
+##  8  N654UA  185.0000     1
+##  9  N665MQ  174.6667     6
+## 10  N427SW  157.0000     1
+## # ... with 4,034 more rows</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>What time of day should you fly if you want to avoid delays as much as possible?</li>
+</ol>
+<pre class="r"><code>flights_midnight %&gt;% 
+        group_by(hour) %&gt;% 
+        summarise(avg.delay = mean(arr_delay, na.rm = TRUE)) %&gt;% 
+        arrange(avg.delay)</code></pre>
+<pre><code>## # A tibble: 20 x 2
+##     hour  avg.delay
+##    &lt;dbl&gt;      &lt;dbl&gt;
+##  1     7 -5.3044716
+##  2     5 -4.7969072
+##  3     6 -3.3844854
+##  4     9 -1.4514074
+##  5     8 -1.1132266
+##  6    10  0.9539401
+##  7    11  1.4819300
+##  8    12  3.4890104
+##  9    13  6.5447397
+## 10    14  9.1976501
+## 11    23 11.7552783
+## 12    15 12.3241920
+## 13    16 12.5976412
+## 14    18 14.7887244
+## 15    22 15.9671618
+## 16    17 16.0402670
+## 17    19 16.6558736
+## 18    20 16.6761098
+## 19    21 18.3869371
+## 20     1        NaN</code></pre>
+<ul>
+<li>Early morning flights are the best, between 5-7am.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>For each destination, compute the total minutes of delay. For each, flight, compute the proportion of the total delay for its destination.</li>
+</ol>
+<pre class="r"><code>flights %&gt;% 
+        group_by(dest) %&gt;% 
+        filter(arr_delay &gt; 0) %&gt;% 
+        mutate(tot.delay = sum(arr_delay),
+               prop.delay = arr_delay / tot.delay) %&gt;% 
+        select(year:day, dest, arr_delay, tot.delay, prop.delay)</code></pre>
+<pre><code>## # A tibble: 133,004 x 7
+## # Groups:   dest [103]
+##     year month   day  dest arr_delay tot.delay   prop.delay
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1  2013     1     1   IAH        11     99391 1.106740e-04
+##  2  2013     1     1   IAH        20     99391 2.012255e-04
+##  3  2013     1     1   MIA        33    140424 2.350026e-04
+##  4  2013     1     1   ORD        12    283046 4.239594e-05
+##  5  2013     1     1   FLL        19    202605 9.377853e-05
+##  6  2013     1     1   ORD         8    283046 2.826396e-05
+##  7  2013     1     1   LAX         7    203226 3.444441e-05
+##  8  2013     1     1   DFW        31    110009 2.817951e-04
+##  9  2013     1     1   ATL        12    300299 3.996017e-05
+## 10  2013     1     1   DTW        16    138258 1.157257e-04
+## # ... with 132,994 more rows</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Delays are typically temporally correlated: even once the problem that caused the initial delay has been resolved, later flights are delayed to allow earlier flights to leave. Using lag() explore how the delay of a flight is related to the delay of the immediately preceding flight.</li>
+</ol>
+<pre class="r"><code>flights_midnight %&gt;% 
+        group_by(origin) %&gt;% 
+        arrange(year, month, day, dep_time_min_mid) %&gt;% 
+        filter(!is.na(dep_delay)) %&gt;% 
+        mutate(prev.delay = lag(dep_delay)) %&gt;% 
+        ggplot(aes(x = dep_delay, y = prev.delay)) +
+        geom_point() +
+        geom_smooth(method = &quot;lm&quot;)</code></pre>
+<p><img src="/post/2017-10-24-data-transformation_files/figure-html/correlated-delays-1.png" width="672" /></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Look at each destination. Can you find flights that are suspiciously fast? (i.e. flights that represent a potential data entry error). Compute the air time a flight relative to the shortest flight to that destination. Which flights were most delayed in the air?</li>
+</ol>
+<pre class="r"><code>flights %&gt;% 
+        group_by(dest) %&gt;% 
+        mutate(avg.airtime = mean(air_time, na.rm = TRUE), std.airtime = scale(air_time), n = n()) %&gt;% 
+        select(year:day, dest, air_time, avg.airtime, std.airtime, n) %&gt;% 
+        filter(std.airtime &lt; -4) %&gt;% 
+        arrange(std.airtime)</code></pre>
+<pre><code>## # A tibble: 4 x 8
+## # Groups:   dest [4]
+##    year month   day  dest air_time avg.airtime std.airtime     n
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
+## 1  2013     7     2   MSP       93   150.57368   -4.899222  7185
+## 2  2013     5    25   ATL       65   112.93045   -4.884688 17215
+## 3  2013     5    13   GSP       55    93.39494   -4.722429   849
+## 4  2013     3    23   BNA       70   114.38215   -4.049143  6333</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>Find all destinations that are flown by at least two carriers. Use that information to rank the carriers.</li>
+</ol>
+<ul>
+<li>Rank by how many of the destinations a carrier flys to</li>
+</ul>
+<pre class="r"><code>pop_dest &lt;- flights %&gt;% 
+        group_by(dest) %&gt;% 
+        summarise(num.carrier = length(unique(carrier))) %&gt;% 
+        filter(num.carrier &gt;= 2) %&gt;% 
+        arrange(desc(num.carrier))
+
+flights %&gt;% 
+        filter(dest %in% pop_dest$dest) %&gt;% 
+        group_by(carrier) %&gt;% 
+        summarise(num.dests = length(unique(dest))) %&gt;% 
+        arrange(desc(num.dests))</code></pre>
+<pre><code>## # A tibble: 16 x 2
+##    carrier num.dests
+##      &lt;chr&gt;     &lt;int&gt;
+##  1      EV        51
+##  2      9E        48
+##  3      UA        42
+##  4      DL        39
+##  5      B6        35
+##  6      AA        19
+##  7      MQ        19
+##  8      WN        10
+##  9      OO         5
+## 10      US         5
+## 11      VX         4
+## 12      YV         3
+## 13      FL         2
+## 14      AS         1
+## 15      F9         1
+## 16      HA         1</code></pre>
 </div>
 </div>

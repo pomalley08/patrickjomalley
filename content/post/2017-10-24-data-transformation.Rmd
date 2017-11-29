@@ -15,7 +15,7 @@ autoThumbnailImage: false
 thumbnailImage: /images/dplyr.png
 thumbnailImagePosition: "left"
 description: "This post covers the content and exercises for Ch 5: Data Transformation in **R for Data Science**"
-draft: true
+draft: false
 ---
 
 This post covers the content and exercises for Ch 5: Data Transformation from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to transform data with dplyr.
@@ -577,37 +577,7 @@ flights %>%
         arrange(desc(num.dests))
 ```
 
-8. For each plane, count the number of flights before the first delay of greater than 1 hour.
 
-```{r count-flights-under-hour-delay}
-plane_dep <- flights_midnight %>% 
-        group_by(tailnum) %>%
-        filter(!is.na(tailnum), !is.na(dep_time)) %>% 
-        arrange(tailnum, year, month, day, dep_time_min_mid) 
-
-planes <- data.frame(tailnum = unique(flights$tailnum), count.to.hour = rep(0, length(unique(flights$tailnum))))
-
-for (i in 1:length(planes)) {
-        plane <- planes[i]
-        plane_temp <- plane_dep %>% filter(tailnum %in% plane)
-        k <- 0
-        for (j in 1:length(plane_temp)) {
-                if (plane_temp$arr_delay[j] > 60) {
-                        k <- k + 1
-                }
-                else {
-                        break
-                }
-        }
-        planes$count.to.hour[i] <- k
-}
-```
-
-
-
-
-
-*To Be Continued*
 
 
 
