@@ -1,0 +1,113 @@
+---
+title: 10 Tibbles - R for Data Science
+author: Patrick O'Malley
+date: '2017-11-29'
+categories:
+  - R for Data Science
+tags:
+  - R
+output:
+  blogdown::html_page:
+    toc: true
+slug: tibbles
+autoThumbnailImage: no
+thumbnailImage: /images/tibble.png
+thumbnailImagePosition: left
+description: 'This post covers the content and exercises for Ch 10: Tibbles in **R for Data Science**'
+---
+
+This post covers the content and exercises for Ch 10: Tibbles from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to use the tidyverse version of data frames called tibbles.
+
+## 10.5 Exercises
+
+```{r libraries}
+library(tidyverse)
+```
+
+1. How can you tell if an object is a tibble? (Hint: try printing mtcars, which is a regular data frame). 
+
+
+```{r identify-tibble}
+mtcars
+
+as_tibble(mtcars)
+```
+
+* One indication is that the rownames are removed from tibbles. When printing to the console it is obvious since the variable classes are displayed under the variable names.  
+
+2. Compare and contrast the following operations on a data.frame and equivalent tibble. What is different? Why might the default data frame behaviours cause you frustration?  
+
+```{r compare-tibbles}
+df <- data.frame(abc = 1, xyz = "a")
+df$x
+df[, "xyz"]
+df[, c("abc", "xyz")]
+
+df <- tibble(abc = 1, xyz = "a")
+df$x
+df[, "xyz"]
+df[, c("abc", "xyz")]
+```
+
+* data.frame allows for the partial matching from `$x` to `xyz`
+* data.frame converts the text to a factor
+* data.frame returns a vector when selecting a single column, while tibble maintains the information in a data frame
+
+3. If you have the name of a variable stored in an object, e.g. var <- "mpg", how can you extract the reference variable from a tibble?  
+
+```{r ref-variable}
+var <- "mpg"
+mtcars[[var]]
+```
+
+4. Practice referring to non-syntactic names in the following data frame by:
+
+    1. Extracting the variable called 1.
+
+    2. Plotting a scatterplot of 1 vs 2.
+
+    3. Creating a new column called 3 which is 2 divided by 1.
+
+    4. Renaming the columns to one, two and three.
+
+```{r non-syntactic}
+annoying <- tibble(
+  `1` = 1:10,
+  `2` = `1` * 2 + rnorm(length(`1`))
+)
+
+# 1
+annoying$`1`
+
+# 2
+annoying %>% 
+        ggplot(aes(x = `1`, y = `2`)) +
+        geom_point()
+
+# 3
+annoying$`3` <- with(annoying, `2` / `1`)
+annoying$`3`
+
+# 4
+(annoying <- rename(annoying, one = `1`, two = `2`, three = `3`))
+```
+
+5. What does tibble::enframe() do? When might you use it?  
+
+```{r enframe}
+enframe(1:3)
+c(a = 5, b = 7)
+enframe(c(a = 5, b = 7))
+
+```
+
+* converts named vectors to data frames
+
+6. What option controls how many additional column names are printed at the footer of a tibble?  
+```{r option-columns}
+print(as_tibble(mtcars), n_extra = 1)
+```
+
+
+
+

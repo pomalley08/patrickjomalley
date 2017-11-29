@@ -1,0 +1,220 @@
+---
+title: 10 Tibbles - R for Data Science
+author: Patrick O'Malley
+date: '2017-11-29'
+categories:
+  - R for Data Science
+tags:
+  - R
+output:
+  blogdown::html_page:
+    toc: true
+slug: tibbles
+autoThumbnailImage: no
+thumbnailImage: /images/tibble.png
+thumbnailImagePosition: left
+description: 'This post covers the content and exercises for Ch 10: Tibbles in **R for Data Science**'
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#exercises">10.5 Exercises</a></li>
+</ul>
+</div>
+
+<p>This post covers the content and exercises for Ch 10: Tibbles from <a href="http://r4ds.had.co.nz/"><strong>R for Data Science</strong></a>. The chapter teaches how to use the tidyverse version of data frames called tibbles.</p>
+<div id="exercises" class="section level2">
+<h2>10.5 Exercises</h2>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Loading tidyverse: ggplot2
+## Loading tidyverse: tibble
+## Loading tidyverse: tidyr
+## Loading tidyverse: readr
+## Loading tidyverse: purrr
+## Loading tidyverse: dplyr</code></pre>
+<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.4.2</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.2</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.4.2</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.4.2</code></pre>
+<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
+<pre><code>## filter(): dplyr, stats
+## lag():    dplyr, stats</code></pre>
+<ol style="list-style-type: decimal">
+<li>How can you tell if an object is a tibble? (Hint: try printing mtcars, which is a regular data frame).</li>
+</ol>
+<pre class="r"><code>mtcars</code></pre>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<pre class="r"><code>as_tibble(mtcars)</code></pre>
+<pre><code>## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##  * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21.0     6 160.0   110  3.90 2.620 16.46     0     1     4     4
+##  2  21.0     6 160.0   110  3.90 2.875 17.02     0     1     4     4
+##  3  22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
+##  4  21.4     6 258.0   110  3.08 3.215 19.44     1     0     3     1
+##  5  18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
+##  6  18.1     6 225.0   105  2.76 3.460 20.22     1     0     3     1
+##  7  14.3     8 360.0   245  3.21 3.570 15.84     0     0     3     4
+##  8  24.4     4 146.7    62  3.69 3.190 20.00     1     0     4     2
+##  9  22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
+## 10  19.2     6 167.6   123  3.92 3.440 18.30     1     0     4     4
+## # ... with 22 more rows</code></pre>
+<ul>
+<li>One indication is that the rownames are removed from tibbles. When printing to the console it is obvious since the variable classes are displayed under the variable names.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Compare and contrast the following operations on a data.frame and equivalent tibble. What is different? Why might the default data frame behaviours cause you frustration?</li>
+</ol>
+<pre class="r"><code>df &lt;- data.frame(abc = 1, xyz = &quot;a&quot;)
+df$x</code></pre>
+<pre><code>## [1] a
+## Levels: a</code></pre>
+<pre class="r"><code>df[, &quot;xyz&quot;]</code></pre>
+<pre><code>## [1] a
+## Levels: a</code></pre>
+<pre class="r"><code>df[, c(&quot;abc&quot;, &quot;xyz&quot;)]</code></pre>
+<pre><code>##   abc xyz
+## 1   1   a</code></pre>
+<pre class="r"><code>df &lt;- tibble(abc = 1, xyz = &quot;a&quot;)
+df$x</code></pre>
+<pre><code>## Warning: Unknown or uninitialised column: &#39;x&#39;.</code></pre>
+<pre><code>## NULL</code></pre>
+<pre class="r"><code>df[, &quot;xyz&quot;]</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##     xyz
+##   &lt;chr&gt;
+## 1     a</code></pre>
+<pre class="r"><code>df[, c(&quot;abc&quot;, &quot;xyz&quot;)]</code></pre>
+<pre><code>## # A tibble: 1 x 2
+##     abc   xyz
+##   &lt;dbl&gt; &lt;chr&gt;
+## 1     1     a</code></pre>
+<ul>
+<li>data.frame allows for the partial matching from <code>$x</code> to <code>xyz</code></li>
+<li>data.frame converts the text to a factor</li>
+<li>data.frame returns a vector when selecting a single column, while tibble maintains the information in a data frame</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>If you have the name of a variable stored in an object, e.g. var &lt;- “mpg”, how can you extract the reference variable from a tibble?</li>
+</ol>
+<pre class="r"><code>var &lt;- &quot;mpg&quot;
+mtcars[[var]]</code></pre>
+<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2
+## [15] 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4
+## [29] 15.8 19.7 15.0 21.4</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Practice referring to non-syntactic names in the following data frame by:</p>
+<ol style="list-style-type: decimal">
+<li><p>Extracting the variable called 1.</p></li>
+<li><p>Plotting a scatterplot of 1 vs 2.</p></li>
+<li><p>Creating a new column called 3 which is 2 divided by 1.</p></li>
+<li><p>Renaming the columns to one, two and three.</p></li>
+</ol></li>
+</ol>
+<pre class="r"><code>annoying &lt;- tibble(
+  `1` = 1:10,
+  `2` = `1` * 2 + rnorm(length(`1`))
+)
+
+# 1
+annoying$`1`</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code># 2
+annoying %&gt;% 
+        ggplot(aes(x = `1`, y = `2`)) +
+        geom_point()</code></pre>
+<p><img src="/post/2017-11-29-tibbles_files/figure-html/non-syntactic-1.png" width="672" /></p>
+<pre class="r"><code># 3
+annoying$`3` &lt;- with(annoying, `2` / `1`)
+annoying$`3`</code></pre>
+<pre><code>##  [1] 2.430725 1.269464 1.735472 1.743951 2.008373 2.177681 2.043334
+##  [8] 2.006540 1.843430 2.024131</code></pre>
+<pre class="r"><code># 4
+(annoying &lt;- rename(annoying, one = `1`, two = `2`, three = `3`))</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##      one       two    three
+##    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+##  1     1  2.430725 2.430725
+##  2     2  2.538928 1.269464
+##  3     3  5.206415 1.735472
+##  4     4  6.975805 1.743951
+##  5     5 10.041863 2.008373
+##  6     6 13.066083 2.177681
+##  7     7 14.303339 2.043334
+##  8     8 16.052323 2.006540
+##  9     9 16.590871 1.843430
+## 10    10 20.241313 2.024131</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>What does tibble::enframe() do? When might you use it?</li>
+</ol>
+<pre class="r"><code>enframe(1:3)</code></pre>
+<pre><code>## # A tibble: 3 x 2
+##    name value
+##   &lt;int&gt; &lt;int&gt;
+## 1     1     1
+## 2     2     2
+## 3     3     3</code></pre>
+<pre class="r"><code>c(a = 5, b = 7)</code></pre>
+<pre><code>## a b 
+## 5 7</code></pre>
+<pre class="r"><code>enframe(c(a = 5, b = 7))</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##    name value
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1     a     5
+## 2     b     7</code></pre>
+<ul>
+<li>converts named vectors to data frames</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>What option controls how many additional column names are printed at the footer of a tibble?</li>
+</ol>
+<pre class="r"><code>print(as_tibble(mtcars), n_extra = 1)</code></pre>
+<pre><code>## # A tibble: 32 x 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##  * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21.0     6 160.0   110  3.90 2.620 16.46     0     1     4     4
+##  2  21.0     6 160.0   110  3.90 2.875 17.02     0     1     4     4
+##  3  22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
+##  4  21.4     6 258.0   110  3.08 3.215 19.44     1     0     3     1
+##  5  18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
+##  6  18.1     6 225.0   105  2.76 3.460 20.22     1     0     3     1
+##  7  14.3     8 360.0   245  3.21 3.570 15.84     0     0     3     4
+##  8  24.4     4 146.7    62  3.69 3.190 20.00     1     0     4     2
+##  9  22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
+## 10  19.2     6 167.6   123  3.92 3.440 18.30     1     0     4     4
+## # ... with 22 more rows</code></pre>
+</div>
