@@ -1,0 +1,92 @@
+---
+title: 11 Data Import - R for Data Science
+author: Patrick O'Malley
+date: '2017-11-30'
+categories:
+  - R for Data Science
+tags:
+  - R
+output:
+  blogdown::html_page:
+    toc: true
+slug: data-import
+autoThumbnailImage: no
+thumbnailImage: /images/tibble.png
+thumbnailImagePosition: left
+description: 'This post covers the content and exercises for Ch 11: Data Import in **R for Data Science**'
+draft: true
+---
+
+This post covers the content and exercises for Ch 11: Data Import from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to read in plain text files of data.
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+# 11.2 Getting started
+
+Using {readr} to load text files.
+
+## 11.2.2 Exercises
+
+1. What function would you use to read a file where fields were separated with
+"|"?  
+
+* `read_delim()`
+
+2. Apart from file, skip, and comment, what other arguments do read_csv() and read_tsv() have in common?  
+
+* col_names
+* col_types
+* locale
+* na
+* quoted_na
+* quote
+* trim_ws
+* n_max
+* guess_max
+* progress
+
+3. What are the most important arguments to read_fwf()?  
+
+* file
+* col_positions
+
+4. Sometimes strings in a CSV file contain commas. To prevent them from causing problems they need to be surrounded by a quoting character, like " or '. By convention, read_csv() assumes that the quoting character will be ", and if you want to change it you'll need to use read_delim() instead. What arguments do you need to specify to read the following text into a data frame?  
+
+`"x,y\n1,'a,b'"`  
+
+```{r read-text}
+(text <- read_csv("x,y\n1,'a,b'", quote = "'"))
+```
+
+5. Identify what is wrong with each of the following inline CSV files. What happens when you run the code?  
+
+```{r fix-code-1}
+# only 2 column names
+# drop last column
+read_csv("a,b\n1,2,3\n4,5,6")
+```
+
+```{r fix-code-2}
+# 3 col names, 1st row has two obs, 2nd row has 4 obs
+# add NA to 1st row, drop 4th col from 2nd row
+read_csv("a,b,c\n1,2\n1,2,3,4")
+```
+
+```{r fix-code-3}
+# 2 col names, 1st row has one obs
+# add NA to 1st row
+read_csv("a,b\n\"1")
+```
+
+```{r fix-code-4}
+# a and b are coerced to character since they contain text
+read_csv("a,b\n1,2\na,b")
+```
+
+```{r fix-code-5}
+# should use read_delim
+read_delim("a;b\n1;3", delim = ";")
+```
+
