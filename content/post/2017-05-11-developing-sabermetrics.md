@@ -75,4 +75,6 @@ The final team comparison is shown below. The teams are listed in order of their
 
 The metric performed reasonably well at the extremes with some surprises, but had more trouble on the teams in the middle of the table. This result makes sense since many teams were close to the average, and a small difference in the metrics could result in a large difference in the expected position.
 
+Obviously there is a lot of room for improvement with these metrics, but this was a great project to practice statistical analysis and visualization skills using the R programming language. If I were to try to improve the metrics I would love do a deeper dive to see what stats are correlated with greater team wins for each position and reweight the metrics based on that knowledge. Also I didn't get to incorporate the play-by-play data which would be interesting to explore as well.
+
 Code used for this analysis can be found here: [GitHub Repo](https://github.com/pomalley08/Sabermetrics)
