@@ -90,3 +90,33 @@ read_csv("a,b\n1,2\na,b")
 read_delim("a;b\n1;3", delim = ";")
 ```
 
+# 11.3 Parsing a vector
+
+## 11.3.5 Exercises
+
+1. What are the most important arguments to `locale()`?
+
+```{r locale}
+#?locale()
+```
+
+2. What happens if you try and set decimal_mark and grouping_mark to the same character? What happens to the default value of grouping_mark when you set decimal_mark to ","? What happens to the default value of decimal_mark when you set the grouping_mark to "."?
+
+```{r locale-practice, error=TRUE}
+locale(decimal_mark = ",", grouping_mark = ",")
+# error occurs
+
+locale(decimal_mark = ",")
+# default gouping mark changed to "."
+
+locale(grouping_mark = ".")
+# default decimal mark changed to ","
+```
+
+3. I didn't discuss the date_format and time_format options to locale(). What do they do? Construct an example that shows when they might be useful.
+
+```{r date-format}
+
+parse_datetime("01122017", locale = locale(date_format = "%d%m%Y", time_format = "%H/%M/%S"))
+```
+
