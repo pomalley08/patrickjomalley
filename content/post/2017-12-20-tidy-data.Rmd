@@ -1,0 +1,76 @@
+---
+title: 12 Tidy Data - R for Data Science
+author: Patrick O'Malley
+date: '2017-12-20'
+categories:
+  - R for Data Science
+tags:
+  - R
+  - tidyr
+output:
+  blogdown::html_page:
+    toc: true
+slug: tidy-data
+autoThumbnailImage: no
+thumbnailImage: /images/data_import.png
+thumbnailImagePosition: left
+description: 'This post covers the content and exercises for Ch 12: Tidy Data in **R for Data Science**'
+draft: true
+---
+
+This post covers the content and exercises for Ch 12: Tidy Data from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to apply the organizational structure of tidy data to achieve a consistent format for data.
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+# 12.2 Tidy data
+
+The concept of tidy data allows for a consistent format for data. The simple practical instruction for achieving tidy data are:
+1. Put each dataset in a tibble.
+2. Put each variable in a column.
+
+## 12.2.1 Exercises
+
+1. Using prose, describe how the variables and observations are organised in each of the sample tables.  
+
+```{r table1}
+# table1
+# > # A tibble: 6 × 4
+# >       country  year  cases population
+# >         <chr> <int>  <int>      <int>
+# > 1 Afghanistan  1999    745   19987071
+# > 2 Afghanistan  2000   2666   20595360
+# > 3      Brazil  1999  37737  172006362
+# > 4      Brazil  2000  80488  174504898
+# > 5       China  1999 212258 1272915272
+# > 6       China  2000 213766 1280428583
+```
+
+* `table1` is in tidy format. The 4 variables are the columns and each observation is a row.
+
+```{r table2}
+# table2
+#> # A tibble: 12 × 4
+#>       country  year       type     count
+#>         <chr> <int>      <chr>     <int>
+#> 1 Afghanistan  1999      cases       745
+#> 2 Afghanistan  1999 population  19987071
+#> 3 Afghanistan  2000      cases      2666
+#> 4 Afghanistan  2000 population  20595360
+#> 5      Brazil  1999      cases     37737
+#> 6      Brazil  1999 population 172006362
+#> # ... with 6 more rows
+```
+
+* `table2` has two variables combined into a single variable `type`. This means there are twice as many observations as with the tidy data.
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+---
+title: 12 Tidy Data - R for Data Science
+author: Patrick O'Malley
+date: '2017-12-20'
+categories:
+  - R for Data Science
+tags:
+  - R
+  - tidyr
+output:
+  blogdown::html_page:
+    toc: true
+slug: tidy-data
+autoThumbnailImage: no
+thumbnailImage: /images/data_import.png
+thumbnailImagePosition: left
+description: 'This post covers the content and exercises for Ch 12: Tidy Data in **R for Data Science**'
+draft: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#tidy-data">12.2 Tidy data</a><ul>
+<li><a href="#exercises">12.2.1 Exercises</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>This post covers the content and exercises for Ch 12: Tidy Data from <a href="http://r4ds.had.co.nz/"><strong>R for Data Science</strong></a>. The chapter teaches how to apply the organizational structure of tidy data to achieve a consistent format for data.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<div id="tidy-data" class="section level1">
+<h1>12.2 Tidy data</h1>
+<p>The concept of tidy data allows for a consistent format for data. The simple practical instruction for achieving tidy data are: 1. Put each dataset in a tibble. 2. Put each variable in a column.</p>
+<div id="exercises" class="section level2">
+<h2>12.2.1 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Using prose, describe how the variables and observations are organised in each of the sample tables.</li>
+</ol>
+<pre class="r"><code># table1
+# &gt; # A tibble: 6 × 4
+# &gt;       country  year  cases population
+# &gt;         &lt;chr&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+# &gt; 1 Afghanistan  1999    745   19987071
+# &gt; 2 Afghanistan  2000   2666   20595360
+# &gt; 3      Brazil  1999  37737  172006362
+# &gt; 4      Brazil  2000  80488  174504898
+# &gt; 5       China  1999 212258 1272915272
+# &gt; 6       China  2000 213766 1280428583</code></pre>
+</div>
+</div>
