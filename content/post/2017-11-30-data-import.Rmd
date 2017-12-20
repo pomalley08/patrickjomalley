@@ -14,7 +14,6 @@ autoThumbnailImage: no
 thumbnailImage: /images/tibble.png
 thumbnailImagePosition: left
 description: 'This post covers the content and exercises for Ch 11: Data Import in **R for Data Science**'
-draft: true
 ---
 
 This post covers the content and exercises for Ch 11: Data Import from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to read in plain text files of data.
@@ -115,8 +114,49 @@ locale(grouping_mark = ".")
 
 3. I didn't discuss the date_format and time_format options to locale(). What do they do? Construct an example that shows when they might be useful.
 
+* From the readr vignette, `time_format` currently isn't used but `date_format` is used to specify the format of the dates in the data
+
 ```{r date-format}
 
-parse_datetime("01122017", locale = locale(date_format = "%d%m%Y", time_format = "%H/%M/%S"))
+parse_guess("01/12/2017", locale = locale(date_format = "%d/%m/%Y"))
+```
+
+4. If you live outside the US, create a new locale object that encapsulates the settings for the types of file you read most commonly.  
+
+* Luckily I'm in the US
+
+5. What's the difference between read_csv() and read_csv2()?  
+
+* The difference is in the default delimeter.
+* `read_csv()` uses a comma
+* `read_csv2()` uses a semicolon
+
+6 What are the most common encodings used in Europe? What are the most common encodings used in Asia? Do some googling to find out.  
+
+* UTF-8 has been the dominant character encoding for the World Wide Web since 2009, and as of November 2017 accounts for 90.3% of all Web pages.  
+
+7. Generate the correct format string to parse each of the following dates and times:  
+
+```{r parse-dates-and-times}
+d1 <- "January 1, 2010"
+parse_date(d1, format = "%B %d, %Y")
+
+d2 <- "2015-Mar-07"
+parse_date(d2, format = "%Y-%b-%d")
+
+d3 <- "06-Jun-2017"
+parse_date(d3, format = "%d-%b-%Y")
+
+d4 <- c("August 19 (2015)", "July 1 (2015)")
+parse_date(d4, format = "%B %d (%Y)")
+
+d5 <- "12/30/14" # Dec 30, 2014
+parse_date(d5, format = "%m/%d/%y")
+
+t1 <- "1705"
+parse_time(t1, format = "%H%M")
+
+t2 <- "11:15:10.12 PM"
+parse_time(t2, format = "%I:%M:%OS %p")
 ```
 
