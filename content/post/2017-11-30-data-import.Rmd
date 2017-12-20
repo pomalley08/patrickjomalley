@@ -11,7 +11,7 @@ output:
     toc: true
 slug: data-import
 autoThumbnailImage: no
-thumbnailImage: /images/tibble.png
+thumbnailImage: /images/data_import.png
 thumbnailImagePosition: left
 description: 'This post covers the content and exercises for Ch 11: Data Import in **R for Data Science**'
 ---
