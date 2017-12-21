@@ -36,7 +36,7 @@ The concept of tidy data allows for a consistent format for data. The simple pra
 
 ```{r table1}
 # table1
-# > # A tibble: 6 × 4
+# > # A tibble: 6 x 4
 # >       country  year  cases population
 # >         <chr> <int>  <int>      <int>
 # > 1 Afghanistan  1999    745   19987071
@@ -51,7 +51,7 @@ The concept of tidy data allows for a consistent format for data. The simple pra
 
 ```{r table2}
 # table2
-#> # A tibble: 12 × 4
+#> # A tibble: 12 x 4
 #>       country  year       type     count
 #>         <chr> <int>      <chr>     <int>
 #> 1 Afghanistan  1999      cases       745
@@ -67,7 +67,7 @@ The concept of tidy data allows for a consistent format for data. The simple pra
 
 ```{r table3}
 # table3
-#> # A tibble: 6 × 3
+#> # A tibble: 6 x 3
 #>       country  year              rate
 #> *       <chr> <int>             <chr>
 #> 1 Afghanistan  1999      745/19987071
@@ -83,14 +83,14 @@ The concept of tidy data allows for a consistent format for data. The simple pra
 ```{r table4}
 # Spread across two tibbles
 # table4a  # cases
-#> # A tibble: 3 × 3
+#> # A tibble: 3 x 3
 #>       country `1999` `2000`
 #> *       <chr>  <int>  <int>
 #> 1 Afghanistan    745   2666
 #> 2      Brazil  37737  80488
 #> 3       China 212258 213766
 # table4b  # population
-#> # A tibble: 3 × 3
+#> # A tibble: 3 x 3
 #>       country     `1999`     `2000`
 #> *       <chr>      <int>      <int>
 #> 1 Afghanistan   19987071   20595360
@@ -256,11 +256,133 @@ preg %>%
 tibble(x = c("a,b,c", "d,e,f,g", "h,i,j")) %>% 
   separate(x, c("one", "two", "three"))
 
+tibble(x = c("a,b,c", "d,e,f,g", "h,i,j")) %>% 
+  separate(x, c("one", "two", "three"), extra = "drop")
+
+tibble(x = c("a,b,c", "d,e,f,g", "h,i,j")) %>% 
+  separate(x, c("one", "two", "three"), extra = "merge")
+
 tibble(x = c("a,b,c", "d,e", "f,g,i")) %>% 
   separate(x, c("one", "two", "three"))
+
+tibble(x = c("a,b,c", "d,e", "f,g,i")) %>% 
+  separate(x, c("one", "two", "three"), fill = "right")
+
+tibble(x = c("a,b,c", "d,e", "f,g,i")) %>% 
+  separate(x, c("one", "two", "three"), fill = "left")
+```
+
+* They control the behavior for when a vector has too many or too few pieces.  
+
+2. Both unite() and separate() have a remove argument. What does it do? Why would you set it to FALSE?  
+
+* It removes the original column that was modified. Setting to `FALSE` would allow you to keep the original variable in the data.  
+
+3. Compare and contrast separate() and extract(). Why are there three variations of separation (by position, by separator, and with groups), but only one unite?  
+
+* `extract()` separates on a defined regex.  There is only one variation for `unite()` since the columns are already specified and it only requires a separator to be defined. When separating it is more ambiguous so more options are required to cover possibilities.  
+
+# 12.5 Missing values
+
+Can be:  
+* Explicit: flagged with `NA`
+* Implicit: not present in data  
+
+## 12.5.1 Exercises
+
+1. Compare and contrast the fill arguments to spread() and complete().  
+
+* `spread()` will replace `NA` with whatever is specified in `fill`
+
+* `complete()` A named list that for each variable supplies a single value to use instead of NA for missing combinations. Like with `spread()` if specified will replace both explicit and implicit `NA`  
+
+2. What does the direction argument to fill() do?  
+
+* Changes which direction to use for the previous entry, default to down.  
+
+# 12.6 Case Study
+
+```{r who-data}
+who
+(who1 <- who %>% 
+        gather(new_sp_m014:newrel_f65, key = "key", value = "cases", na.rm = TRUE))
+```
+
+```{r who2}
+(who2 <- who1 %>% 
+  mutate(key = stringr::str_replace(key, "newrel", "new_rel")))
+```
+
+```{r who3}
+(who3 <- who2 %>% 
+  separate(key, c("new", "type", "sexage"), sep = "_"))
+```
+
+```{r who4}
+(who4 <- who3 %>% 
+  select(-new, -iso2, -iso3))
+```
+
+```{r who5}
+(who5 <- who4 %>% 
+  separate(sexage, c("sex", "age"), sep = 1))
+```
+
+## 12.6.1 Exercises
+
+1. In this case study I set na.rm = TRUE just to make it easier to check that we had the correct values. Is this reasonable? Think about how missing values are represented in this dataset. Are there implicit missing values? What’s the difference between an NA and zero?  
+
+* In this data `NA` is assigned to values when there wasn't a recording for that case in a particular year.  A 0 is assigned if the data was recorded but there were no cases. Since there are no implicit missing values it is okay to drop `NA`.
+
+```{r count-years}
+who %>% 
+        count(country) %>% 
+        arrange(n) 
+
+who %>% 
+        filter(country %in% c("South Sudan",
+                              "Bonaire, Saint Eustatius and Saba"))
+```
+
+2. What happens if you neglect the mutate() step? (mutate(key = stringr::str_replace(key, "newrel", "new_rel")))  
+
+* It doesn't know to separate the values stored as `newrel` and ends up giving a too few values warning.  
+
+```{r skip-mutate}
+who %>%
+  gather(code, value, new_sp_m014:newrel_f65, na.rm = TRUE) %>% 
+  separate(code, c("new", "var", "sexage")) %>% 
+  select(-new, -iso2, -iso3) %>% 
+  separate(sexage, c("sex", "age"), sep = 1)
+```
+
+3. I claimed that iso2 and iso3 were redundant with country. Confirm this claim.  
+
+* There are no additional rows when adding the iso variables to the grouping.
+
+```{r confirm-iso-claim}
+who %>% 
+        count(country)
+
+who %>% 
+        count(country, iso2, iso3)
+```
+
+4. For each country, year, and sex compute the total number of cases of TB. Make an informative visualisation of the data.  
+
+```{r}
+who5 %>% 
+        filter(year < 1998) %>% 
+        count(country)
 ```
 
 
+```{r visualize-cases}
+who5 %>% 
+        filter(sex %in% "f") %>% 
+        ggplot(aes(x = year, y = country)) +
+        geom_tile(aes(fill = cases)) 
+```
 
 
 
