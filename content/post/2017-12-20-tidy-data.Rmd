@@ -383,5 +383,5 @@ who5 %>%
         geom_tile(aes(fill = cases)) 
 ```
 
-
+Not actually an informative visualization yet.
 
