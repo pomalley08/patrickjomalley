@@ -1,0 +1,681 @@
+---
+title: 12 Tidy Data - R for Data Science
+author: Patrick O'Malley
+date: '2017-12-20'
+categories:
+  - R for Data Science
+tags:
+  - R
+  - tidyr
+output:
+  blogdown::html_page:
+    toc: true
+slug: tidy-data
+autoThumbnailImage: no
+thumbnailImage: /images/tidy.png
+thumbnailImagePosition: left
+description: 'This post covers the content and exercises for Ch 12: Tidy Data in **R for Data Science**'
+draft: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#tidy-data">12.2 Tidy data</a><ul>
+<li><a href="#exercises">12.2.1 Exercises</a></li>
+</ul></li>
+<li><a href="#spreading-and-gathering">12.3 Spreading and gathering</a><ul>
+<li><a href="#exercises-1">12.3.3 Exercises</a></li>
+</ul></li>
+<li><a href="#separating-and-uniting">12.4 Separating and uniting</a><ul>
+<li><a href="#exercises-2">12.4.3 Exercises</a></li>
+</ul></li>
+<li><a href="#missing-values">12.5 Missing values</a><ul>
+<li><a href="#exercises-3">12.5.1 Exercises</a></li>
+</ul></li>
+<li><a href="#case-study">12.6 Case Study</a><ul>
+<li><a href="#exercises-4">12.6.1 Exercises</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>This post covers the content and exercises for Ch 12: Tidy Data from <a href="http://r4ds.had.co.nz/"><strong>R for Data Science</strong></a>. The chapter teaches how to apply the organizational structure of tidy data to achieve a consistent format for data.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<div id="tidy-data" class="section level1">
+<h1>12.2 Tidy data</h1>
+<p>The concept of tidy data allows for a consistent format for data. The simple practical instruction for achieving tidy data are: 1. Put each dataset in a tibble. 2. Put each variable in a column.</p>
+<div id="exercises" class="section level2">
+<h2>12.2.1 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Using prose, describe how the variables and observations are organised in each of the sample tables.</li>
+</ol>
+<pre class="r"><code># table1
+# &gt; # A tibble: 6 x 4
+# &gt;       country  year  cases population
+# &gt;         &lt;chr&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+# &gt; 1 Afghanistan  1999    745   19987071
+# &gt; 2 Afghanistan  2000   2666   20595360
+# &gt; 3      Brazil  1999  37737  172006362
+# &gt; 4      Brazil  2000  80488  174504898
+# &gt; 5       China  1999 212258 1272915272
+# &gt; 6       China  2000 213766 1280428583</code></pre>
+<ul>
+<li><code>table1</code> is in tidy format. The 4 variables are the columns and each observation is a row.</li>
+</ul>
+<pre class="r"><code># table2
+#&gt; # A tibble: 12 x 4
+#&gt;       country  year       type     count
+#&gt;         &lt;chr&gt; &lt;int&gt;      &lt;chr&gt;     &lt;int&gt;
+#&gt; 1 Afghanistan  1999      cases       745
+#&gt; 2 Afghanistan  1999 population  19987071
+#&gt; 3 Afghanistan  2000      cases      2666
+#&gt; 4 Afghanistan  2000 population  20595360
+#&gt; 5      Brazil  1999      cases     37737
+#&gt; 6      Brazil  1999 population 172006362
+#&gt; # ... with 6 more rows</code></pre>
+<ul>
+<li><code>table2</code> has two variables combined into a single variable <code>type</code>. This means there are twice as many observations as with the tidy data.</li>
+</ul>
+<pre class="r"><code># table3
+#&gt; # A tibble: 6 x 3
+#&gt;       country  year              rate
+#&gt; *       &lt;chr&gt; &lt;int&gt;             &lt;chr&gt;
+#&gt; 1 Afghanistan  1999      745/19987071
+#&gt; 2 Afghanistan  2000     2666/20595360
+#&gt; 3      Brazil  1999   37737/172006362
+#&gt; 4      Brazil  2000   80488/174504898
+#&gt; 5       China  1999 212258/1272915272
+#&gt; 6       China  2000 213766/1280428583</code></pre>
+<ul>
+<li><code>table3</code> combines the <code>count</code> variable into <code>rate</code> and stores it as a character to maintain to two values for <code>cases</code> and <code>population</code> in the single variable. The labels for those values are no longer in the data.</li>
+</ul>
+<pre class="r"><code># Spread across two tibbles
+# table4a  # cases
+#&gt; # A tibble: 3 x 3
+#&gt;       country `1999` `2000`
+#&gt; *       &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;
+#&gt; 1 Afghanistan    745   2666
+#&gt; 2      Brazil  37737  80488
+#&gt; 3       China 212258 213766
+# table4b  # population
+#&gt; # A tibble: 3 x 3
+#&gt;       country     `1999`     `2000`
+#&gt; *       &lt;chr&gt;      &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan   19987071   20595360
+#&gt; 2      Brazil  172006362  174504898
+#&gt; 3       China 1272915272 1280428583</code></pre>
+<ul>
+<li><code>table4</code> splits the data into two different tables, <code>a</code> and <code>b</code>. In these tables the years are split into two different variables. There is an observation for each country in these tables.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Compute the rate for table2, and table4a + table4b. You will need to perform four operations:</p>
+<ol style="list-style-type: decimal">
+<li>Extract the number of TB cases per country per year.</li>
+<li>Extract the matching population per country per year.</li>
+<li>Divide cases by population, and multiply by 10000.</li>
+<li>Store back in the appropriate place.<br />
+Which representation is easiest to work with? Which is hardest? Why?</li>
+</ol></li>
+</ol>
+<pre class="r"><code>table2 &lt;- data_frame(country = c(rep(&quot;Afghanistan&quot;, 4), rep(&quot;Brazil&quot;, 4), rep(&quot;China&quot;, 4)),
+                     year = rep(c(1999, 1999, 2000, 2000), 3),
+                     type = rep(c(&quot;cases&quot;, &quot;population&quot;), 6),
+                     count = c(745, 19987071, 2666, 20595360, 37737, 172006362, 80488, 174504898, 212258, 1272915272, 213766, 1280428583))
+table2</code></pre>
+<pre><code>## # A tibble: 12 x 4
+##    country      year type             count
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;
+##  1 Afghanistan 1999. cases             745.
+##  2 Afghanistan 1999. population   19987071.
+##  3 Afghanistan 2000. cases            2666.
+##  4 Afghanistan 2000. population   20595360.
+##  5 Brazil      1999. cases           37737.
+##  6 Brazil      1999. population  172006362.
+##  7 Brazil      2000. cases           80488.
+##  8 Brazil      2000. population  174504898.
+##  9 China       1999. cases          212258.
+## 10 China       1999. population 1272915272.
+## 11 China       2000. cases          213766.
+## 12 China       2000. population 1280428583.</code></pre>
+<pre class="r"><code>(tb_cases &lt;- table2 %&gt;% 
+        filter(type %in% &quot;cases&quot;))</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   country      year type    count
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
+## 1 Afghanistan 1999. cases    745.
+## 2 Afghanistan 2000. cases   2666.
+## 3 Brazil      1999. cases  37737.
+## 4 Brazil      2000. cases  80488.
+## 5 China       1999. cases 212258.
+## 6 China       2000. cases 213766.</code></pre>
+<pre class="r"><code>(tb_pop &lt;-  table2 %&gt;% 
+        filter(type %in% &quot;population&quot;))</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   country      year type             count
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;
+## 1 Afghanistan 1999. population   19987071.
+## 2 Afghanistan 2000. population   20595360.
+## 3 Brazil      1999. population  172006362.
+## 4 Brazil      2000. population  174504898.
+## 5 China       1999. population 1272915272.
+## 6 China       2000. population 1280428583.</code></pre>
+<pre class="r"><code>rate &lt;- tb_cases
+rate$rate &lt;- tb_cases$count / tb_pop$count * 10000
+rate</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   country      year type    count  rate
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Afghanistan 1999. cases    745. 0.373
+## 2 Afghanistan 2000. cases   2666. 1.29 
+## 3 Brazil      1999. cases  37737. 2.19 
+## 4 Brazil      2000. cases  80488. 4.61 
+## 5 China       1999. cases 212258. 1.67 
+## 6 China       2000. cases 213766. 1.67</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Recreate the plot showing change in cases over time using table2 instead of table1. What do you need to do first?</li>
+</ol>
+<pre class="r"><code>table2 %&gt;% 
+        filter(type %in% &quot;cases&quot;) %&gt;% 
+        ggplot(aes(x = year, y = count)) +
+        geom_point(aes(color = country), size = 3) +
+        geom_line(aes(group = country))</code></pre>
+<p><img src="/post/2017-12-20-tidy-data_files/figure-html/table2-plot-1.png" width="672" /></p>
+<ul>
+<li>First you need to filter <code>type</code> for <code>cases</code>.</li>
+</ul>
+</div>
+</div>
+<div id="spreading-and-gathering" class="section level1">
+<h1>12.3 Spreading and gathering</h1>
+<p>Often need to resolve one of two common problems when tidying data:</p>
+<ol style="list-style-type: decimal">
+<li><p>One variable might be spread across multiple columns.</p></li>
+<li><p>One observation might be scattered across multiple rows.</p></li>
+</ol>
+<div id="exercises-1" class="section level2">
+<h2>12.3.3 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Why are gather() and spread() not perfectly symmetrical? Carefully consider the following example:</li>
+</ol>
+<pre class="r"><code>(stocks &lt;- tibble(
+  year   = c(2015, 2015, 2016, 2016),
+  half  = c(   1,    2,     1,    2),
+  return = c(1.88, 0.59, 0.92, 0.17)
+))</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##    year  half return
+##   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1 2015.    1.  1.88 
+## 2 2015.    2.  0.590
+## 3 2016.    1.  0.920
+## 4 2016.    2.  0.170</code></pre>
+<pre class="r"><code>stocks %&gt;% 
+   spread(year, return) %&gt;% 
+   gather(&quot;year&quot;, &quot;return&quot;, `2015`:`2016`)</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##    half year  return
+##   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+## 1    1. 2015   1.88 
+## 2    2. 2015   0.590
+## 3    1. 2016   0.920
+## 4    2. 2016   0.170</code></pre>
+<p>(Hint: look at the variable types and think about column names.)</p>
+<p>Both spread() and gather() have a convert argument. What does it do?</p>
+<ul>
+<li>In the example <code>year</code> is converted to <code>character</code> when it is gathered back after being spread. This happens because <code>convert</code> is by default <code>FALSE</code> so it does not attempt to determine the appropriate class for new columns. When <code>convert</code> is set to <code>TRUE</code>, the year is correctly converted to a number when gathered as seen in the example below.</li>
+</ul>
+<pre class="r"><code>stocks %&gt;% 
+   spread(year, return) %&gt;% 
+   gather(&quot;year&quot;, &quot;return&quot;, `2015`:`2016`, convert = TRUE)</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##    half  year return
+##   &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt;
+## 1    1.  2015  1.88 
+## 2    2.  2015  0.590
+## 3    1.  2016  0.920
+## 4    2.  2016  0.170</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Why does this code fail?</li>
+</ol>
+<pre class="r"><code>(table4a &lt;- table2 %&gt;% 
+        filter(type %in% &quot;cases&quot;) %&gt;% 
+        spread(year, count) %&gt;% 
+        select(-type))</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   country      `1999`  `2000`
+##   &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Afghanistan    745.   2666.
+## 2 Brazil       37737.  80488.
+## 3 China       212258. 213766.</code></pre>
+<pre class="r"><code>table4a %&gt;%
+  gather(1999, 2000, key = &quot;year&quot;, value = &quot;cases&quot;)</code></pre>
+<pre><code>## Error in inds_combine(.vars, ind_list): Position must be between 0 and n</code></pre>
+<ul>
+<li>Since the years are numbers they need to be selected with backticks as in the example below.</li>
+</ul>
+<pre class="r"><code>table4a %&gt;%
+  gather(`1999`, `2000`, key = &quot;year&quot;, value = &quot;cases&quot;, convert = TRUE)</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   country      year   cases
+##   &lt;chr&gt;       &lt;int&gt;   &lt;dbl&gt;
+## 1 Afghanistan  1999    745.
+## 2 Brazil       1999  37737.
+## 3 China        1999 212258.
+## 4 Afghanistan  2000   2666.
+## 5 Brazil       2000  80488.
+## 6 China        2000 213766.</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Why does spreading this tibble fail? How could you add a new column to fix the problem?</li>
+</ol>
+<pre class="r"><code>(people &lt;- tribble(
+  ~name,             ~key,    ~value,
+  #-----------------|--------|------
+  &quot;Phillip Woods&quot;,   &quot;age&quot;,       45,
+  &quot;Phillip Woods&quot;,   &quot;height&quot;,   186,
+  &quot;Phillip Woods&quot;,   &quot;age&quot;,       50,
+  &quot;Jessica Cordero&quot;, &quot;age&quot;,       37,
+  &quot;Jessica Cordero&quot;, &quot;height&quot;,   156
+))</code></pre>
+<pre><code>## # A tibble: 5 x 3
+##   name            key    value
+##   &lt;chr&gt;           &lt;chr&gt;  &lt;dbl&gt;
+## 1 Phillip Woods   age      45.
+## 2 Phillip Woods   height  186.
+## 3 Phillip Woods   age      50.
+## 4 Jessica Cordero age      37.
+## 5 Jessica Cordero height  156.</code></pre>
+<pre class="r"><code>people %&gt;% 
+        spread(key, value)</code></pre>
+<pre><code>## Error: Duplicate identifiers for rows (1, 3)</code></pre>
+<ul>
+<li>It fails since there are two values for Phillip in age. Fix by adding an index.</li>
+</ul>
+<pre class="r"><code>(people &lt;- tribble(
+  ~name,             ~key,    ~value,  ~index,
+  #-----------------|--------|--------|------
+  &quot;Phillip Woods&quot;,   &quot;age&quot;,       45,    1,
+  &quot;Phillip Woods&quot;,   &quot;height&quot;,   186,    1,
+  &quot;Phillip Woods&quot;,   &quot;age&quot;,       50,    2,
+  &quot;Jessica Cordero&quot;, &quot;age&quot;,       37,    1,
+  &quot;Jessica Cordero&quot;, &quot;height&quot;,   156,    1
+))</code></pre>
+<pre><code>## # A tibble: 5 x 4
+##   name            key    value index
+##   &lt;chr&gt;           &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1 Phillip Woods   age      45.    1.
+## 2 Phillip Woods   height  186.    1.
+## 3 Phillip Woods   age      50.    2.
+## 4 Jessica Cordero age      37.    1.
+## 5 Jessica Cordero height  156.    1.</code></pre>
+<pre class="r"><code>people %&gt;% 
+        spread(key, value)</code></pre>
+<pre><code>## # A tibble: 3 x 4
+##   name            index   age height
+##   &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Jessica Cordero    1.   37.   156.
+## 2 Phillip Woods      1.   45.   186.
+## 3 Phillip Woods      2.   50.    NA</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Tidy the simple tibble below. Do you need to spread or gather it? What are the variables?</li>
+</ol>
+<pre class="r"><code>preg &lt;- tribble(
+  ~pregnant, ~male, ~female,
+  &quot;yes&quot;,     NA,    10,
+  &quot;no&quot;,      20,    12
+)
+
+preg %&gt;% 
+        gather(male, female, key = &quot;sex&quot;, value = &quot;count&quot;)</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##   pregnant sex    count
+##   &lt;chr&gt;    &lt;chr&gt;  &lt;dbl&gt;
+## 1 yes      male     NA 
+## 2 no       male     20.
+## 3 yes      female   10.
+## 4 no       female   12.</code></pre>
+</div>
+</div>
+<div id="separating-and-uniting" class="section level1">
+<h1>12.4 Separating and uniting</h1>
+<p><code>separate()</code> is used when multiple variables are stored together in a single variable.<br />
+<code>unite()</code> is the inverse.</p>
+<div id="exercises-2" class="section level2">
+<h2>12.4.3 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>What do the extra and fill arguments do in separate()? Experiment with the various options for the following two toy datasets.</li>
+</ol>
+<pre class="r"><code>tibble(x = c(&quot;a,b,c&quot;, &quot;d,e,f,g&quot;, &quot;h,i,j&quot;)) %&gt;% 
+  separate(x, c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;))</code></pre>
+<pre><code>## Warning: Expected 3 pieces. Additional pieces discarded in 1 rows [2].</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   one   two   three
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 a     b     c    
+## 2 d     e     f    
+## 3 h     i     j</code></pre>
+<pre class="r"><code>tibble(x = c(&quot;a,b,c&quot;, &quot;d,e,f,g&quot;, &quot;h,i,j&quot;)) %&gt;% 
+  separate(x, c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;), extra = &quot;drop&quot;)</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   one   two   three
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 a     b     c    
+## 2 d     e     f    
+## 3 h     i     j</code></pre>
+<pre class="r"><code>tibble(x = c(&quot;a,b,c&quot;, &quot;d,e,f,g&quot;, &quot;h,i,j&quot;)) %&gt;% 
+  separate(x, c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;), extra = &quot;merge&quot;)</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   one   two   three
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 a     b     c    
+## 2 d     e     f,g  
+## 3 h     i     j</code></pre>
+<pre class="r"><code>tibble(x = c(&quot;a,b,c&quot;, &quot;d,e&quot;, &quot;f,g,i&quot;)) %&gt;% 
+  separate(x, c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;))</code></pre>
+<pre><code>## Warning: Expected 3 pieces. Missing pieces filled with `NA` in 1 rows [2].</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   one   two   three
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 a     b     c    
+## 2 d     e     &lt;NA&gt; 
+## 3 f     g     i</code></pre>
+<pre class="r"><code>tibble(x = c(&quot;a,b,c&quot;, &quot;d,e&quot;, &quot;f,g,i&quot;)) %&gt;% 
+  separate(x, c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;), fill = &quot;right&quot;)</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   one   two   three
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 a     b     c    
+## 2 d     e     &lt;NA&gt; 
+## 3 f     g     i</code></pre>
+<pre class="r"><code>tibble(x = c(&quot;a,b,c&quot;, &quot;d,e&quot;, &quot;f,g,i&quot;)) %&gt;% 
+  separate(x, c(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;), fill = &quot;left&quot;)</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   one   two   three
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 a     b     c    
+## 2 &lt;NA&gt;  d     e    
+## 3 f     g     i</code></pre>
+<ul>
+<li>They control the behavior for when a vector has too many or too few pieces.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Both unite() and separate() have a remove argument. What does it do? Why would you set it to FALSE?</li>
+</ol>
+<ul>
+<li>It removes the original column that was modified. Setting to <code>FALSE</code> would allow you to keep the original variable in the data.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Compare and contrast separate() and extract(). Why are there three variations of separation (by position, by separator, and with groups), but only one unite?</li>
+</ol>
+<ul>
+<li><code>extract()</code> separates on a defined regex. There is only one variation for <code>unite()</code> since the columns are already specified and it only requires a separator to be defined. When separating it is more ambiguous so more options are required to cover possibilities.</li>
+</ul>
+</div>
+</div>
+<div id="missing-values" class="section level1">
+<h1>12.5 Missing values</h1>
+<p>Can be:<br />
+* Explicit: flagged with <code>NA</code> * Implicit: not present in data</p>
+<div id="exercises-3" class="section level2">
+<h2>12.5.1 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Compare and contrast the fill arguments to spread() and complete().</li>
+</ol>
+<ul>
+<li><p><code>spread()</code> will replace <code>NA</code> with whatever is specified in <code>fill</code></p></li>
+<li><p><code>complete()</code> A named list that for each variable supplies a single value to use instead of NA for missing combinations. Like with <code>spread()</code> if specified will replace both explicit and implicit <code>NA</code></p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>What does the direction argument to fill() do?</li>
+</ol>
+<ul>
+<li>Changes which direction to use for the previous entry, default to down.</li>
+</ul>
+</div>
+</div>
+<div id="case-study" class="section level1">
+<h1>12.6 Case Study</h1>
+<pre class="r"><code>who</code></pre>
+<pre><code>## # A tibble: 7,240 x 60
+##    country     iso2  iso3   year new_sp_m014 new_sp_m1524 new_sp_m2534
+##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt;       &lt;int&gt;        &lt;int&gt;        &lt;int&gt;
+##  1 Afghanistan AF    AFG    1980          NA           NA           NA
+##  2 Afghanistan AF    AFG    1981          NA           NA           NA
+##  3 Afghanistan AF    AFG    1982          NA           NA           NA
+##  4 Afghanistan AF    AFG    1983          NA           NA           NA
+##  5 Afghanistan AF    AFG    1984          NA           NA           NA
+##  6 Afghanistan AF    AFG    1985          NA           NA           NA
+##  7 Afghanistan AF    AFG    1986          NA           NA           NA
+##  8 Afghanistan AF    AFG    1987          NA           NA           NA
+##  9 Afghanistan AF    AFG    1988          NA           NA           NA
+## 10 Afghanistan AF    AFG    1989          NA           NA           NA
+## # ... with 7,230 more rows, and 53 more variables: new_sp_m3544 &lt;int&gt;,
+## #   new_sp_m4554 &lt;int&gt;, new_sp_m5564 &lt;int&gt;, new_sp_m65 &lt;int&gt;,
+## #   new_sp_f014 &lt;int&gt;, new_sp_f1524 &lt;int&gt;, new_sp_f2534 &lt;int&gt;,
+## #   new_sp_f3544 &lt;int&gt;, new_sp_f4554 &lt;int&gt;, new_sp_f5564 &lt;int&gt;,
+## #   new_sp_f65 &lt;int&gt;, new_sn_m014 &lt;int&gt;, new_sn_m1524 &lt;int&gt;,
+## #   new_sn_m2534 &lt;int&gt;, new_sn_m3544 &lt;int&gt;, new_sn_m4554 &lt;int&gt;,
+## #   new_sn_m5564 &lt;int&gt;, new_sn_m65 &lt;int&gt;, new_sn_f014 &lt;int&gt;,
+## #   new_sn_f1524 &lt;int&gt;, new_sn_f2534 &lt;int&gt;, new_sn_f3544 &lt;int&gt;,
+## #   new_sn_f4554 &lt;int&gt;, new_sn_f5564 &lt;int&gt;, new_sn_f65 &lt;int&gt;,
+## #   new_ep_m014 &lt;int&gt;, new_ep_m1524 &lt;int&gt;, new_ep_m2534 &lt;int&gt;,
+## #   new_ep_m3544 &lt;int&gt;, new_ep_m4554 &lt;int&gt;, new_ep_m5564 &lt;int&gt;,
+## #   new_ep_m65 &lt;int&gt;, new_ep_f014 &lt;int&gt;, new_ep_f1524 &lt;int&gt;,
+## #   new_ep_f2534 &lt;int&gt;, new_ep_f3544 &lt;int&gt;, new_ep_f4554 &lt;int&gt;,
+## #   new_ep_f5564 &lt;int&gt;, new_ep_f65 &lt;int&gt;, newrel_m014 &lt;int&gt;,
+## #   newrel_m1524 &lt;int&gt;, newrel_m2534 &lt;int&gt;, newrel_m3544 &lt;int&gt;,
+## #   newrel_m4554 &lt;int&gt;, newrel_m5564 &lt;int&gt;, newrel_m65 &lt;int&gt;,
+## #   newrel_f014 &lt;int&gt;, newrel_f1524 &lt;int&gt;, newrel_f2534 &lt;int&gt;,
+## #   newrel_f3544 &lt;int&gt;, newrel_f4554 &lt;int&gt;, newrel_f5564 &lt;int&gt;,
+## #   newrel_f65 &lt;int&gt;</code></pre>
+<pre class="r"><code>(who1 &lt;- who %&gt;% 
+        gather(new_sp_m014:newrel_f65, key = &quot;key&quot;, value = &quot;cases&quot;, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 76,046 x 6
+##    country     iso2  iso3   year key         cases
+##  * &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;       &lt;int&gt;
+##  1 Afghanistan AF    AFG    1997 new_sp_m014     0
+##  2 Afghanistan AF    AFG    1998 new_sp_m014    30
+##  3 Afghanistan AF    AFG    1999 new_sp_m014     8
+##  4 Afghanistan AF    AFG    2000 new_sp_m014    52
+##  5 Afghanistan AF    AFG    2001 new_sp_m014   129
+##  6 Afghanistan AF    AFG    2002 new_sp_m014    90
+##  7 Afghanistan AF    AFG    2003 new_sp_m014   127
+##  8 Afghanistan AF    AFG    2004 new_sp_m014   139
+##  9 Afghanistan AF    AFG    2005 new_sp_m014   151
+## 10 Afghanistan AF    AFG    2006 new_sp_m014   193
+## # ... with 76,036 more rows</code></pre>
+<pre class="r"><code>(who2 &lt;- who1 %&gt;% 
+  mutate(key = stringr::str_replace(key, &quot;newrel&quot;, &quot;new_rel&quot;)))</code></pre>
+<pre><code>## # A tibble: 76,046 x 6
+##    country     iso2  iso3   year key         cases
+##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;       &lt;int&gt;
+##  1 Afghanistan AF    AFG    1997 new_sp_m014     0
+##  2 Afghanistan AF    AFG    1998 new_sp_m014    30
+##  3 Afghanistan AF    AFG    1999 new_sp_m014     8
+##  4 Afghanistan AF    AFG    2000 new_sp_m014    52
+##  5 Afghanistan AF    AFG    2001 new_sp_m014   129
+##  6 Afghanistan AF    AFG    2002 new_sp_m014    90
+##  7 Afghanistan AF    AFG    2003 new_sp_m014   127
+##  8 Afghanistan AF    AFG    2004 new_sp_m014   139
+##  9 Afghanistan AF    AFG    2005 new_sp_m014   151
+## 10 Afghanistan AF    AFG    2006 new_sp_m014   193
+## # ... with 76,036 more rows</code></pre>
+<pre class="r"><code>(who3 &lt;- who2 %&gt;% 
+  separate(key, c(&quot;new&quot;, &quot;type&quot;, &quot;sexage&quot;), sep = &quot;_&quot;))</code></pre>
+<pre><code>## # A tibble: 76,046 x 8
+##    country     iso2  iso3   year new   type  sexage cases
+##    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;
+##  1 Afghanistan AF    AFG    1997 new   sp    m014       0
+##  2 Afghanistan AF    AFG    1998 new   sp    m014      30
+##  3 Afghanistan AF    AFG    1999 new   sp    m014       8
+##  4 Afghanistan AF    AFG    2000 new   sp    m014      52
+##  5 Afghanistan AF    AFG    2001 new   sp    m014     129
+##  6 Afghanistan AF    AFG    2002 new   sp    m014      90
+##  7 Afghanistan AF    AFG    2003 new   sp    m014     127
+##  8 Afghanistan AF    AFG    2004 new   sp    m014     139
+##  9 Afghanistan AF    AFG    2005 new   sp    m014     151
+## 10 Afghanistan AF    AFG    2006 new   sp    m014     193
+## # ... with 76,036 more rows</code></pre>
+<pre class="r"><code>(who4 &lt;- who3 %&gt;% 
+  select(-new, -iso2, -iso3))</code></pre>
+<pre><code>## # A tibble: 76,046 x 5
+##    country      year type  sexage cases
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;
+##  1 Afghanistan  1997 sp    m014       0
+##  2 Afghanistan  1998 sp    m014      30
+##  3 Afghanistan  1999 sp    m014       8
+##  4 Afghanistan  2000 sp    m014      52
+##  5 Afghanistan  2001 sp    m014     129
+##  6 Afghanistan  2002 sp    m014      90
+##  7 Afghanistan  2003 sp    m014     127
+##  8 Afghanistan  2004 sp    m014     139
+##  9 Afghanistan  2005 sp    m014     151
+## 10 Afghanistan  2006 sp    m014     193
+## # ... with 76,036 more rows</code></pre>
+<pre class="r"><code>(who5 &lt;- who4 %&gt;% 
+  separate(sexage, c(&quot;sex&quot;, &quot;age&quot;), sep = 1))</code></pre>
+<pre><code>## # A tibble: 76,046 x 6
+##    country      year type  sex   age   cases
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;
+##  1 Afghanistan  1997 sp    m     014       0
+##  2 Afghanistan  1998 sp    m     014      30
+##  3 Afghanistan  1999 sp    m     014       8
+##  4 Afghanistan  2000 sp    m     014      52
+##  5 Afghanistan  2001 sp    m     014     129
+##  6 Afghanistan  2002 sp    m     014      90
+##  7 Afghanistan  2003 sp    m     014     127
+##  8 Afghanistan  2004 sp    m     014     139
+##  9 Afghanistan  2005 sp    m     014     151
+## 10 Afghanistan  2006 sp    m     014     193
+## # ... with 76,036 more rows</code></pre>
+<div id="exercises-4" class="section level2">
+<h2>12.6.1 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>In this case study I set na.rm = TRUE just to make it easier to check that we had the correct values. Is this reasonable? Think about how missing values are represented in this dataset. Are there implicit missing values? What’s the difference between an NA and zero?</li>
+</ol>
+<ul>
+<li>In this data <code>NA</code> is assigned to values when there wasn’t a recording for that case in a particular year. A 0 is assigned if the data was recorded but there were no cases. Since there are no implicit missing values it is okay to drop <code>NA</code>.</li>
+</ul>
+<pre class="r"><code>who %&gt;% 
+        count(country) %&gt;% 
+        arrange(n) </code></pre>
+<pre><code>## # A tibble: 219 x 2
+##    country                               n
+##    &lt;chr&gt;                             &lt;int&gt;
+##  1 South Sudan                           3
+##  2 Bonaire, Saint Eustatius and Saba     4
+##  3 Curacao                               4
+##  4 Sint Maarten (Dutch part)             4
+##  5 Montenegro                            9
+##  6 Serbia                                9
+##  7 Timor-Leste                          12
+##  8 Serbia &amp; Montenegro                  25
+##  9 Netherlands Antilles                 30
+## 10 Afghanistan                          34
+## # ... with 209 more rows</code></pre>
+<pre class="r"><code>who %&gt;% 
+        filter(country %in% c(&quot;South Sudan&quot;,
+                              &quot;Bonaire, Saint Eustatius and Saba&quot;))</code></pre>
+<pre><code>## # A tibble: 7 x 60
+##   country          iso2  iso3   year new_sp_m014 new_sp_m1524 new_sp_m2534
+##   &lt;chr&gt;            &lt;chr&gt; &lt;chr&gt; &lt;int&gt;       &lt;int&gt;        &lt;int&gt;        &lt;int&gt;
+## 1 Bonaire, Saint ~ BQ    BES    2010           0            0            0
+## 2 Bonaire, Saint ~ BQ    BES    2011           0            0            0
+## 3 Bonaire, Saint ~ BQ    BES    2012           0            0            0
+## 4 Bonaire, Saint ~ BQ    BES    2013          NA           NA           NA
+## 5 South Sudan      SS    SSD    2011          39          251          599
+## 6 South Sudan      SS    SSD    2012          42          356          753
+## 7 South Sudan      SS    SSD    2013          NA           NA           NA
+## # ... with 53 more variables: new_sp_m3544 &lt;int&gt;, new_sp_m4554 &lt;int&gt;,
+## #   new_sp_m5564 &lt;int&gt;, new_sp_m65 &lt;int&gt;, new_sp_f014 &lt;int&gt;,
+## #   new_sp_f1524 &lt;int&gt;, new_sp_f2534 &lt;int&gt;, new_sp_f3544 &lt;int&gt;,
+## #   new_sp_f4554 &lt;int&gt;, new_sp_f5564 &lt;int&gt;, new_sp_f65 &lt;int&gt;,
+## #   new_sn_m014 &lt;int&gt;, new_sn_m1524 &lt;int&gt;, new_sn_m2534 &lt;int&gt;,
+## #   new_sn_m3544 &lt;int&gt;, new_sn_m4554 &lt;int&gt;, new_sn_m5564 &lt;int&gt;,
+## #   new_sn_m65 &lt;int&gt;, new_sn_f014 &lt;int&gt;, new_sn_f1524 &lt;int&gt;,
+## #   new_sn_f2534 &lt;int&gt;, new_sn_f3544 &lt;int&gt;, new_sn_f4554 &lt;int&gt;,
+## #   new_sn_f5564 &lt;int&gt;, new_sn_f65 &lt;int&gt;, new_ep_m014 &lt;int&gt;,
+## #   new_ep_m1524 &lt;int&gt;, new_ep_m2534 &lt;int&gt;, new_ep_m3544 &lt;int&gt;,
+## #   new_ep_m4554 &lt;int&gt;, new_ep_m5564 &lt;int&gt;, new_ep_m65 &lt;int&gt;,
+## #   new_ep_f014 &lt;int&gt;, new_ep_f1524 &lt;int&gt;, new_ep_f2534 &lt;int&gt;,
+## #   new_ep_f3544 &lt;int&gt;, new_ep_f4554 &lt;int&gt;, new_ep_f5564 &lt;int&gt;,
+## #   new_ep_f65 &lt;int&gt;, newrel_m014 &lt;int&gt;, newrel_m1524 &lt;int&gt;,
+## #   newrel_m2534 &lt;int&gt;, newrel_m3544 &lt;int&gt;, newrel_m4554 &lt;int&gt;,
+## #   newrel_m5564 &lt;int&gt;, newrel_m65 &lt;int&gt;, newrel_f014 &lt;int&gt;,
+## #   newrel_f1524 &lt;int&gt;, newrel_f2534 &lt;int&gt;, newrel_f3544 &lt;int&gt;,
+## #   newrel_f4554 &lt;int&gt;, newrel_f5564 &lt;int&gt;, newrel_f65 &lt;int&gt;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>What happens if you neglect the mutate() step? (mutate(key = stringr::str_replace(key, “newrel”, “new_rel”)))</li>
+</ol>
+<ul>
+<li>It doesn’t know to separate the values stored as <code>newrel</code> and ends up giving a too few values warning.</li>
+</ul>
+<pre class="r"><code>who %&gt;%
+  gather(code, value, new_sp_m014:newrel_f65, na.rm = TRUE) %&gt;% 
+  separate(code, c(&quot;new&quot;, &quot;var&quot;, &quot;sexage&quot;)) %&gt;% 
+  select(-new, -iso2, -iso3) %&gt;% 
+  separate(sexage, c(&quot;sex&quot;, &quot;age&quot;), sep = 1)</code></pre>
+<pre><code>## Warning: Expected 3 pieces. Missing pieces filled with `NA` in 2580 rows
+## [73467, 73468, 73469, 73470, 73471, 73472, 73473, 73474, 73475, 73476,
+## 73477, 73478, 73479, 73480, 73481, 73482, 73483, 73484, 73485, 73486, ...].</code></pre>
+<pre><code>## # A tibble: 76,046 x 6
+##    country      year var   sex   age   value
+##  * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;
+##  1 Afghanistan  1997 sp    m     014       0
+##  2 Afghanistan  1998 sp    m     014      30
+##  3 Afghanistan  1999 sp    m     014       8
+##  4 Afghanistan  2000 sp    m     014      52
+##  5 Afghanistan  2001 sp    m     014     129
+##  6 Afghanistan  2002 sp    m     014      90
+##  7 Afghanistan  2003 sp    m     014     127
+##  8 Afghanistan  2004 sp    m     014     139
+##  9 Afghanistan  2005 sp    m     014     151
+## 10 Afghanistan  2006 sp    m     014     193
+## # ... with 76,036 more rows</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>I claimed that iso2 and iso3 were redundant with country. Confirm this claim.</li>
+</ol>
+<ul>
+<li>There are no additional rows when adding the iso variables to the grouping.</li>
+</ul>
+<pre class="r"><code>who %&gt;% 
+        count(country)</code></pre>
+<pre><code>## # A tibble: 219 x 2
+##    country                 n
+##    &lt;chr&gt;               &lt;int&gt;
+##  1 Afghanistan            34
+##  2 Albania                34
+##  3 Algeria                34
+##  4 American Samoa         34
+##  5 Andorra                34
+##  6 Angola                 34
+##  7 Anguilla               34
+##  8 Antigua and Barbuda    34
+##  9 Argentina              34
+## 10 Armenia                34
+## # ... with 209 more rows</code></pre>
+<pre class="r"><code>who %&gt;% 
+        count(country, iso2, iso3)</code></pre>
+<pre><code>## # A tibble: 219 x 4
+##    country             iso2  iso3      n
+##    &lt;chr&gt;               &lt;chr&gt; &lt;chr&gt; &lt;int&gt;
+##  1 Afghanistan         AF    AFG      34
+##  2 Albania             AL    ALB      34
+##  3 Algeria             DZ    DZA      34
+##  4 American Samoa      AS    ASM      34
+##  5 Andorra             AD    AND      34
+##  6 Angola              AO    AGO      34
+##  7 Anguilla            AI    AIA      34
+##  8 Antigua and Barbuda AG    ATG      34
+##  9 Argentina           AR    ARG      34
+## 10 Armenia             AM    ARM      34
+## # ... with 209 more rows</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>For each country, year, and sex compute the total number of cases of TB. Make an informative visualisation of the data.</li>
+</ol>
+<pre class="r"><code>who5 %&gt;% 
+        filter(sex %in% &quot;f&quot;) %&gt;% 
+        ggplot(aes(x = year, y = country)) +
+        geom_tile(aes(fill = cases)) </code></pre>
+<p><img src="/post/2017-12-20-tidy-data_files/figure-html/visualize-cases-1.png" width="672" /></p>
+</div>
+</div>

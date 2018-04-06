@@ -12,7 +12,7 @@ output:
     toc: true
 slug: tidy-data
 autoThumbnailImage: no
-thumbnailImage: /images/data_import.png
+thumbnailImage: /images/tidy.png
 thumbnailImagePosition: left
 description: 'This post covers the content and exercises for Ch 12: Tidy Data in **R for Data Science**'
 draft: true
@@ -370,7 +370,7 @@ who %>%
 
 4. For each country, year, and sex compute the total number of cases of TB. Make an informative visualisation of the data.  
 
-```{r}
+```{r include=FALSE}
 who5 %>% 
         filter(year < 1998) %>% 
         count(country)
