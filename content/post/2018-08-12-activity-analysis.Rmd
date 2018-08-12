@@ -1,0 +1,188 @@
+---
+title: South vs North - Apple Watch Analysis
+author: Patrick O'Malley
+date: "2018-08-12"
+categories: 
+ - Personal Projects
+output: 
+        html_page:
+slug: activity-analysis
+autoThumbnailImage: no
+thumbnailImage: /images/Charlotte-750.jpg
+thumbnailImagePosition: top
+coverImage: /images/Charlotte.jpg
+metaAlignment: center
+description: 'A look into how lifestyles differ between Southern and Northern cities with Apple watch data'
+---
+
+Everyone's aware of the differences in the means of transportation between Southern and Northern cities. Northern cities like New York and D.C. are known for their walkability and public transit systems, while Southern cities are known for the car and urban sprawl. In the year and a half since I've started wearing an Apple watch I've been able to experience both types of cities and was curious what the data could show me to quantify these differences. I began wearing the watch while living in Charlotte, NC and then moved to Washington, DC, and finally have moved back down South to Charleston, SC so I assume I should be able to see some pretty clear differences.
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r libraries, message=FALSE}
+library(conflicted)
+library(tidyverse)
+library(lubridate)
+library(modelr)
+library(knitr)
+library(kableExtra)
+filter <- dplyr::filter
+```
+
+```{r health-data, message=FALSE}
+health <- read_csv("Health Data.csv")
+```
+
+```{r renaming}
+# rename the fields and make the start and finish into datetimes
+health <- health %>%
+        rename(start = Start,
+               finish = Finish,
+               active.calories.kcal = `Active Calories (kcal)`,
+               distance.mi = `Distance (mi)`,
+               flights.climbed = `Flights Climbed (count)`,
+               heart.rate.bpm = `Heart Rate (count/min)`,
+               resting.calories.kcal = `Resting Calories (kcal)`,
+               steps = `Steps (count)`,
+               weight.lb = `Weight (lb)`) %>% 
+        mutate(start = dmy_hm(start),
+               finish = dmy_hm(finish))
+
+```
+
+```{r remove-weight}
+# weight is basically useless
+# and I didn't get the watch until Christmas 2016 so I can drop all the data before then
+health <- health %>% 
+  select(-weight.lb) %>% 
+        filter(start > ymd("2016-12-26"))
+```
+
+
+
+```{r add-ymd}
+health <- health %>% 
+        mutate(day = as.Date((floor_date(start, "day"))),
+               week = as.Date((floor_date(start, "week"))),
+               month = as.Date((floor_date(start, "month"))),
+               year = as.Date((floor_date(start, "year"))))
+```
+
+```{r drop-unused}
+health <- health %>% 
+        select(active.calories.kcal:distance.mi, steps:year)
+```
+
+
+## Changes Over Time
+
+The first plot is just a look at how the metrics have changed over time. I can see there are some pretty clear patterns in the trends, but it's not obvious yet how they correspond with the different cities. One thing of note is that distance and steps seem to mirror each other pretty closely, but active calories looks like it has a different pattern.
+
+```{r plot-over-time, fig.asp=1}
+health %>% 
+        group_by(day) %>% 
+        summarise_all(sum) %>% 
+        gather(key = metric, value = value, active.calories.kcal:steps) %>%
+        mutate(metric = factor(metric, labels = c("Active Calories", "Distance (miles)", "Steps"))) %>% 
+        ggplot(aes(x = day, y = value, color = metric)) +
+        geom_line() +
+        geom_smooth(method = "gam", formula = y ~ s(x, bs = "cs"), se = FALSE) +
+        facet_grid(metric~., scales = "free") +
+        guides(color = FALSE) +
+        scale_x_date(date_breaks = "1 month", date_labels = "%b-%y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        labs(x = "", y = "Daily Total")
+```
+
+
+
+```{r add-location}
+health <- health %>% 
+        mutate(location = case_when(
+                day < ymd("2017-08-20") ~ "Charlotte",
+                day >= ymd("2017-08-20") & day < ymd("2018-05-20") ~ "DC",
+                day >= ymd("2018-05-20") ~ "Charleston"
+        ),
+        location = factor(location, levels = c("Charlotte", "DC", "Charleston")))
+```
+
+First I'll focus on distance for the comparison. To clarify I'll color the data based on the time periods I lived in each city. After doing that it's much easier to see the jumps between cities. My average distance is clearly higher in DC than it was in Charlotte or Charleston, however it is interesting that after the initial excitement over the move to DC my mileage decreased quite a bit, and by October 2017 and I started relying on the public transportation more.
+
+```{r plot-locations}
+health %>% 
+        group_by(day, location) %>%
+        summarise(distance.mi = sum(distance.mi)) %>%
+        ggplot(aes(x = day, y = distance.mi, color = location)) +
+        geom_line() +
+        geom_smooth(method = "gam", formula = y ~ s(x, bs = "cs"), se = FALSE) +
+        scale_x_date(date_breaks = "1 month", date_labels = "%b-%y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "bottom",
+        axis.title.x = element_blank()) +
+        labs(y = "Daily Distance (miles)", color = "")
+```
+
+One last check I can do is simply compare the average mileage per city. DC has the highest average followed by Charlotte and then Charleston.  
+
+
+```{r table-avg-distance}
+health %>% 
+        group_by(day, location) %>% 
+        summarise(distance.mi = sum(distance.mi)) %>% 
+        group_by(location) %>% 
+        summarise(`Average Daily Distance (miles)` = round(mean(distance.mi), 2)) %>%
+        rename(City = location) %>% 
+        kable() %>% 
+        kable_styling(full_width = FALSE)
+```
+
+
+
+## Compare Metrics
+
+Lastly I'll compare active calories with distance and steps since they seemed to have a slightly different pattern. I'll standardize them to allow for a direct comparison since currently they all have different units. This means that the actual values themselves won't be very useful but the patterns will be comparable.  
+
+
+
+```{r plot-calorie-vs-distance}
+health %>% 
+        gather(key = metric, value = value, active.calories.kcal:steps) %>% 
+        group_by(metric) %>% 
+        mutate(value = scale(value)) %>% 
+        group_by(week, metric) %>% 
+        summarise(value = mean(value)) %>% 
+        mutate(metric = factor(metric, labels = c("Active Calories", "Distance (miles)", "Steps"))) %>% 
+        ggplot(aes(x = week, y = value, color = metric)) +
+        geom_ref_line(h = 0) +
+        geom_point(alpha = .5) +
+        geom_smooth(method = "gam", formula = y ~ s(x, bs = "cs"), se = FALSE) +
+        scale_x_date(date_breaks = "1 month", date_labels = "%b-%y") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "bottom",
+        axis.title.x = element_blank()) +
+        labs(color = "", y = "Weekly Average Standardized")
+```
+
+The plot does give some insight into the differences. Distance and steps clearly mirror each other, but calories do differ over time. I believe I have explanations for the changes. Calories exceed the others until May 2017 because I was playing soccer pretty regularly which burned relatively high calories compared to mileage. Then in Aug to Dec 2017 mileage exceeded calories becuase I was mostly just walking around DC which is lower intensity. Then after Dec I started working out again (New Years resolution) and active calories rose back up, and finally since May 2018 they've all fallen off a cliff since moving to Charleston where life again centers around the car.
+
+So I guess it's settled, Northern cities do encourage a more active lifestyle (at least from a walking distance perspective) and now I have the data to validate the theory.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
