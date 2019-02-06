@@ -33,7 +33,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [author]
   name = "Patrick O'Malley"
-  bio = "I am a former mechanical engineer turned data scientist. I am constantly learning new ways to use data to answer questions and this website is an effort to collect all of the resources I have used along the way."
+  bio = "I'm a data scientist constantly learning new ways to use data to answer questions. This website is a collection of my learning resources and personal projects."
   job = "Data Scientist"
   location = "Charleston SC"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
@@ -71,13 +71,13 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   name = "Archives"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
   url = "/archives"
-[[menu.main]]
+  
+[[menu.links]]
   weight = 5
   identifier = "about"
   name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-info-circle\"></i>"
   url = "/#about"
-
 [[menu.links]]
   weight = 1
   identifier = "linkedin"

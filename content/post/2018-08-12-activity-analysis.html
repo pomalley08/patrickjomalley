@@ -1,5 +1,5 @@
 ---
-title: South vs North - Apple Watch Analysis
+title: North vs South - Apple Watch Analysis
 author: Patrick O'Malley
 date: "2018-08-12"
 categories: 
@@ -18,14 +18,25 @@ description: 'A look into how lifestyles differ between Southern and Northern ci
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p>Everyone’s aware of the differences in the means of transportation between Southern and Northern cities. Northern cities like New York and D.C. are known for their walkability and public transit systems, while Southern cities are known for the car and urban sprawl. In the year and a half since I’ve started wearing an Apple watch I’ve been able to experience both types of cities and was curious what the data could show me to quantify these differences. I began wearing the watch while living in Charlotte, NC and then moved to Washington, DC, and finally have moved back down South to Charleston, SC so I assume I should be able to see some pretty clear differences.</p>
+<p>A common criticism of cities in the South is their poor walkability and over reliance on the car. Northern cities like New York and D.C. are renowned for their public transit systems which encourage more activity and a relatively healthier lifestyle. For the past two years I’ve been wearing an Apple watch which has coincided with my time living in three different cities: Charlotte, DC, and Charleston, and I was curious if the activity data would reflect these differences.</p>
 <div id="changes-over-time" class="section level2">
 <h2>Changes Over Time</h2>
-<p>The first plot is just a look at how the metrics have changed over time. I can see there are some pretty clear patterns in the trends, but it’s not obvious yet how they correspond with the different cities. One thing of note is that distance and steps seem to mirror each other pretty closely, but active calories looks like it has a different pattern.</p>
+<p>First I’m just curious to see how the metrics have changed over time. There are some pretty clear patterns in the trends, but it’s not obvious yet how they correspond with the different cities. One thing of note is that distance and steps seem to mirror each other pretty closely, but active calories looks like it has a different pattern.</p>
 <p><img src="/post/2018-08-12-activity-analysis_files/figure-html/plot-over-time-1.png" width="672" /></p>
-<p>First I’ll focus on distance for the comparison. To clarify I’ll color the data based on the time periods I lived in each city. After doing that it’s much easier to see the jumps between cities. My average distance is clearly higher in DC than it was in Charlotte or Charleston, however it is interesting that after the initial excitement over the move to DC my mileage decreased quite a bit, and by October 2017 and I started relying on the public transportation more.</p>
+</div>
+<div id="compare-metrics" class="section level2">
+<h2>Compare Metrics</h2>
+<p>To dive into the difference between active calories and distance/steps a little further I’ll standardize them to allow for a direct comparison since currently they all have different units. This means that the actual values themselves won’t be very useful but the patterns will be comparable. I’m also grouping by week now because the standardized daily values are very noisy.</p>
+<p><img src="/post/2018-08-12-activity-analysis_files/figure-html/plot-calorie-vs-distance-1.png" width="672" /></p>
+<p>The plot above gives some insight into the differences. Distance and steps clearly mirror each other, and calories have a distinct pattern. The difference it seems is due to periods of high intensity exercise. For example calories exceed the others until May 2017 because I was playing soccer pretty regularly. Then calories are lower Aug to Dec becuase I was mostly just walking around DC. And lastly in Jan 2018 the annual New Years resolution to get in shape came around and active calories rose back up.</p>
+</div>
+<div id="mileage" class="section level2">
+<h2>Mileage</h2>
+<p>Since calories seem to be more affected by my exercise habits I’ll focus on daily mileage as a comparison. To clarify I’ll color the data based on the time periods I lived in each city. Now some patterns are visible however the differences between cities isn’t as clear as I was expecting. There are large swings in mileage representing the initial excitement and exploration after the move to DC, and some motivated months of running mixed into Charlotte and Charleston.</p>
 <p><img src="/post/2018-08-12-activity-analysis_files/figure-html/plot-locations-1.png" width="672" /></p>
-<p>One last check I can do is simply compare the average mileage per city. DC has the highest average followed by Charlotte and then Charleston.</p>
+<p>In fact the density plot below shows very little separation between the cities.</p>
+<p><img src="/post/2018-08-12-activity-analysis_files/figure-html/mileage-dist-1.png" width="672" /></p>
+<p>One check I can do is simply compare the median mileage per city. Now we can see that DC in fact does have the highest value followed closely by Charleston and then Charlotte.</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -33,25 +44,17 @@ description: 'A look into how lifestyles differ between Southern and Northern ci
 City
 </th>
 <th style="text-align:right;">
-Average Daily Distance (miles)
+Median Daily Distance (miles)
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Charlotte
-</td>
-<td style="text-align:right;">
-3.28
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 DC
 </td>
 <td style="text-align:right;">
-3.89
+3.54
 </td>
 </tr>
 <tr>
@@ -59,16 +62,30 @@ DC
 Charleston
 </td>
 <td style="text-align:right;">
-2.56
+3.29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Charlotte
+</td>
+<td style="text-align:right;">
+2.70
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="compare-metrics" class="section level2">
-<h2>Compare Metrics</h2>
-<p>Lastly I’ll compare active calories with distance and steps since they seemed to have a slightly different pattern. I’ll standardize them to allow for a direct comparison since currently they all have different units. This means that the actual values themselves won’t be very useful but the patterns will be comparable.</p>
-<p><img src="/post/2018-08-12-activity-analysis_files/figure-html/plot-calorie-vs-distance-1.png" width="672" /></p>
-<p>The plot does give some insight into the differences. Distance and steps clearly mirror each other, but calories do differ over time. I believe I have explanations for the changes. Calories exceed the others until May 2017 because I was playing soccer pretty regularly which burned relatively high calories compared to mileage. Then in Aug to Dec 2017 mileage exceeded calories becuase I was mostly just walking around DC which is lower intensity. Then after Dec I started working out again (New Years resolution) and active calories rose back up, and finally since May 2018 they’ve all fallen off a cliff since moving to Charleston where life again centers around the car.</p>
-<p>So I guess it’s settled, Northern cities do encourage a more active lifestyle (at least from a walking distance perspective) and now I have the data to validate the theory.</p>
+<p>Lastly I’ll join Charlotte and Charleston and compare them both against DC with a t test to check the significance between the locations.</p>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  North and South
+## t = 3.3019, df = 521.48, p-value = 0.001026
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.200140 0.788118
+## sample estimates:
+## mean of x mean of y 
+##  3.891972  3.397843</code></pre>
+<p>The result shows there is a significant difference between the two groups, and supports the hypothesis that Northern cities encourage a more active lifestyle at least from a walking distance perspective.</p>
 </div>
