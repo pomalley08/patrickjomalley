@@ -14,7 +14,7 @@ slug: tidy-data
 autoThumbnailImage: no
 thumbnailImage: /images/tidy.png
 thumbnailImagePosition: left
-description: 'This post covers the content and exercises for Ch 12: Tidy Data in **R for Data Science**'
+summary: 'This post covers the content and exercises for Ch 12: Tidy Data in **R for Data Science**'
 ---
 
 This post covers the content and exercises for Ch 12: Tidy Data from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to apply the organizational structure of tidy data to achieve a consistent format for data.

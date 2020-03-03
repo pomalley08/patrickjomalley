@@ -12,7 +12,7 @@ thumbnailImage: /images/Charlotte-750.jpg
 thumbnailImagePosition: top
 coverImage: /images/Charlotte.jpg
 metaAlignment: center
-description: 'A look into how lifestyles differ between Southern and Northern cities with Apple watch data'
+summary: 'A look into how lifestyles differ between Southern and Northern cities with Apple watch data'
 ---
 
 A common criticism of cities in the South is their poor walkability and over reliance on the car. Northern cities like New York and D.C. are renowned for their public transit systems which encourage more activity and a relatively healthier lifestyle. For the past two years I've been wearing an Apple watch which has coincided with my time living in three different cities: Charlotte, DC, and Charleston, and I was curious if the activity data would reflect these differences.  
@@ -76,7 +76,7 @@ health <- health %>%
 
 ```{r drop-unused}
 health <- health %>% 
-        select(active.calories.kcal:distance.mi, steps:year)
+        select(active.calories.kcal, distance.mi, steps, day:year)
 ```
 
 

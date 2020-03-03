@@ -15,7 +15,7 @@ slug: data-visualization
 autoThumbnailImage: no
 thumbnailImage: /images/mpg.png
 thumbnailImagePosition: left
-description: 'This post covers the content and exercises for Ch 3: Data Visualization
+summary: 'This post covers the content and exercises for Ch 3: Data Visualization
   in **R for Data Science**'
 ---
 

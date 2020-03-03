@@ -13,7 +13,7 @@ slug: tibbles
 autoThumbnailImage: no
 thumbnailImage: /images/tibble.png
 thumbnailImagePosition: left
-description: 'This post covers the content and exercises for Ch 10: Tibbles in **R for Data Science**'
+summary: 'This post covers the content and exercises for Ch 10: Tibbles in **R for Data Science**'
 ---
 
 
@@ -27,19 +27,14 @@ description: 'This post covers the content and exercises for Ch 10: Tibbles in *
 <div id="exercises" class="section level2">
 <h2>10.5 Exercises</h2>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.4.2</code></pre>
-<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## filter(): dplyr, stats
-## lag():    dplyr, stats</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.4
+## ✓ tidyr   1.0.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
 <ol style="list-style-type: decimal">
 <li>How can you tell if an object is a tibble? (Hint: try printing mtcars, which is a regular data frame).</li>
 </ol>
@@ -80,18 +75,18 @@ description: 'This post covers the content and exercises for Ch 10: Tibbles in *
 <pre class="r"><code>as_tibble(mtcars)</code></pre>
 <pre><code>## # A tibble: 32 x 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##  * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  21.0     6 160.0   110  3.90 2.620 16.46     0     1     4     4
-##  2  21.0     6 160.0   110  3.90 2.875 17.02     0     1     4     4
-##  3  22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
-##  4  21.4     6 258.0   110  3.08 3.215 19.44     1     0     3     1
-##  5  18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
-##  6  18.1     6 225.0   105  2.76 3.460 20.22     1     0     3     1
-##  7  14.3     8 360.0   245  3.21 3.570 15.84     0     0     3     4
-##  8  24.4     4 146.7    62  3.69 3.190 20.00     1     0     4     2
-##  9  22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
-## 10  19.2     6 167.6   123  3.92 3.440 18.30     1     0     4     4
-## # ... with 22 more rows</code></pre>
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # … with 22 more rows</code></pre>
 <ul>
 <li>One indication is that the rownames are removed from tibbles. When printing to the console it is obvious since the variable classes are displayed under the variable names.</li>
 </ul>
@@ -114,14 +109,14 @@ df$x</code></pre>
 <pre><code>## NULL</code></pre>
 <pre class="r"><code>df[, &quot;xyz&quot;]</code></pre>
 <pre><code>## # A tibble: 1 x 1
-##     xyz
+##   xyz  
 ##   &lt;chr&gt;
-## 1     a</code></pre>
+## 1 a</code></pre>
 <pre class="r"><code>df[, c(&quot;abc&quot;, &quot;xyz&quot;)]</code></pre>
 <pre><code>## # A tibble: 1 x 2
-##     abc   xyz
+##     abc xyz  
 ##   &lt;dbl&gt; &lt;chr&gt;
-## 1     1     a</code></pre>
+## 1     1 a</code></pre>
 <ul>
 <li>data.frame allows for the partial matching from <code>$x</code> to <code>xyz</code></li>
 <li>data.frame converts the text to a factor</li>
@@ -132,9 +127,9 @@ df$x</code></pre>
 </ol>
 <pre class="r"><code>var &lt;- &quot;mpg&quot;
 mtcars[[var]]</code></pre>
-<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2
-## [15] 10.4 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4
-## [29] 15.8 19.7 15.0 21.4</code></pre>
+<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
+## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
+## [31] 15.0 21.4</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Practice referring to non-syntactic names in the following data frame by:</p>
 <ol style="list-style-type: decimal">
@@ -160,23 +155,23 @@ annoying %&gt;%
 <pre class="r"><code># 3
 annoying$`3` &lt;- with(annoying, `2` / `1`)
 annoying$`3`</code></pre>
-<pre><code>##  [1] 2.430725 1.269464 1.735472 1.743951 2.008373 2.177681 2.043334
-##  [8] 2.006540 1.843430 2.024131</code></pre>
+<pre><code>##  [1] 2.862827 1.861394 1.234254 1.771532 2.393534 1.873422 1.979919 1.928568
+##  [9] 1.934297 1.988550</code></pre>
 <pre class="r"><code># 4
 (annoying &lt;- rename(annoying, one = `1`, two = `2`, three = `3`))</code></pre>
 <pre><code>## # A tibble: 10 x 3
-##      one       two    three
-##    &lt;int&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-##  1     1  2.430725 2.430725
-##  2     2  2.538928 1.269464
-##  3     3  5.206415 1.735472
-##  4     4  6.975805 1.743951
-##  5     5 10.041863 2.008373
-##  6     6 13.066083 2.177681
-##  7     7 14.303339 2.043334
-##  8     8 16.052323 2.006540
-##  9     9 16.590871 1.843430
-## 10    10 20.241313 2.024131</code></pre>
+##      one   two three
+##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1  2.86  2.86
+##  2     2  3.72  1.86
+##  3     3  3.70  1.23
+##  4     4  7.09  1.77
+##  5     5 12.0   2.39
+##  6     6 11.2   1.87
+##  7     7 13.9   1.98
+##  8     8 15.4   1.93
+##  9     9 17.4   1.93
+## 10    10 19.9   1.99</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>What does tibble::enframe() do? When might you use it?</li>
 </ol>
@@ -192,10 +187,10 @@ annoying$`3`</code></pre>
 ## 5 7</code></pre>
 <pre class="r"><code>enframe(c(a = 5, b = 7))</code></pre>
 <pre><code>## # A tibble: 2 x 2
-##    name value
+##   name  value
 ##   &lt;chr&gt; &lt;dbl&gt;
-## 1     a     5
-## 2     b     7</code></pre>
+## 1 a         5
+## 2 b         7</code></pre>
 <ul>
 <li>converts named vectors to data frames</li>
 </ul>
@@ -205,16 +200,16 @@ annoying$`3`</code></pre>
 <pre class="r"><code>print(as_tibble(mtcars), n_extra = 1)</code></pre>
 <pre><code>## # A tibble: 32 x 11
 ##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##  * &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1  21.0     6 160.0   110  3.90 2.620 16.46     0     1     4     4
-##  2  21.0     6 160.0   110  3.90 2.875 17.02     0     1     4     4
-##  3  22.8     4 108.0    93  3.85 2.320 18.61     1     1     4     1
-##  4  21.4     6 258.0   110  3.08 3.215 19.44     1     0     3     1
-##  5  18.7     8 360.0   175  3.15 3.440 17.02     0     0     3     2
-##  6  18.1     6 225.0   105  2.76 3.460 20.22     1     0     3     1
-##  7  14.3     8 360.0   245  3.21 3.570 15.84     0     0     3     4
-##  8  24.4     4 146.7    62  3.69 3.190 20.00     1     0     4     2
-##  9  22.8     4 140.8    95  3.92 3.150 22.90     1     0     4     2
-## 10  19.2     6 167.6   123  3.92 3.440 18.30     1     0     4     4
-## # ... with 22 more rows</code></pre>
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # … with 22 more rows</code></pre>
 </div>

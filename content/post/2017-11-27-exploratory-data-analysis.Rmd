@@ -15,7 +15,7 @@ slug: exploratory-data-analysis
 autoThumbnailImage: no
 thumbnailImage: /images/ridge.png
 thumbnailImagePosition: left
-description: 'This post covers the content and exercises for Ch 7: Exploratory Data Analysis in **R for Data Science**'
+summary: 'This post covers the content and exercises for Ch 7: Exploratory Data Analysis in **R for Data Science**'
 ---
 
 This post covers the content and exercises for Ch 7: Exploratory Data Analysis from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to use visualisation and transformation to explore your data in a systematic way.
