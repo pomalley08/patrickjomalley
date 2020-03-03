@@ -15,7 +15,7 @@ slug: data-visualization
 autoThumbnailImage: no
 thumbnailImage: /images/mpg.png
 thumbnailImagePosition: left
-description: 'This post covers the content and exercises for Ch 3: Data Visualization
+summary: 'This post covers the content and exercises for Ch 3: Data Visualization
   in **R for Data Science**'
 ---
 
@@ -55,15 +55,14 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
 <p>The first plot addresses the question: Do cars with big engines use more fuel than cars with small engines?</p>
 <pre class="r"><code>head(mpg)</code></pre>
 <pre><code>## # A tibble: 6 x 11
-##   manufacturer model displ  year   cyl      trans   drv   cty   hwy    fl
-##          &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;      &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;
-## 1         audi    a4   1.8  1999     4   auto(l5)     f    18    29     p
-## 2         audi    a4   1.8  1999     4 manual(m5)     f    21    29     p
-## 3         audi    a4   2.0  2008     4 manual(m6)     f    20    31     p
-## 4         audi    a4   2.0  2008     4   auto(av)     f    21    30     p
-## 5         audi    a4   2.8  1999     6   auto(l5)     f    16    26     p
-## 6         audi    a4   2.8  1999     6 manual(m5)     f    18    26     p
-## # ... with 1 more variables: class &lt;chr&gt;</code></pre>
+##   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
+##   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…
+## 2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…
+## 3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…
+## 4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…
+## 5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…
+## 6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…</code></pre>
 <pre class="r"><code>ggplot(data = mpg) +
         geom_point(mapping = aes(x = displ, y = hwy))</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/mpg-1.png" width="672" /></p>
@@ -223,7 +222,8 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/using-period-2.png" width="672" /></p>
 <p>drv is displayed in a single column and cyl is displayed in a single row</p>
 <ol start="4" style="list-style-type: decimal">
-<li>Take the first faceted plot in this section: What are the advantages to using faceting instead of the colour aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?</li>
+<li>Take the first faceted plot in this section:
+What are the advantages to using faceting instead of the colour aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?</li>
 </ol>
 <pre class="r"><code>ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy)) + 
@@ -234,7 +234,11 @@ description: 'This post covers the content and exercises for Ch 3: Data Visualiz
 <li>Read ?facet_wrap. What does nrow do? What does ncol do? What other options control the layout of the individual panels? Why doesn’t facet_grid() have nrow and ncol argument?</li>
 </ol>
 <p>nrow and ncol specify the number of rows and columns for the facets to occupy respectively. Other options include:<br />
-* switch - change location of labels * drop - removes unused factor levels * dir - direction * strip.position - change location of labels <code>facet_grid()</code> doesn’t use nrow and ncol since they are determined by the number of levels of the variables</p>
+* switch - change location of labels
+* drop - removes unused factor levels
+* dir - direction
+* strip.position - change location of labels
+<code>facet_grid()</code> doesn’t use nrow and ncol since they are determined by the number of levels of the variables</p>
 <ol start="6" style="list-style-type: decimal">
 <li>When using <code>facet_grid()</code> you should usually put the variable with more unique levels in the columns. Why?</li>
 </ol>
@@ -255,52 +259,52 @@ ggplot(data = mpg) +
 <pre class="r"><code># right
 ggplot(data = mpg) + 
   geom_smooth(mapping = aes(x = displ, y = hwy))</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/geoms-2.png" width="672" /></p>
 <p>Not every aes is available for every geom type</p>
 <pre class="r"><code>ggplot(data = mpg) + 
   geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/aes-geom-combos-1.png" width="672" /></p>
 <p>It helps to use aes when splitting by groups since grouping alone doesn’t provide any legend</p>
 <pre class="r"><code>ggplot(data = mpg) +
   geom_smooth(mapping = aes(x = displ, y = hwy))</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/group-var-1.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = mpg) +
   geom_smooth(mapping = aes(x = displ, y = hwy, group = drv))</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/group-var-2.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = mpg) +
   geom_smooth(
     mapping = aes(x = displ, y = hwy, color = drv),
     show.legend = FALSE
   )</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/group-var-3.png" width="672" /></p>
 <p>To display multiple geoms in a plot</p>
 <pre class="r"><code>ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy)) +
   geom_smooth(mapping = aes(x = displ, y = hwy))</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/multi-geoms-1.png" width="672" /></p>
 <pre class="r"><code># and more compactly
 ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point() + 
   geom_smooth()</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/multi-geoms-2.png" width="672" /></p>
 <p>To use different aesthetics in different layers</p>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point(mapping = aes(color = class)) + 
   geom_smooth()</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/layer-aes-1.png" width="672" /></p>
 <p>Also able to specifiy a different data within geoms</p>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point(mapping = aes(color = class)) + 
   geom_smooth(data = filter(mpg, class == &quot;subcompact&quot;), se = FALSE)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/geom-data-1.png" width="672" /></p>
 <div id="exercises-3" class="section level2">
 <h2>3.6.1 Exercises</h2>
@@ -330,15 +334,16 @@ ggplot(data = mpg) +
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
   geom_point() + 
   geom_smooth(se = FALSE)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/scatterplot-1.png" width="672" /></p>
 <ol start="3" style="list-style-type: decimal">
-<li>What does show.legend = FALSE do? What happens if you remove it? Why do you think I used it earlier in the chapter?</li>
+<li>What does show.legend = FALSE do? What happens if you remove it?
+Why do you think I used it earlier in the chapter?</li>
 </ol>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
   geom_point(show.legend = FALSE) + 
   geom_smooth(se = FALSE, show.legend = FALSE)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/legend-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>What does the se argument to geom_smooth() do?</li>
@@ -350,12 +355,12 @@ ggplot(data = mpg) +
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point() + 
   geom_smooth()</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/same-graph-1.png" width="672" /></p>
 <pre class="r"><code>ggplot() + 
   geom_point(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy))</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/same-graph-2.png" width="672" /></p>
 <p>They are both graphing the same data</p>
 <ol start="6" style="list-style-type: decimal">
@@ -364,27 +369,27 @@ ggplot(data = mpg) +
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point() + 
   geom_smooth(se = FALSE)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/recreate-graphs-1.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point() + 
   geom_smooth(aes(group = drv), se = FALSE)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/recreate-graphs-2.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
   geom_point() +
   geom_smooth(se = FALSE)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/recreate-graphs-3.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point(aes(color = drv)) +
   geom_smooth(se = FALSE)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/recreate-graphs-4.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point(aes(color = drv)) +
   geom_smooth(aes(linetype = drv), se = FALSE)</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/post/2017-10-21-data-visualization_files/figure-html/recreate-graphs-5.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
   geom_point(aes(fill = drv), shape = 21, stroke = 2, color = &quot;white&quot;) </code></pre>

@@ -14,7 +14,6 @@ coverImage: /images/baseball.jpg
 metaAlignment: center
 ---
 
-<!--more-->
 
 This is the first project I worked on as a part of the Level data analytics bootcamp. The class was tasked with using baseball game, player, and play data to create creative new sabermetrics. Having grown up exclusively as a soccer player and fan, I had no baseball knowledge to work with. After a late night with wikipedia, I eventually figured out enough to come up with the approach below.
 

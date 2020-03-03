@@ -14,7 +14,7 @@ slug: data-import
 autoThumbnailImage: no
 thumbnailImage: /images/data_import.png
 thumbnailImagePosition: left
-description: 'This post covers the content and exercises for Ch 11: Data Import in **R for Data Science**'
+summary: 'This post covers the content and exercises for Ch 11: Data Import in **R for Data Science**'
 ---
 
 
@@ -37,7 +37,8 @@ description: 'This post covers the content and exercises for Ch 11: Data Import 
 <div id="exercises" class="section level2">
 <h2>11.2.2 Exercises</h2>
 <ol style="list-style-type: decimal">
-<li>What function would you use to read a file where fields were separated with “|”?</li>
+<li>What function would you use to read a file where fields were separated with
+“|”?</li>
 </ol>
 <ul>
 <li><code>read_delim()</code></li>
@@ -65,14 +66,14 @@ description: 'This post covers the content and exercises for Ch 11: Data Import 
 <li>col_positions</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
-<li>Sometimes strings in a CSV file contain commas. To prevent them from causing problems they need to be surrounded by a quoting character, like &quot; or ’. By convention, read_csv() assumes that the quoting character will be “, and if you want to change it you’ll need to use read_delim() instead. What arguments do you need to specify to read the following text into a data frame?</li>
+<li>Sometimes strings in a CSV file contain commas. To prevent them from causing problems they need to be surrounded by a quoting character, like &quot; or ’. By convention, read_csv() assumes that the quoting character will be &quot;, and if you want to change it you’ll need to use read_delim() instead. What arguments do you need to specify to read the following text into a data frame?</li>
 </ol>
 <p><code>&quot;x,y\n1,'a,b'&quot;</code></p>
 <pre class="r"><code>(text &lt;- read_csv(&quot;x,y\n1,&#39;a,b&#39;&quot;, quote = &quot;&#39;&quot;))</code></pre>
 <pre><code>## # A tibble: 1 x 2
-##       x     y
-##   &lt;int&gt; &lt;chr&gt;
-## 1     1   a,b</code></pre>
+##       x y    
+##   &lt;dbl&gt; &lt;chr&gt;
+## 1     1 a,b</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Identify what is wrong with each of the following inline CSV files. What happens when you run the code?</li>
 </ol>
@@ -80,43 +81,49 @@ description: 'This post covers the content and exercises for Ch 11: Data Import 
 # drop last column
 read_csv(&quot;a,b\n1,2,3\n4,5,6&quot;)</code></pre>
 <pre><code>## Warning: 2 parsing failures.
-## row # A tibble: 2 x 5 col     row   col  expected    actual         file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt; actual 1     1  &lt;NA&gt; 2 columns 3 columns literal data file 2     2  &lt;NA&gt; 2 columns 3 columns literal data</code></pre>
+## row col  expected    actual         file
+##   1  -- 2 columns 3 columns literal data
+##   2  -- 2 columns 3 columns literal data</code></pre>
 <pre><code>## # A tibble: 2 x 2
 ##       a     b
-##   &lt;int&gt; &lt;int&gt;
+##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2
 ## 2     4     5</code></pre>
 <pre class="r"><code># 3 col names, 1st row has two obs, 2nd row has 4 obs
 # add NA to 1st row, drop 4th col from 2nd row
 read_csv(&quot;a,b,c\n1,2\n1,2,3,4&quot;)</code></pre>
 <pre><code>## Warning: 2 parsing failures.
-## row # A tibble: 2 x 5 col     row   col  expected    actual         file expected   &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt; actual 1     1  &lt;NA&gt; 3 columns 2 columns literal data file 2     2  &lt;NA&gt; 3 columns 4 columns literal data</code></pre>
+## row col  expected    actual         file
+##   1  -- 3 columns 2 columns literal data
+##   2  -- 3 columns 4 columns literal data</code></pre>
 <pre><code>## # A tibble: 2 x 3
 ##       a     b     c
-##   &lt;int&gt; &lt;int&gt; &lt;int&gt;
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     2    NA
 ## 2     1     2     3</code></pre>
 <pre class="r"><code># 2 col names, 1st row has one obs
 # add NA to 1st row
 read_csv(&quot;a,b\n\&quot;1&quot;)</code></pre>
 <pre><code>## Warning: 2 parsing failures.
-## row # A tibble: 2 x 5 col     row   col                     expected    actual         file expected   &lt;int&gt; &lt;chr&gt;                        &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt; actual 1     1     a closing quote at end of file           literal data file 2     1  &lt;NA&gt;                    2 columns 1 columns literal data</code></pre>
+## row col                     expected    actual         file
+##   1  a  closing quote at end of file           literal data
+##   1  -- 2 columns                    1 columns literal data</code></pre>
 <pre><code>## # A tibble: 1 x 2
-##       a     b
-##   &lt;int&gt; &lt;chr&gt;
-## 1     1  &lt;NA&gt;</code></pre>
+##       a b    
+##   &lt;dbl&gt; &lt;chr&gt;
+## 1     1 &lt;NA&gt;</code></pre>
 <pre class="r"><code># a and b are coerced to character since they contain text
 read_csv(&quot;a,b\n1,2\na,b&quot;)</code></pre>
 <pre><code>## # A tibble: 2 x 2
-##       a     b
+##   a     b    
 ##   &lt;chr&gt; &lt;chr&gt;
-## 1     1     2
-## 2     a     b</code></pre>
+## 1 1     2    
+## 2 a     b</code></pre>
 <pre class="r"><code># should use read_delim
 read_delim(&quot;a;b\n1;3&quot;, delim = &quot;;&quot;)</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##       a     b
-##   &lt;int&gt; &lt;int&gt;
+##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1     1     3</code></pre>
 </div>
 </div>
@@ -142,11 +149,11 @@ locale(decimal_mark = &quot;,&quot;)</code></pre>
 ## Timezone: UTC
 ## Encoding: UTF-8
 ## &lt;date_names&gt;
-## Days:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed),
-##         Thursday (Thu), Friday (Fri), Saturday (Sat)
-## Months: January (Jan), February (Feb), March (Mar), April (Apr), May
-##         (May), June (Jun), July (Jul), August (Aug), September
-##         (Sep), October (Oct), November (Nov), December (Dec)
+## Days:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed), Thursday
+##         (Thu), Friday (Fri), Saturday (Sat)
+## Months: January (Jan), February (Feb), March (Mar), April (Apr), May (May),
+##         June (Jun), July (Jul), August (Aug), September (Sep), October
+##         (Oct), November (Nov), December (Dec)
 ## AM/PM:  AM/PM</code></pre>
 <pre class="r"><code># default gouping mark changed to &quot;.&quot;
 
@@ -157,11 +164,11 @@ locale(grouping_mark = &quot;.&quot;)</code></pre>
 ## Timezone: UTC
 ## Encoding: UTF-8
 ## &lt;date_names&gt;
-## Days:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed),
-##         Thursday (Thu), Friday (Fri), Saturday (Sat)
-## Months: January (Jan), February (Feb), March (Mar), April (Apr), May
-##         (May), June (Jun), July (Jul), August (Aug), September
-##         (Sep), October (Oct), November (Nov), December (Dec)
+## Days:   Sunday (Sun), Monday (Mon), Tuesday (Tue), Wednesday (Wed), Thursday
+##         (Thu), Friday (Fri), Saturday (Sat)
+## Months: January (Jan), February (Feb), March (Mar), April (Apr), May (May),
+##         June (Jun), July (Jul), August (Aug), September (Sep), October
+##         (Oct), November (Nov), December (Dec)
 ## AM/PM:  AM/PM</code></pre>
 <pre class="r"><code># default decimal mark changed to &quot;,&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">

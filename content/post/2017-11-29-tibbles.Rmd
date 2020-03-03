@@ -13,7 +13,7 @@ slug: tibbles
 autoThumbnailImage: no
 thumbnailImage: /images/tibble.png
 thumbnailImagePosition: left
-description: 'This post covers the content and exercises for Ch 10: Tibbles in **R for Data Science**'
+summary: 'This post covers the content and exercises for Ch 10: Tibbles in **R for Data Science**'
 ---
 
 This post covers the content and exercises for Ch 10: Tibbles from [**R for Data Science**](http://r4ds.had.co.nz/). The chapter teaches how to use the tidyverse version of data frames called tibbles.
