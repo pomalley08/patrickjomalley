@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dcfe27aa-e815-40d3-a897-5ff5a9cc01b6/deploy-status)](https://app.netlify.com/sites/patrickjomalley/deploys)
 
 This repo holds the materials for my personal website. It is served by [**Netlify**](https://www.netlify.com/)
 
