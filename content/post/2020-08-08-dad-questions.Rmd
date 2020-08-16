@@ -1,0 +1,225 @@
+---
+title: What do new dad's worry about? Cluster analysis in R
+author: Patrick O'Malley
+date: "2020-08-08"
+categories: 
+ - Personal Projects
+tags:
+  - rvest
+  - clustering
+output: 
+        html_page:
+slug: dad-questions
+autoThumbnailImage: no
+thumbnailImage: /images/dads_clust_thumbnail.png
+thumbnailImagePosition: top
+metaAlignment: center
+summary: 'Cluster analysis of the questions new dads ask to unearth popular themes'
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+As a new dad I've realized I have a lot of new things to be concerned about now, like how to safely install a car seat, how to know if a swaddle is too tight, and most importantly how to interpret different types of baby cries. It's also surprising how many of these concerns seem to pop up in the middle of the night and result in frantic late night googling for an answer. I wondered if there was any way I could get ahead of these stressful moments by learning from other dads who've been through it before, and because I'm a data scientist I figured there had to be data to help with this.  
+
+An ideal data set for this question would be representatve of the things new dads were concerned about, and I figured I could use it to surface anything I hadn't experienced for myself yet to get an idea of what else we may be in store for. After a bit of searching I landed on the [Dad's Corner Forum](https://community.whattoexpect.com/forums/dads-corner.html) of the What to Expect website, which according to the description is a place to
+
+> exchange advice, vent, offer support, and make friends with other dads and dads-to-be  
+
+With 843 discussions at present along with an archived section, this seemed to be an ideal source for my project. I decided just to pull the dicussion titles along with the number of comments figuring they should give a good idea of the topics covered and their popularity.  
+
+## Methodology
+
+Since I was hoping to uncover clusters of common topics in the data I used a text cluster analysis workflow that I've explored a bit recently inspired by a [tweet](https://twitter.com/pmbaumgartner/status/1280955594418073600) by Peter Baumgartner. The steps include feeding the text into the Tensorflow Universal Sentence Encoder to vectorize it, then using UMAP for dimensionality reduction and finally clustering with HDBSCAN. The workflow is demonstrated in his [notebook](https://github.com/pmbaumgartner/binder-notebooks/blob/master/nlp-use-umap-hdbscan.ipynb).  I've had good results with this workflow on recent projects, and it seemed like an ideal fit for this task as well.  
+
+## Pulling the forum data
+
+Since the data is coming from the web we'll use `{rvest}` to scrape it. The full list of packages used for this analysis are:
+
+```{r libraries, message=FALSE}
+library(tidyverse)
+library(rvest)
+library(here)
+library(uwot)
+library(dbscan)
+library(plotly)
+```
+
+The data used in the analysis are the titles of the posts and the number of comments they received, which are both available from the Group Feed list on the forum. The function to pull the data is included below
+
+```{r download-titles, eval=FALSE}
+# Function to pull the discussion titles and number of comments for the posts on a single page
+scrape_titles <- function(page = 1) {
+    
+    url <- if_else(page == 1, 
+                   "https://community.whattoexpect.com/forums/dads-corner.html",
+                   paste0("https://community.whattoexpect.com/forums/dads-corner.html", 
+                          "?page=", page))
+    
+    dads_corner <- read_html(url)
+    
+    tibble(titles = dads_corner %>% 
+         html_nodes(".group-discussions__list__item__title span") %>%
+         html_text(),
+       comment_count = dads_corner %>% 
+         html_nodes(".group-discussions__list__item__block") %>% 
+         html_node(".group-discussions__list__item__comments span") %>%
+         html_text()) %>% 
+      mutate(comment_count = replace_na(as.numeric(str_remove(comment_count, " Comments?")), 0)) 
+}
+
+# Initialize a list to store the results for each of the 17 pages of results
+dads_titles <- vector("list", 17)
+
+# Run the function for all 17 pages of the forum
+for (i in seq_along(dads_titles)) {
+    print(i)
+    Sys.sleep(5)
+    dads_titles[[i]] <- scrape_titles(page = i)
+}
+
+titles <- enframe(dads_titles, name = "page", value = "titles") %>% 
+    unnest(cols = c("titles"))
+```
+
+The above code along with a very similar function to pull the data from the archive section results in the data set.
+
+```{r echo=FALSE, message=FALSE}
+titles <- read_csv(here::here("content/post/data/all_titles.csv"))
+```
+
+
+```{r echo=FALSE}
+glimpse(titles)
+```
+
+## Build the encoding vectors
+
+Now the we have the dataset the next step is to run the titles through the [Tensorflow Universal Sentence Encoder](https://tfhub.dev/google/collections/universal-sentence-encoder/1), which is a pretrained model useful for transfer learning that outputs a 512 dimension vector for each text input. The model is available from Tensorflow Hub with the python library `tensorflow-hub`. I spent a bit of time trying to get this part of the workflow into R as well using the `{reticulate}` package, but haven't been able to get versions to play nicely together. Instead I exported the text as a csv and ran the embeddings wholely in python as shown below.
+
+```{r eval=FALSE}
+import numpy as np
+import pandas as pd
+import tensorflow_hub as hub
+
+embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder-large/5")
+
+titles = pd.read_csv("all_titles.csv", encoding="utf-8", dtype={"titles":"string"}).dropna()
+
+docs = titles["titles"].tolist()
+
+embeddings = embed(docs)
+```
+
+Vectorizing with the Universal Sentence Encoder is nice because it works well with no additional preprocessing as seen above. The result is a 512 dimension matrix with a row for each text input, which can be pulled back into R and combined with the original dataset for further analysis.
+
+```{r echo=FALSE, message=FALSE}
+embeddings <- read_csv(here::here("content/post/data/embeddings.csv"), col_names = FALSE)
+```
+
+```{r}
+dim(embeddings)
+```
+
+## Dimensionality Reduction
+
+The next step in the process is to perform dimensionality reduction to facilitate clustering. I'm using the [{uwot}](https://github.com/jlmelville/uwot) package to implement the UMAP algorithm. UMAP performs general non-linear dimension reduction, making it useful for machine learning and clustering. The code to implement UMAP is very straightforward once you have the text embeddings.
+
+```{r dad-umap}
+set.seed(2000)
+dad_umap <- umap(embeddings,
+                 n_neighbors = 30,
+                 n_components = 10,
+                 min_dist = 0,
+                 metric = "euclidean")
+```
+
+I did a bit of additional exploration with different UMAP parameters before settling on these values. Plotting the first 2 components gives the following result, which exploring interactively shows similar titles have in fact ended up close together as anticipated.
+
+```{r umap-plot, warning=FALSE}
+umap_plot <- as_tibble(dad_umap) %>% 
+  bind_cols(titles) %>% 
+  ggplot(aes(x = V1, y = V2, label = titles)) +
+  geom_point()
+
+ggplotly(umap_plot)
+```
+
+## Cluster the titles
+
+Now that we have reduced the dimensionality we can perform clustering with HDBSCAN using the [{dbscan}](https://cran.r-project.org/web/packages/dbscan/vignettes/hdbscan.html) R package. 
+
+```{r clusts}
+clusts <- hdbscan(dad_umap, minPts = 15)
+```
+
+And now we can see how similar topics have been clustered. Unclustered points are labeled with a 0. There is some overlap of the clusters since we are only plotting two of the 10 components.
+
+```{r dad-clusts, echo=FALSE, warning=FALSE, fig.width=8, fig.asp=.62, fig.align='center'}
+dads_clusts <- 
+  as_tibble(dad_umap) %>% 
+  bind_cols(titles) %>% 
+  mutate(cluster = factor(clusts$cluster),
+         clust_prop = clusts$membership_prob) %>% 
+  dplyr::group_by(cluster) %>% 
+  mutate(post_count = n(),
+         tot_comments = sum(comment_count),
+         comment_ratio = round(tot_comments / post_count, 2)) %>% 
+  ungroup()
+
+dad_clust_plot <- dads_clusts %>% 
+  ggplot(aes(x = V1, y = V2, label = titles, 
+             label2 = post_count, label3 = tot_comments, label4 = comment_ratio)) +
+  geom_point(aes(color = cluster)) +
+  theme_void()
+
+ggplotly(dad_clust_plot,
+         tooltip = c("colour", "label", "label2", "label3", "label4"))
+```
+
+
+## What are the most popular topics?
+
+At last we can explore the resulting clusters to see what are the most popular things dads are asking about on the forum by exploring some representative titles from each cluster.  
+
+There are two ways we can think about popularity with this data. The first is to use the total number of posts and comments as the indicator of popularity, while another would be use the comment ratio, which is the total number of comments in the topic divided by the number of posts. A reason to use the latter is that since these are forum posts, users could comment on an existing post rather than create a new one, which would show high engagement with the topic. Exploring the below results a bit show which topics stand out.  
+
+### Cluster Examples
+
+```{r echo=FALSE}
+dads_clusts %>%
+  group_by(cluster) %>%
+  arrange(desc(clust_prop)) %>%
+  slice(1:3) %>%
+  ungroup() %>%
+  select(
+         cluster,
+         title = titles,
+         num_posts = post_count,
+         tot_comments,
+         comment_ratio,
+         -contains("V")) %>%
+  arrange(desc(tot_comments), cluster) %>%
+  DT::datatable() %>% widgetframe::frameWidget()
+```
+
+### Top clusters
+
+Sorting by total posts and comments shows the top 2 topics are actually  
+
+  1. Unclustered topics which cover many different things from COVID vistor rules to stroller technicalities  
+  2. Generic first time dad topics, which also likely vary widely in the content  
+
+Of note is that both of these topics also have relatively low comment ratios, indicating the posts don't receive much engagement. Instead if we sort by comment ratio we get the following topics  
+
+  1. Sexual frustration  
+  2. Surgical procedure discussions like vasectomys  
+  3. Relationship issue discussions  
+
+
+## Analysis takeaways
+
+Interestingly the topics with highest engagement don't line up with what I would have anticipated. Pulling from my own experience I would have expected topics on crying and sleep to rank much higher. However in thinking more critically about the dataset we're using these topics probably do make sense. Since this is a forum specifically for dads, it is understandable that topics that wouldn't be possible to discuss with your partner like relationship issues and male surgical procedures would show up more frequently here. In the end this serves as another reminder that it's important to be cautious when using datasets that weren't explicitly designed for your research question due to the many unknown biases that can exist in them.
+
+
